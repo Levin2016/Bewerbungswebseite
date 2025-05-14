@@ -24,73 +24,80 @@
             background-color: white;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             cursor: pointer;
-            transition: all 0.4s ease;
-            text-align: center;
+            transition: transform 0.3s ease;
         }
 
-        .item img.preview {
+        .item:hover {
+            transform: scale(1.03);
+        }
+
+        .item img {
             width: 100%;
             height: 220px;
             object-fit: cover;
         }
 
-        .item p.title {
+        .item p {
             background: rgba(0, 0, 0, 0.6);
-            color: #fff;
+            color: white;
             margin: 0;
             padding: 10px;
+            text-align: center;
             font-size: 16px;
             position: absolute;
             bottom: 0;
+            width: 100%;
+        }
+
+        .face-visible {
+            object-position: top center;
+        }
+
+        /* FULLSCREEN OVERLAY */
+        .overlay {
+            position: fixed;
+            top: 0;
             left: 0;
-            width: 100%;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 9999;
+            padding: 40px;
+            box-sizing: border-box;
+            color: white;
+            text-align: center;
         }
 
-        .item.expanded {
-            grid-column: 1 / -1;
-            transform: scale(1.02);
-        }
-
-        .expanded .replacement {
-            display: block;
-            padding: 30px;
-        }
-
-        .replacement {
-            display: none;
-        }
-
-        .replacement img {
-            width: 100%;
-            max-width: 800px;
-            border-radius: 10px;
+        .overlay img {
+            max-width: 90%;
+            max-height: 60vh;
             margin-bottom: 20px;
+            border-radius: 12px;
         }
 
-        .replacement p {
-            font-size: 18px;
-            color: #333;
+        .overlay p {
+            font-size: 20px;
+            max-width: 90%;
         }
 
-        .close-btn {
+        .overlay .close-btn {
             position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 24px;
+            top: 20px;
+            right: 30px;
+            font-size: 32px;
             font-weight: bold;
-            color: #999;
+            color: white;
             background: none;
             border: none;
             cursor: pointer;
         }
 
-        .close-btn:hover {
-            color: #000;
-        }
-
-        /* Gesicht vollständig zeigen */
-        .face-visible {
-            object-position: top center;
+        .overlay .close-btn:hover {
+            color: #ccc;
         }
     </style>
 </head>
@@ -98,86 +105,46 @@
     <h1>Über mich!</h1>
     <p>Auf dieser Seite erfahrt Ihr noch mehr über mich.</p>
 
-    <div class="container" id="cardContainer">
-
-        <!-- Sport -->
-        <div class="item" onclick="expandItem(this, 'images/u1.png', 'Ich spiele leidenschaftlich Unihockey bei den Grizzlys.')">
-            <img class="preview" src="images/Sporthobbys.png" alt="Sporthobbys">
-            <p class="title">Sporthobbys</p>
-            <div class="replacement">
-                <button class="close-btn" onclick="event.stopPropagation(); collapseItem(this)">×</button>
-                <img src="" alt="Ersatzbild">
-                <p class="text"></p>
-            </div>
+    <div class="container">
+        <div class="item" onclick="openOverlay('images/u1.png', 'Ich spiele leidenschaftlich Unihockey bei den Grizzlys.')">
+            <img src="images/Sporthobbys.png" alt="Sporthobbys">
+            <p>Sporthobbys</p>
         </div>
 
-        <!-- Freizeit -->
-        <div class="item" onclick="expandItem(this, 'images/u2.png', 'Ich liebe es, Filme zu schneiden und kreative Projekte umzusetzen.')">
-            <img class="preview" src="images/Freizeit.png" alt="Freizeithobbys">
-            <p class="title">Freizeithobbys</p>
-            <div class="replacement">
-                <button class="close-btn" onclick="event.stopPropagation(); collapseItem(this)">×</button>
-                <img src="" alt="Ersatzbild">
-                <p class="text"></p>
-            </div>
+        <div class="item" onclick="openOverlay('images/u2.png', 'Ich liebe es, Filme zu schneiden und kreative Projekte umzusetzen.')">
+            <img src="images/Freizeit.png" alt="Freizeithobbys">
+            <p>Freizeithobbys</p>
         </div>
 
-        <!-- Mediamatiker -->
-        <div class="item" onclick="expandItem(this, 'images/u3.png', 'Mediamatik ist genau das, was mich begeistert: Technik & Gestaltung.')">
-            <img class="preview" src="images/Mediamatiker.png" alt="Warum ich Mediamatiker werden will">
-            <p class="title">Warum ich Mediamatiker werden will</p>
-            <div class="replacement">
-                <button class="close-btn" onclick="event.stopPropagation(); collapseItem(this)">×</button>
-                <img src="" alt="Ersatzbild">
-                <p class="text"></p>
-            </div>
+        <div class="item" onclick="openOverlay('images/u3.png', 'Mediamatik ist genau das, was mich begeistert: Technik & Gestaltung.')">
+            <img src="images/Mediamatiker.png" alt="Warum ich Mediamatiker werden will">
+            <p>Warum ich Mediamatiker werden will</p>
         </div>
 
-        <!-- Was macht mich aus? -->
-        <div class="item" onclick="expandItem(this, 'images/u4.png', 'Ich bin hilfsbereit, lernfreudig und bleibe immer neugierig.')">
-            <img class="preview face-visible" src="images/levin_bild.png" alt="Was macht mich aus?">
-            <p class="title">Was macht mich aus?</p>
-            <div class="replacement">
-                <button class="close-btn" onclick="event.stopPropagation(); collapseItem(this)">×</button>
-                <img src="" alt="Ersatzbild">
-                <p class="text"></p>
-            </div>
+        <div class="item" onclick="openOverlay('images/u4.png', 'Ich bin hilfsbereit, lernfreudig und bleibe immer neugierig.')">
+            <img class="face-visible" src="images/levin_bild.png" alt="Was macht mich aus?">
+            <p>Was macht mich aus?</p>
         </div>
+    </div>
 
+    <!-- Overlay -->
+    <div id="overlay" class="overlay" style="display:none;">
+        <button class="close-btn" onclick="closeOverlay()">×</button>
+        <img id="overlayImg" src="" alt="">
+        <p id="overlayText"></p>
     </div>
 
     <script>
-        function expandItem(item, newImageSrc, newText) {
-            const items = document.querySelectorAll('.item');
-            items.forEach(i => {
-                if (i !== item) {
-                    i.classList.remove('expanded');
-                    i.querySelector('.replacement').style.display = 'none';
-                    i.querySelector('.preview').style.display = 'block';
-                    i.querySelector('.title').style.display = 'block';
-                }
-            });
-
-            item.classList.add('expanded');
-            const preview = item.querySelector('.preview');
-            const title = item.querySelector('.title');
-            const replacement = item.querySelector('.replacement');
-            const img = replacement.querySelector('img');
-            const text = replacement.querySelector('.text');
-
-            preview.style.display = 'none';
-            title.style.display = 'none';
-            replacement.style.display = 'block';
-            img.src = newImageSrc;
-            text.textContent = newText;
+        function openOverlay(imageSrc, text) {
+            document.getElementById('overlayImg').src = imageSrc;
+            document.getElementById('overlayText').textContent = text;
+            document.getElementById('overlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Kein Scrollen im Hintergrund
         }
 
-        function collapseItem(button) {
-            const item = button.closest('.item');
-            item.classList.remove('expanded');
-            item.querySelector('.replacement').style.display = 'none';
-            item.querySelector('.preview').style.display = 'block';
-            item.querySelector('.title').style.display = 'block';
+        function closeOverlay() {
+            document.getElementById('overlay').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Scrollen wieder aktiv
         }
     </script>
 </body>
