@@ -28,14 +28,13 @@
             text-align: center;
         }
 
-        .item img {
+        .item img.preview {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
-            display: block;
         }
 
-        .item p {
+        .item p.title {
             background: rgba(0, 0, 0, 0.6);
             color: #fff;
             margin: 0;
@@ -48,26 +47,50 @@
         }
 
         .item.expanded {
-            grid-column: span 2;
-            transform: scale(1.03);
+            grid-column: 1 / -1;
+            transform: scale(1.02);
+        }
+
+        .expanded .replacement {
+            display: block;
+            padding: 30px;
         }
 
         .replacement {
             display: none;
-            padding: 20px;
         }
 
         .replacement img {
             width: 100%;
+            max-width: 800px;
             border-radius: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         .replacement p {
-            background: none;
+            font-size: 18px;
             color: #333;
-            position: static;
-            font-size: 16px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #999;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: #000;
+        }
+
+        /* Gesicht vollständig zeigen */
+        .face-visible {
+            object-position: top center;
         }
     </style>
 </head>
@@ -75,61 +98,86 @@
     <h1>Über mich!</h1>
     <p>Auf dieser Seite erfahrt Ihr noch mehr über mich.</p>
 
-    <div class="container">
+    <div class="container" id="cardContainer">
+
+        <!-- Sport -->
         <div class="item" onclick="expandItem(this, 'images/u1.png', 'Ich spiele leidenschaftlich Unihockey bei den Grizzlys.')">
-            <img src="images/Sporthobbys.png" alt="Sporthobbys">
-            <p>Sporthobbys</p>
+            <img class="preview" src="images/Sporthobbys.png" alt="Sporthobbys">
+            <p class="title">Sporthobbys</p>
             <div class="replacement">
-                <img src="" alt="Neues Bild">
+                <button class="close-btn" onclick="event.stopPropagation(); collapseItem(this)">×</button>
+                <img src="" alt="Ersatzbild">
                 <p class="text"></p>
             </div>
         </div>
 
-        <div class="item" onclick="expandItem(this, 'images/u2.png', 'Ich liebe es, Filme zu machen und kreativ zu sein.')">
-            <img src="images/Freizeit.png" alt="Freizeithobbys">
-            <p>Freizeithobbys</p>
+        <!-- Freizeit -->
+        <div class="item" onclick="expandItem(this, 'images/u2.png', 'Ich liebe es, Filme zu schneiden und kreative Projekte umzusetzen.')">
+            <img class="preview" src="images/Freizeit.png" alt="Freizeithobbys">
+            <p class="title">Freizeithobbys</p>
             <div class="replacement">
-                <img src="" alt="Neues Bild">
+                <button class="close-btn" onclick="event.stopPropagation(); collapseItem(this)">×</button>
+                <img src="" alt="Ersatzbild">
                 <p class="text"></p>
             </div>
         </div>
 
-        <div class="item" onclick="expandItem(this, 'images/u3.png', 'Mediamatik verbindet Technik und Gestaltung – genau mein Ding!')">
-            <img src="images/Mediamatiker.png" alt="Warum ich Mediamatiker werden will">
-            <p>Warum ich Mediamatiker werden will</p>
+        <!-- Mediamatiker -->
+        <div class="item" onclick="expandItem(this, 'images/u3.png', 'Mediamatik ist genau das, was mich begeistert: Technik & Gestaltung.')">
+            <img class="preview" src="images/Mediamatiker.png" alt="Warum ich Mediamatiker werden will">
+            <p class="title">Warum ich Mediamatiker werden will</p>
             <div class="replacement">
-                <img src="" alt="Neues Bild">
+                <button class="close-btn" onclick="event.stopPropagation(); collapseItem(this)">×</button>
+                <img src="" alt="Ersatzbild">
                 <p class="text"></p>
             </div>
         </div>
 
-        <div class="item" onclick="expandItem(this, 'images/u4.png', 'Ich bin zuverlässig, zielstrebig und neugierig.')">
-            <img src="images/levin_bild.png" alt="Was macht mich aus?">
-            <p>Was macht mich aus?</p>
+        <!-- Was macht mich aus? -->
+        <div class="item" onclick="expandItem(this, 'images/u4.png', 'Ich bin hilfsbereit, lernfreudig und bleibe immer neugierig.')">
+            <img class="preview face-visible" src="images/levin_bild.png" alt="Was macht mich aus?">
+            <p class="title">Was macht mich aus?</p>
             <div class="replacement">
-                <img src="" alt="Neues Bild">
+                <button class="close-btn" onclick="event.stopPropagation(); collapseItem(this)">×</button>
+                <img src="" alt="Ersatzbild">
                 <p class="text"></p>
             </div>
         </div>
+
     </div>
 
     <script>
         function expandItem(item, newImageSrc, newText) {
-            // Wenn bereits geöffnet: nichts tun
-            if (item.classList.contains('expanded')) return;
+            const items = document.querySelectorAll('.item');
+            items.forEach(i => {
+                if (i !== item) {
+                    i.classList.remove('expanded');
+                    i.querySelector('.replacement').style.display = 'none';
+                    i.querySelector('.preview').style.display = 'block';
+                    i.querySelector('.title').style.display = 'block';
+                }
+            });
 
-            // Originale Inhalte ausblenden
-            item.querySelector('img').style.display = 'none';
-            item.querySelector('p').style.display = 'none';
-
-            // Ersatzinhalte vorbereiten und einblenden
-            const replacement = item.querySelector('.replacement');
-            replacement.style.display = 'block';
-            replacement.querySelector('img').src = newImageSrc;
-            replacement.querySelector('.text').textContent = newText;
-
-            // Kästchen vergrößern
             item.classList.add('expanded');
+            const preview = item.querySelector('.preview');
+            const title = item.querySelector('.title');
+            const replacement = item.querySelector('.replacement');
+            const img = replacement.querySelector('img');
+            const text = replacement.querySelector('.text');
+
+            preview.style.display = 'none';
+            title.style.display = 'none';
+            replacement.style.display = 'block';
+            img.src = newImageSrc;
+            text.textContent = newText;
+        }
+
+        function collapseItem(button) {
+            const item = button.closest('.item');
+            item.classList.remove('expanded');
+            item.querySelector('.replacement').style.display = 'none';
+            item.querySelector('.preview').style.display = 'block';
+            item.querySelector('.title').style.display = 'block';
         }
     </script>
 </body>
