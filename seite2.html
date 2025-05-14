@@ -2,8 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Seite 2 – Levin Nigg</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Über mich – Levin Nigg</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,41 +10,64 @@
             margin: 0;
             padding: 20px;
         }
+
         .container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 20px;
         }
+
         .item {
             position: relative;
             overflow: hidden;
             border-radius: 12px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: all 0.4s ease;
+            text-align: center;
         }
-        .item:hover {
-            transform: scale(1.05);
-        }
+
         .item img {
             width: 100%;
-            height: auto;
+            height: 200px;
+            object-fit: cover;
             display: block;
         }
+
         .item p {
-            position: absolute;
-            bottom: 0;
             background: rgba(0, 0, 0, 0.6);
             color: #fff;
-            width: 100%;
-            padding: 10px;
             margin: 0;
-            text-align: center;
+            padding: 10px;
             font-size: 16px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
         }
-        .item:nth-child(3) p {
-            left: 10px;
-            width: calc(100% - 20px);
+
+        .item.expanded {
+            grid-column: span 2;
+            transform: scale(1.03);
+        }
+
+        .replacement {
+            display: none;
+            padding: 20px;
+        }
+
+        .replacement img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .replacement p {
+            background: none;
+            color: #333;
+            position: static;
+            font-size: 16px;
         }
     </style>
 </head>
@@ -54,25 +76,61 @@
     <p>Auf dieser Seite erfahrt Ihr noch mehr über mich.</p>
 
     <div class="container">
-        <div class="item">
-       <img src="images/Sporthobbys.png" alt="Unihockey am Greifensee Grizzlys">    
+        <div class="item" onclick="expandItem(this, 'images/u1.png', 'Ich spiele leidenschaftlich Unihockey bei den Grizzlys.')">
+            <img src="images/Sporthobbys.png" alt="Sporthobbys">
             <p>Sporthobbys</p>
+            <div class="replacement">
+                <img src="" alt="Neues Bild">
+                <p class="text"></p>
+            </div>
         </div>
-        <div class="item">
-          <img src="images/Freizeit.png" alt="Freizeit"> 
-            <p>sonstige Hobbys</p>
+
+        <div class="item" onclick="expandItem(this, 'images/u2.png', 'Ich liebe es, Filme zu machen und kreativ zu sein.')">
+            <img src="images/Freizeit.png" alt="Freizeithobbys">
+            <p>Freizeithobbys</p>
+            <div class="replacement">
+                <img src="" alt="Neues Bild">
+                <p class="text"></p>
+            </div>
         </div>
-        <div class="item">
-             <img src="images/Mediamatiker.png" alt="Mediamatiker">  
+
+        <div class="item" onclick="expandItem(this, 'images/u3.png', 'Mediamatik verbindet Technik und Gestaltung – genau mein Ding!')">
+            <img src="images/Mediamatiker.png" alt="Warum ich Mediamatiker werden will">
             <p>Warum ich Mediamatiker werden will</p>
+            <div class="replacement">
+                <img src="" alt="Neues Bild">
+                <p class="text"></p>
+            </div>
         </div>
-        <div class="item">
-            <img src="images/levin_bild.png" alt="Was macht mich aus?">   
+
+        <div class="item" onclick="expandItem(this, 'images/u4.png', 'Ich bin zuverlässig, zielstrebig und neugierig.')">
+            <img src="images/levin_bild.png" alt="Was macht mich aus?">
             <p>Was macht mich aus?</p>
+            <div class="replacement">
+                <img src="" alt="Neues Bild">
+                <p class="text"></p>
+            </div>
         </div>
     </div>
 
-    <a href="index.html">Zurück zur Startseite</a>
+    <script>
+        function expandItem(item, newImageSrc, newText) {
+            // Wenn bereits geöffnet: nichts tun
+            if (item.classList.contains('expanded')) return;
+
+            // Originale Inhalte ausblenden
+            item.querySelector('img').style.display = 'none';
+            item.querySelector('p').style.display = 'none';
+
+            // Ersatzinhalte vorbereiten und einblenden
+            const replacement = item.querySelector('.replacement');
+            replacement.style.display = 'block';
+            replacement.querySelector('img').src = newImageSrc;
+            replacement.querySelector('.text').textContent = newText;
+
+            // Kästchen vergrößern
+            item.classList.add('expanded');
+        }
+    </script>
 </body>
 </html>
-
