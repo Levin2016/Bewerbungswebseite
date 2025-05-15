@@ -74,7 +74,8 @@
             text-align: center;
         }
 
-        .overlay img {
+        .overlay img,
+        .overlay video {
             max-width: 90%;
             max-height: 60vh;
             margin-bottom: 20px;
@@ -126,7 +127,7 @@
         </div>
 
         <div class="item" onclick="openOverlay(
-            'images/Test.MOV',
+            'images/Freizeit.png',
             'Ich liebe es, Filme zu schneiden und kreative Projekte umzusetzen.'
         )">
             <img src="images/Freizeit.png" alt="Freizeithobbys">
@@ -135,19 +136,16 @@
 
         <div class="item" onclick="openOverlay(
             'images/u3.png',
-            'Ich habe mich auch schon immer sehr für das Erstellen von Filmen, das Bearbeiten von Bildern, das Erstellen von Designs (z.B. Trickot für Unihockeyverein.'
+            'Ich habe mich auch schon immer sehr für das Erstellen von Filmen, das Bearbeiten von Bildern, das Erstellen von Designs (z.B. Trickot für Unihockeyverein).'
         )">
             <img src="images/Mediamatiker.png" alt="Warum ich Mediamatiker werden will">
             <p>Warum will ich Mediamatiker werden?</p>
         </div>
 
-       <div class="item" onclick="openOverlayVideo('viedeo/was_macht_mich_aus.mp4', 'Ich bin ein...')">
-  <img class="face-visible" src="images/levin_bild.png" alt="Was macht mich aus?">
-  <p>Was macht mich aus?</p>
-</div>
-
-
-
+        <div class="item" onclick="openOverlayVideo('viedeo/was_macht_mich_aus.mp4', 'Ich bin ein...')">
+            <img class="face-visible" src="images/levin_bild.png" alt="Was macht mich aus?">
+            <p>Was macht mich aus?</p>
+        </div>
     </div>
 
     <!-- Overlay -->
@@ -162,10 +160,19 @@
 
     <script>
         function openOverlay(imageSrc, text, docLink = "", docText = "") {
-            document.getElementById('overlayImg').src = imageSrc;
-            document.getElementById('overlayText').textContent = text;
-
+            const overlay = document.getElementById('overlay');
+            const overlayImg = document.getElementById('overlayImg');
+            const overlayText = document.getElementById('overlayText');
             const docEl = document.getElementById('overlayDoc');
+
+            // Entferne altes Video
+            const oldVideo = overlay.querySelector('video');
+            if (oldVideo) oldVideo.remove();
+
+            overlayImg.src = imageSrc;
+            overlayImg.style.display = 'block';
+            overlayText.textContent = text;
+
             if (docLink) {
                 docEl.href = docLink;
                 docEl.textContent = docText;
@@ -174,13 +181,48 @@
                 docEl.style.display = "none";
             }
 
-            document.getElementById('overlay').style.display = 'flex';
+            overlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openOverlayVideo(videoSrc, text) {
+            const overlay = document.getElementById('overlay');
+            const overlayImg = document.getElementById('overlayImg');
+            const overlayText = document.getElementById('overlayText');
+            const docEl = document.getElementById('overlayDoc');
+
+            overlayImg.style.display = 'none';
+            docEl.style.display = 'none';
+
+            const video = document.createElement('video');
+            video.src = videoSrc;
+            video.controls = true;
+            video.autoplay = true;
+            video.style.maxWidth = '90%';
+            video.style.maxHeight = '60vh';
+            video.style.borderRadius = '12px';
+
+            // Entferne altes Video falls vorhanden
+            const oldVideo = overlay.querySelector('video');
+            if (oldVideo) oldVideo.remove();
+
+            overlay.insertBefore(video, overlayText);
+            overlayText.textContent = text;
+
+            overlay.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
 
         function closeOverlay() {
             document.getElementById('overlay').style.display = 'none';
             document.body.style.overflow = 'auto';
+
+            const video = document.querySelector('#overlay video');
+            if (video) {
+                video.remove();
+            }
+
+            document.getElementById('overlayImg').style.display = 'block';
         }
     </script>
 </body>
