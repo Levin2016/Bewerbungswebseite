@@ -56,7 +56,6 @@
             object-position: top center;
         }
 
-        /* FULLSCREEN OVERLAY */
         .overlay {
             position: fixed;
             top: 0;
@@ -102,6 +101,13 @@
         .overlay .close-btn:hover {
             color: #ccc;
         }
+
+        .overlay a {
+            margin-top: 20px;
+            color: #4cc9f0;
+            font-weight: bold;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -109,22 +115,36 @@
     <p>Auf dieser Seite erfahrt Ihr noch mehr über mich.</p>
 
     <div class="container">
-        <div class="item" onclick="openOverlay('images/u1.png', 'Ich spiele leidenschaftlich Unihockey bei dem Club Unihockey am Greifensee Grizzlys. Zusätzlich bin ich dor auch noch Trainer.')">
+        <div class="item" onclick="openOverlay(
+            'images/u1.png',
+            'Ich spiele leidenschaftlich Unihockey bei dem Club Unihockey am Greifensee Grizzlys. Zusätzlich bin ich dort auch noch Trainer.',
+            'docs/trainingsplan.pdf',
+            '📄 Trainingsplan öffnen'
+        )">
             <img src="images/Sporthobbys.png" alt="Sporthobbys">
             <p>Sporthobbys</p>
         </div>
 
-        <div class="item" onclick="openOverlay('images/u2.png', 'Ich liebe es, Filme zu schneiden und kreative Projekte umzusetzen.')">
+        <div class="item" onclick="openOverlay(
+            'images/u2.png',
+            'Ich liebe es, Filme zu schneiden und kreative Projekte umzusetzen.'
+        )">
             <img src="images/Freizeit.png" alt="Freizeithobbys">
             <p>Freizeithobbys</p>
         </div>
 
-        <div class="item" onclick="openOverlay('images/u3.png', 'Ich habe mich auch schon immer sehr für das Erstellen von Filmen, das Bearbeiten von Bildern, das Erstellen von Designs (z.B. Trickot für Unihockeyverein.')">
+        <div class="item" onclick="openOverlay(
+            'images/u3.png',
+            'Ich habe mich auch schon immer sehr für das Erstellen von Filmen, das Bearbeiten von Bildern, das Erstellen von Designs (z.B. Trickot für Unihockeyverein.'
+        )">
             <img src="images/Mediamatiker.png" alt="Warum ich Mediamatiker werden will">
             <p>Warum will ich Mediamatiker werden?</p>
         </div>
 
-        <div class="item" onclick="openOverlay('images/u4.png', 'Ich bin ein...')">
+        <div class="item" onclick="openOverlay(
+            'images/u4.png',
+            'Ich bin ein...'
+        )">
             <img class="face-visible" src="images/levin_bild.png" alt="Was macht mich aus?">
             <p>Was macht mich aus?</p>
         </div>
@@ -135,21 +155,32 @@
         <button class="close-btn" onclick="closeOverlay()">×</button>
         <img id="overlayImg" src="" alt="">
         <p id="overlayText"></p>
+        <a id="overlayDoc" href="" target="_blank" style="display: none;"></a>
     </div>
 
     <a href="index.html">Zurück zur Startseite</a>
 
     <script>
-        function openOverlay(imageSrc, text) {
+        function openOverlay(imageSrc, text, docLink = "", docText = "") {
             document.getElementById('overlayImg').src = imageSrc;
             document.getElementById('overlayText').textContent = text;
+
+            const docEl = document.getElementById('overlayDoc');
+            if (docLink) {
+                docEl.href = docLink;
+                docEl.textContent = docText;
+                docEl.style.display = "block";
+            } else {
+                docEl.style.display = "none";
+            }
+
             document.getElementById('overlay').style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Kein Scrollen im Hintergrund
+            document.body.style.overflow = 'hidden';
         }
 
         function closeOverlay() {
             document.getElementById('overlay').style.display = 'none';
-            document.body.style.overflow = 'auto'; // Scrollen wieder aktiv
+            document.body.style.overflow = 'auto';
         }
     </script>
 </body>
