@@ -103,12 +103,14 @@
             color: #ccc;
         }
 
-        .overlay a {
-            margin-top: 20px;
-            color: #4cc9f0;
-            font-weight: bold;
-            text-decoration: underline;
-        }
+      .overlay a {
+    margin-top: 20px;
+    color: #4cc9f0;
+    font-weight: bold;
+    text-decoration: underline;
+    display: block;
+}
+
     </style>
 </head>
 <body>
@@ -156,7 +158,8 @@
         <a id="overlayDoc" href="" target="_blank" style="display: none;"></a>
     </div>
 
-    <a href="index.html">Zurück zur Startseite</a>
+    <a href="index.html" style="display: block; margin-top: 60px;">Zurück zur Startseite</a>
+
 
     <script>
         function openOverlay(imageSrc, text, docLink = "", docText = "") {
