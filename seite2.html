@@ -114,7 +114,25 @@
     </style>
 </head>
 <body>
+<nav class="navbar">
+    <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="#ueber-mich">Über mich</a></li>
+        <li><a href="#projekte">Projekte</a></li>
+        <li><a href="#bewerbung">Bewerbung</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+</nav>
+  
     <h1>Über mich!</h1>
+  <h1 id="ueber-mich">Über mich!</h1>
+<!-- ... -->
+<div id="projekte" class="container"> <!-- für deine Projekt-Galerie -->
+<!-- ... -->
+<h2 id="bewerbung">Bewerbung</h2>
+<!-- ... -->
+<h2 id="kontakt">Kontakt</h2>
+ 
     <p>Auf dieser Seite erfahrt Ihr noch mehr über mich.</p>
 
     <div class="container">
@@ -230,3 +248,33 @@
     </script>
 </body>
 </html>
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #4cc9f0;
+}
+
