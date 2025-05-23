@@ -3,51 +3,92 @@
 <head>
   <meta charset="UTF-8" />
   <title>Levin Nigg – Bewerbung</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --blue: #2563eb;
+      --light: #f9fafb;
+      --dark: #1f2937;
+      --gray: #6b7280;
+    }
+
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-      max-width: 800px;
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      max-width: 900px;
       margin: 0 auto;
       padding: 20px;
     }
 
     header {
-      background-color: #007acc;
+      background: var(--blue);
       color: white;
-      padding: 20px;
-      border-radius: 10px;
+      padding: 2rem;
+      border-radius: 12px;
       text-align: center;
     }
 
-    img {
-      width: 150px;
-      border: 4px solid white; /* Weißer Rand um das Bild */
-      margin-top: 10px;
+    header img {
+      width: 140px;
+      border-radius: 50%;
+      margin-top: 12px;
+      border: 4px solid white;
     }
 
     section {
       background: white;
-      margin: 20px 0;
+      margin: 30px 0;
       padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
     }
 
     h2 {
-      color: #007acc;
+      color: var(--blue);
     }
 
     ul {
       padding-left: 20px;
     }
 
+    a {
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
     footer {
       text-align: center;
-      font-size: 0.9em;
-      color: #777;
+      font-size: 0.85em;
+      color: var(--gray);
       margin-top: 40px;
+    }
+
+    .button-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 20px;
+      background: var(--blue);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .button-link:hover {
+      background: #1e40af;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 12px;
+      }
+
+      header img {
+        width: 100px;
+      }
     }
   </style>
 </head>
@@ -55,47 +96,46 @@
 
 <header>
   <h1>Levin Nigg</h1>
+  <p>Mediamatik-Interessierter Schüler – 14 Jahre – Schweiz</p>
   <img src="images/levin_bild.png" alt="Mein Bewerbungsfoto">
 </header>
 
 <section>
   <h2>Über mich</h2>
-  <p>Hallo! Ich bin Levin Nigg, 14 Jahre alt und interessiere mich für den Beruf des Mediamatikers.</p>
+  <p>Ich bin Levin Nigg, 14 Jahre alt, kreativ, technisch interessiert und begeistert von Design, Webentwicklung und Medien. Mein Berufsziel ist Mediamatiker – weil ich Technik mit Kreativität verbinden will.</p>
 </section>
 
 <section>
   <h2>Kenntnisse</h2>
   <ul>
-    <li>Gestaltung(in Schule und zu Hause)</li></li>
-    <li>Teamarbeit</li>
-    <li>gutes technisches Verständnis</li>
+    <li>Gestaltung (Privat & Schule)</li>
+    <li>Technisches Verständnis</li>
+    <li>Teamarbeit & Zuverlässigkeit</li>
   </ul>
 </section>
 
 <section>
-  <h2>Praktische Erfahrungen</h2>
-  <p>November 2024: Berufsmesse Zürich<br>
-     März 2025: Swisscom, Schnupperlehre als Mediamatiker</p>
+  <h2>Erfahrungen</h2>
+  <p>
+    <strong>Berufsmesse Zürich:</strong> November 2024<br>
+    <strong>Swisscom Schnupperlehre:</strong> März 2025
+  </p>
 </section>
 
 <section>
   <h2>Kontakt</h2>
   <p>
-    📧 <strong>E-Mail:</strong> 
-    <a href="mailto:lev_nigg@volketswil.schule">lev_nigg@volketswil.schule</a><br>
-    
-    📞 <strong>Telefonnummer:</strong> 
-    <a href="tel:+41445205498">044 520 54 98</a>
+    📧 <a href="mailto:lev_nigg@volketswil.schule">lev_nigg@volketswil.schule</a><br>
+    📞 <a href="tel:+41445205498">044 520 54 98</a>
   </p>
 </section>
 
- <a href="/seite2.html">Erfahre mehr über mich</a>
- 
-
+<a class="button-link" href="seite2.html">✨ Erfahre mehr über mich</a>
 
 <footer>
-  © 2025 Levin Nigg
+  © 2025 Levin Nigg – Danke fürs Vorbeischauen!
 </footer>
 
 </body>
 </html>
+
