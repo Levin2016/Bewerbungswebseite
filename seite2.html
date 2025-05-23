@@ -229,13 +229,21 @@
 
 <div class="form">
   <p>Hast du noch Fragen an mich?</p>
-  <form id="https://formspree.io/f/mwpojakl" novalidate>
-    <input type="text" name="name" placeholder="Name" required autocomplete="name" />
-    <input type="email" name="email" placeholder="Email" required autocomplete="email" />
-    <textarea name="message" placeholder="Nachricht" required></textarea>
-    <label><input type="checkbox" name="privacy" required /> Ich stimme zu, dass Formspree meine Nachricht erhält.</label>
-    <button type="submit">Abschicken</button>
-  </form>
+ <form action="https://formspree.io/f/mwpojakl" method="POST" id="contact-form">
+  <input type="text" name="name" placeholder="Name" required>
+  <input type="email" name="_replyto" placeholder="Email" required>
+  <textarea name="message" placeholder="Nachricht" required></textarea>
+  
+  <div style="margin: 15px 0; text-align: left; max-width: 400px; margin-left: auto; margin-right: auto;">
+    <label>
+      <input type="checkbox" name="consent" required style="margin-right: 8px;">
+      Ich stimme zu, dass Formspree meine Nachricht verarbeiten darf.
+    </label>
+  </div>
+  
+  <button type="submit">Abschicken</button>
+</form>
+
 </div>
 
 <a href="index.html" class="back-link" aria-label="Zurück zur Startseite">← Zurück zur Startseite</a>
