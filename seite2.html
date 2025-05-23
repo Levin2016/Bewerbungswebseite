@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Über mich – Levin Nigg</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     body {
@@ -12,6 +12,8 @@
       margin: 0;
       padding: 20px;
       color: #1f2937;
+      min-height: 100vh;
+      position: relative;
       padding-bottom: 80px; /* Platz für Footer */
     }
     h1 {
@@ -47,7 +49,6 @@
       width: 100%;
       height: 200px;
       object-fit: cover;
-      object-position: center top; /* Bild mehr nach oben */
     }
     .item p {
       margin: 0;
@@ -59,8 +60,10 @@
     }
     .overlay {
       position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       background: rgba(0,0,0,0.85);
       display: none;
       justify-content: center;
@@ -100,74 +103,83 @@
     .form {
       margin-top: 50px;
       text-align: center;
+      max-width: 450px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .form input, .form textarea {
       padding: 10px;
       width: 100%;
-      max-width: 400px;
       margin: 10px auto;
       display: block;
       border-radius: 8px;
       border: 1px solid #ccc;
       font-size: 16px;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+    .form textarea {
+      min-height: 120px;
     }
     .form label {
-      display: block;
-      max-width: 400px;
-      margin: 10px auto 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
       font-size: 14px;
-      color: #555;
-      text-align: left;
-      cursor: pointer;
-    }
-    .form input[type="checkbox"] {
-      margin-right: 10px;
-      vertical-align: middle;
+      color: #444;
+      margin-top: 10px;
+      user-select: none;
       cursor: pointer;
     }
     .form button {
-      padding: 10px 20px;
+      padding: 12px 25px;
       background-color: #2563eb;
       color: white;
       border: none;
       border-radius: 6px;
       cursor: pointer;
+      font-weight: 600;
       font-size: 16px;
-      margin-top: 10px;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
     }
     .form button:hover {
       background-color: #1e3a8a;
     }
-    #confirmation {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      background-color: #22c55e;
-      color: white;
-      padding: 15px;
-      font-weight: bold;
-      text-align: center;
-      z-index: 10000;
-    }
     .back-link {
       position: fixed;
-      bottom: 0; left: 0;
-      width: 100%;
-      background-color: #f9fafb;
-      color: #2563eb;
+      bottom: 10px;
+      left: 0;
+      right: 0;
       text-align: center;
-      padding: 15px 0;
       font-weight: 600;
+      color: #2563eb;
       text-decoration: none;
-      box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
+      user-select: none;
+      font-size: 18px;
+      background: white;
+      padding: 10px 0;
+      box-shadow: 0 -1px 6px rgba(0,0,0,0.1);
+      z-index: 10000;
+    }
+    #successMessage {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #22c55e;
+      color: white;
+      text-align: center;
+      padding: 15px 10px;
+      font-weight: 600;
+      font-size: 18px;
+      display: none;
+      z-index: 10001;
+      user-select: none;
     }
   </style>
 </head>
 <body>
-
-<div id="confirmation">Deine Nachricht wurde versendet ✅</div>
 
 <h1>Über mich!</h1>
 <p>Auf dieser Seite erfährst du noch mehr über mich und meine Interessen.</p>
@@ -179,7 +191,7 @@
     'docs/Nachweis Freiwilligenarbeit Levin Nigg (Grizzlys).pdf',
     '📄 (Nachweis Freiwilligenarbeit als Trainer) öffnen'
   )">
-    <img src="images/Sporthobbys.png" alt="Sport" />
+    <img src="images/Sporthobbys.png" alt="Sport" style="object-position: center top;" />
     <p>Sporthobbys</p>
   </div>
 
@@ -205,40 +217,79 @@
   </div>
 </div>
 
-<div class="form">
-  <p>Hast du noch Fragen an mich?</p>
-  <form id="contactForm" novalidate>
-    <input type="text" name="name" placeholder="Name" required />
-    <input type="email" name="email" placeholder="Email" required />
-    <textarea name="message" placeholder="Nachricht" required></textarea>
-
-    <label>
-      <input type="checkbox" name="privacy" required />
-      Ich bin damit einverstanden, dass meine Nachricht von Formspree gespeichert und verarbeitet wird.
-    </label>
-
-    <button type="submit">Abschicken</button>
-  </form>
-</div>
-
-<a href="index.html" class="back-link">← Zurück zur Startseite</a>
-
-<div id="overlay" class="overlay">
-  <button class="close-btn" onclick="closeOverlay()">×</button>
+<div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="overlayText">
+  <button class="close-btn" onclick="closeOverlay()" aria-label="Overlay schließen">×</button>
   <img id="overlayImg" src="" alt="" />
   <video id="overlayVideo" controls style="display:none;"></video>
   <p id="overlayText"></p>
   <a id="overlayDoc" href="" target="_blank" style="display:none;"></a>
 </div>
 
+<div id="successMessage">Deine Nachricht wurde versendet ✅</div>
+
+<div class="form">
+  <p>Hast du noch Fragen an mich?</p>
+  <form id="contactForm" novalidate>
+    <input type="text" name="name" placeholder="Name" required autocomplete="name" />
+    <input type="email" name="email" placeholder="Email" required autocomplete="email" />
+    <textarea name="message" placeholder="Nachricht" required></textarea>
+    <label><input type="checkbox" name="privacy" required /> Ich stimme zu, dass Formspree meine Nachricht erhält.</label>
+    <button type="submit">Abschicken</button>
+  </form>
+</div>
+
+<a href="index.html" class="back-link" aria-label="Zurück zur Startseite">← Zurück zur Startseite</a>
+
 <script>
+  // Overlay Funktionen
+  function openOverlay(imageSrc, text, docLink = "", docText = "") {
+    const overlay = document.getElementById("overlay");
+    document.getElementById("overlayImg").src = imageSrc;
+    document.getElementById("overlayImg").style.display = "block";
+    document.getElementById("overlayVideo").style.display = "none";
+    document.getElementById("overlayText").textContent = text;
+
+    if (docLink) {
+      const doc = document.getElementById("overlayDoc");
+      doc.href = docLink;
+      doc.textContent = docText;
+      doc.style.display = "block";
+    } else {
+      document.getElementById("overlayDoc").style.display = "none";
+    }
+    overlay.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
+
+  function openOverlayVideo(videoSrc, text) {
+    const overlay = document.getElementById("overlay");
+    document.getElementById("overlayImg").style.display = "none";
+    const video = document.getElementById("overlayVideo");
+    video.src = videoSrc;
+    video.style.display = "block";
+    document.getElementById("overlayText").textContent = text;
+    document.getElementById("overlayDoc").style.display = "none";
+    overlay.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeOverlay() {
+    const overlay = document.getElementById("overlay");
+    overlay.style.display = "none";
+    document.body.style.overflow = "auto";
+    const video = document.getElementById("overlayVideo");
+    video.pause();
+    video.currentTime = 0;
+  }
+
+  // Formspree AJAX Formular
   const form = document.getElementById('contactForm');
-  const confirmation = document.getElementById('confirmation');
+  const successMessage = document.getElementById('successMessage');
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Prüfe Pflichtfelder und Checkbox manuell (falls Browser das nicht tut)
+    // Validierung: Pflichtfelder und Checkbox
     if (!form.name.value.trim() || !form.email.value.trim() || !form.message.value.trim() || !form.privacy.checked) {
       alert('Bitte fülle alle Felder aus und stimme der Datenschutzerklärung zu.');
       return;
@@ -256,44 +307,24 @@
       });
 
       if (response.ok) {
-        confirmation.style.display = 'block';
-        form.reset();
-
-        // Nachricht nach 7 Sekunden ausblenden
+        // Erfolg: Nachricht anzeigen, Formular zurücksetzen
+        successMessage.style.display = 'block';
         setTimeout(() => {
-          confirmation.style.display = 'none';
+          successMessage.style.display = 'none';
         }, 7000);
+
+        form.reset();
       } else {
-        alert('Beim Senden ist ein Fehler aufgetreten. Bitte versuche es später nochmal.');
+        alert('Fehler beim Senden. Bitte versuche es später nochmal.');
       }
     } catch (error) {
-      alert('Beim Senden ist ein Fehler aufgetreten. Bitte versuche es später nochmal.');
-      console.error(error);
+      alert('Fehler beim Senden. Bitte prüfe deine Internetverbindung und versuche es erneut.');
     }
   });
+</script>
 
-  // Overlay Funktionen
-  function openOverlay(imageSrc, text, docLink = '', docText = '') {
-    const overlay = document.getElementById('overlay');
-    const img = document.getElementById('overlayImg');
-    const video = document.getElementById('overlayVideo');
-    const txt = document.getElementById('overlayText');
-    const doc = document.getElementById('overlayDoc');
+</body>
+</html>
 
-    overlay.style.display = 'flex';
-    img.src = imageSrc;
-    img.style.display = 'block';
-    video.style.display = 'none';
-    txt.textContent = text;
-
-    if (docLink) {
-      doc.href = docLink;
-      doc.textContent = docText;
-      doc.style.display = 'block';
-    } else {
-      doc.style.display = 'none';
-    }
-
-    document.body.style.
 
 
