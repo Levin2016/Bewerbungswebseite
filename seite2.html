@@ -12,7 +12,6 @@
       margin: 0;
       padding: 20px;
       color: #1f2937;
-      padding-bottom: 80px; /* Platz für fixierten Footer */
     }
 
     h1 {
@@ -49,30 +48,11 @@
       transform: scale(1.03);
     }
 
-    /* Sporthobbys Bild anpassen - mehr nach oben (Trikot sichtbar) */
-    .item.sport img {
-      height: 180px;
-      object-fit: cover;
-      object-position: center top;
-    }
-
-    /* Freizeit Bild normal */
-    .item.freizeit img {
+    .item img {
+      width: 100%;
       height: 200px;
       object-fit: cover;
-    }
-
-    /* Mediamatiker Bild normal */
-    .item.mediamatiker img {
-      height: 200px;
-      object-fit: cover;
-    }
-
-    /* "Was macht mich aus?" Bild - Kopf/Gesicht besser zeigen */
-    .item.video img {
-      height: 200px;
-      object-fit: cover;
-      object-position: center 25%; /* mehr nach oben */
+      object-position: center top; /* Bild nach oben verschoben */
     }
 
     .item p {
@@ -90,7 +70,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0,0,0,0.85);
+      background: rgba(0, 0, 0, 0.85);
       display: none;
       justify-content: center;
       align-items: center;
@@ -101,7 +81,8 @@
       z-index: 9999;
     }
 
-    .overlay img, .overlay video {
+    .overlay img,
+    .overlay video {
       max-width: 90%;
       max-height: 60vh;
       border-radius: 12px;
@@ -131,13 +112,13 @@
       text-decoration: underline;
     }
 
-    /* Formular Styles */
     .form {
       margin-top: 50px;
       text-align: center;
     }
 
-    .form input, .form textarea {
+    .form input,
+    .form textarea {
       padding: 10px;
       width: 100%;
       max-width: 400px;
@@ -145,180 +126,169 @@
       display: block;
       border-radius: 8px;
       border: 1px solid #ccc;
-      font-size: 16px;
-      font-family: 'Inter', sans-serif;
-      resize: vertical;
     }
 
     .form button {
-      padding: 14px 30px;
-      font-size: 18px;
-      font-weight: 700;
+      padding: 10px 20px;
       background-color: #2563eb;
       color: white;
       border: none;
-      border-radius: 10px;
+      border-radius: 6px;
       cursor: pointer;
-      box-shadow: 0 4px 8px rgba(37, 99, 235, 0.5);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      margin-top: 10px;
     }
 
-    .form button:hover, .form button:focus {
+    .form button:hover {
       background-color: #1e3a8a;
-      box-shadow: 0 6px 12px rgba(30, 58, 138, 0.7);
     }
 
-    /* Fixierter Footer mit Link "Zurück zur Startseite" als Button */
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: white;
-      padding: 12px 0;
+    .back-link {
+      display: block;
       text-align: center;
-      box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
-      border-top: 1px solid #ddd;
-      z-index: 1000;
-    }
-
-    footer a {
+      margin-top: 40px;
       color: #2563eb;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 18px;
-      padding: 8px 20px;
-      border: 2px solid #2563eb;
-      border-radius: 8px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      display: inline-block;
     }
 
-    footer a:hover {
-      background-color: #2563eb;
-      color: white;
-    }
-
-    /* Bestätigungsbanner oben */
+    /* Bestätigungsbanner */
     #confirmation {
       display: none;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background-color: #22c55e; /* grün */
+      background-color: #22c55e;
       color: white;
+      padding: 15px;
+      font-weight: bold;
       text-align: center;
-      padding: 15px 0;
-      font-weight: 700;
-      font-size: 18px;
       z-index: 10000;
-      font-family: 'Inter', sans-serif;
     }
   </style>
 </head>
 <body>
+  <div id="confirmation">Deine Nachricht wurde versendet ✅</div>
 
-<h1>Über mich!</h1>
-<p>Auf dieser Seite erfährst du noch mehr über mich und meine Interessen.</p>
+  <h1>Über mich!</h1>
+  <p>Auf dieser Seite erfährst du noch mehr über mich und meine Interessen.</p>
 
-<div class="container">
-  <div class="item sport" onclick="openOverlay(
-    'images/Grizzlys.png',
-    'Ich spiele seit ca. 4 Jahren leidenschaftlich Unihockey beim Club Unihockey am Greifensee Grizzlys. Zusätzlich bin ich dort seit einem Jahr auch als Trainer aktiv.',
-    'docs/Nachweis Freiwilligenarbeit Levin Nigg (Grizzlys).pdf',
-    '📄 (Nachweis Freiwilligenarbeit als Trainer) öffnen'
-  )">
-    <img src="images/Sporthobbys.png" alt="Sport" />
-    <p>Sporthobbys</p>
+  <div class="container">
+    <div
+      class="item"
+      onclick="openOverlay(
+        'images/Grizzlys.png',
+        'Ich spiele seit ca. 4 Jahren leidenschaftlich Unihockey beim Club Unihockey am Greifensee Grizzlys. Zusätzlich bin ich dort seit einem Jahr auch als Trainer aktiv.',
+        'docs/Nachweis Freiwilligenarbeit Levin Nigg (Grizzlys).pdf',
+        '📄 (Nachweis Freiwilligenarbeit als Trainer) öffnen'
+      )"
+    >
+      <img src="images/Sporthobbys.png" alt="Sport" />
+      <p>Sporthobbys</p>
+    </div>
+
+    <div
+      class="item"
+      onclick="openOverlay(
+        'images/Freizeit.png',
+        'Ich liebe es, Filme zu schneiden und kreative Projekte umzusetzen.'
+      )"
+    >
+      <img src="images/Freizeit.png" alt="Freizeit" />
+      <p>Freizeit</p>
+    </div>
+
+    <div
+      class="item"
+      onclick="openOverlay(
+        'images/u3.png',
+        'Ich habe mich auch schon immer sehr für das Erstellen von Filmen, das Bearbeiten von Bildern, das Erstellen von Designs (z.B. Trikot für den Unihockeyverein) interessiert.'
+      )"
+    >
+      <img src="images/Mediamatiker.png" alt="Mediamatiker" />
+      <p>Warum Mediamatiker?</p>
+    </div>
+
+    <div
+      class="item"
+      onclick="openOverlayVideo('video/was_macht_mich_aus.mp4', 'Was macht mich aus?')"
+    >
+      <img
+        src="images/levin_bild.png"
+        alt="Video"
+        style="object-position: center top;"
+      />
+      <p>Was macht mich aus?</p>
+    </div>
   </div>
 
-  <div class="item freizeit" onclick="openOverlay(
-    'images/Freizeit.png',
-    'Ich liebe es, Filme zu schneiden und kreative Projekte umzusetzen.'
-  )">
-    <img src="images/Freizeit.png" alt="Freizeit" />
-    <p>Freizeit</p>
+  <footer style="text-align:center; margin-top: 60px;">
+    <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+  </footer>
+
+  <div class="form">
+    <p>Hast du noch Fragen an mich?</p>
+    <form id="contactForm" action="https://formspree.io/f/manozlrv" method="POST">
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <textarea name="message" placeholder="Nachricht" required></textarea>
+      <button type="submit">Abschicken</button>
+    </form>
   </div>
 
-  <div class="item mediamatiker" onclick="openOverlay(
-    'images/u3.png',
-    'Ich habe mich auch schon immer sehr für das Erstellen von Filmen, das Bearbeiten von Bildern, das Erstellen von Designs (z.B. Trikot für den Unihockeyverein) interessiert.'
-  )">
-    <img src="images/Mediamatiker.png" alt="Mediamatiker" />
-    <p>Warum Mediamatiker?</p>
-  </div>
+  <script>
+    function openOverlay(imageSrc, text, docLink = "", docText = "") {
+      document.getElementById("overlay").style.display = "flex";
+      document.getElementById("overlayImg").src = imageSrc;
+      document.getElementById("overlayImg").style.display = "block";
+      document.getElementById("overlayVideo").style.display = "none";
+      document.getElementById("overlayText").textContent = text;
 
-  <div class="item video" onclick="openOverlayVideo('viedeo/was_macht_mich_aus.mp4', 'Was macht mich aus?')">
-    <img src="images/levin_bild.png" alt="Video" />
-    <p>Was macht mich aus?</p>
-  </div>
-</div>
+      if (docLink) {
+        const doc = document.getElementById("overlayDoc");
+        doc.href = docLink;
+        doc.textContent = docText;
+        doc.style.display = "block";
+      } else {
+        document.getElementById("overlayDoc").style.display = "none";
+      }
 
-<div id="overlay" class="overlay">
-  <button class="close-btn" onclick="closeOverlay()">×</button>
-  <img id="overlayImg" src="" alt="" />
-  <video id="overlayVideo" controls style="display:none;"></video>
-  <p id="overlayText"></p>
-  <a id="overlayDoc" href="" target="_blank" style="display:none;"></a>
-</div>
-
-<!-- Bestätigungsbanner -->
-<div id="confirmation">Deine Nachricht wurde versendet ✅</div>
-
-<div class="form">
-  <p>Hast du noch Fragen an mich?</p>
-  <form id="contactForm" action="https://formspree.io/f/DEIN_FORM_ID" method="POST">
-    <input type="text" name="name" placeholder="Name" required />
-    <input type="email" name="email" placeholder="Email" required />
-    <textarea name="message" placeholder="Nachricht" required></textarea>
-    <button type="submit">Abschicken</button>
-  </form>
-</div>
-
-<footer>
-  <a href="index.html" aria-label="Zurück zur Startseite">← Zurück zur Startseite</a>
-</footer>
-
-<script>
-  function openOverlay(imageSrc, text, docLink = "", docText = "") {
-    document.getElementById("overlay").style.display = "flex";
-    document.getElementById("overlayImg").src = imageSrc;
-    document.getElementById("overlayImg").style.display = "block";
-    document.getElementById("overlayVideo").style.display = "none";
-    document.getElementById("overlayText").textContent = text;
-
-    if (docLink) {
-      const doc = document.getElementById("overlayDoc");
-      doc.href = docLink;
-      doc.textContent = docText;
-      doc.style.display = "block";
-    } else {
-      document.getElementById("overlayDoc").style.display = "none";
+      document.body.style.overflow = "hidden";
     }
 
-    document.body.style.overflow = "hidden";
-  }
+    function openOverlayVideo(videoSrc, text) {
+      document.getElementById("overlay").style.display = "flex";
+      document.getElementById("overlayImg").style.display = "none";
+      const video = document.getElementById("overlayVideo");
+      video.src = videoSrc;
+      video.style.display = "block";
+      document.getElementById("overlayText").textContent = text;
+      document.getElementById("overlayDoc").style.display = "none";
+      document.body.style.overflow = "hidden";
+    }
 
-  function openOverlayVideo(videoSrc, text) {
-    document.getElementById("overlay").style.display = "flex";
-    document.getElementById("overlayImg").style.display = "none";
-    const video = document.getElementById("overlayVideo");
-    video.src = videoSrc;
-    video.style.display = "block";
-    document.getElementById("overlayText").textContent = text;
-    document.getElementById("overlayDoc").style.display = "none";
-    document.body.style.overflow = "hidden";
-  }
+    function closeOverlay() {
+      document.getElementById("overlay").style.display = "none";
+      document.body.style.overflow = "auto";
+    }
 
-  function closeOverlay() {
-    document.getElementById("overlay").style.display = "none";
-    document.body.style.overflow = "auto";
-    // Stoppe Video beim Schließen
-    const video = document.getElementById("overlayVideo");
-    if (!video.paused) {
-      video.pause();
+    // Formular-Submit mit Bestätigung
+    const form = document.getElementById("contactForm");
+    const confirmation = document.getElementById("confirmation");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            confirmation.style
+
      
 
 
