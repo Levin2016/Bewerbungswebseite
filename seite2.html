@@ -12,6 +12,7 @@
       margin: 0;
       padding: 20px;
       color: #1f2937;
+      padding-bottom: 80px; /* Platz für festen Footer */
     }
 
     h1 {
@@ -126,6 +127,23 @@
       display: block;
       border-radius: 8px;
       border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .form label {
+      display: block;
+      max-width: 400px;
+      margin: 10px auto 0;
+      font-size: 14px;
+      color: #555;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .form input[type="checkbox"] {
+      margin-right: 10px;
+      vertical-align: middle;
+      cursor: pointer;
     }
 
     .form button {
@@ -135,17 +153,12 @@
       border: none;
       border-radius: 6px;
       cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
     }
 
     .form button:hover {
       background-color: #1e3a8a;
-    }
-
-    .back-link {
-      display: block;
-      text-align: center;
-      margin-top: 40px;
-      color: #2563eb;
     }
 
     /* Bestätigungsbanner */
@@ -161,6 +174,22 @@
       font-weight: bold;
       text-align: center;
       z-index: 10000;
+    }
+
+    /* Fixierter Zurück-Link */
+    .back-link {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #f9fafb;
+      color: #2563eb;
+      text-align: center;
+      padding: 15px 0;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
     }
   </style>
 </head>
@@ -219,77 +248,24 @@
     </div>
   </div>
 
-  <footer style="text-align:center; margin-top: 60px;">
-    <a href="index.html" class="back-link">← Zurück zur Startseite</a>
-  </footer>
-
   <div class="form">
     <p>Hast du noch Fragen an mich?</p>
-    <form id="contactForm" action="https://formspree.io/f/manozlrv" method="POST">
+    <form id="contactForm" action="https://formspree.io/f/manozlrv" method="POST" novalidate>
       <input type="text" name="name" placeholder="Name" required />
       <input type="email" name="email" placeholder="Email" required />
       <textarea name="message" placeholder="Nachricht" required></textarea>
+
+      <label>
+        <input type="checkbox" name="privacy" required />
+        Ich bin damit einverstanden, dass meine Nachricht von Formspree gespeichert und verarbeitet wird.
+      </label>
+
       <button type="submit">Abschicken</button>
     </form>
   </div>
 
-  <script>
-    function openOverlay(imageSrc, text, docLink = "", docText = "") {
-      document.getElementById("overlay").style.display = "flex";
-      document.getElementById("overlayImg").src = imageSrc;
-      document.getElementById("overlayImg").style.display = "block";
-      document.getElementById("overlayVideo").style.display = "none";
-      document.getElementById("overlayText").textContent = text;
+  <a href="index.html" class="back-link">← Zurück zur Startseite</a>
 
-      if (docLink) {
-        const doc = document.getElementById("overlayDoc");
-        doc.href = docLink;
-        doc.textContent = docText;
-        doc.style.display = "block";
-      } else {
-        document.getElementById("overlayDoc").style.display = "none";
-      }
-
-      document.body.style.overflow = "hidden";
-    }
-
-    function openOverlayVideo(videoSrc, text) {
-      document.getElementById("overlay").style.display = "flex";
-      document.getElementById("overlayImg").style.display = "none";
-      const video = document.getElementById("overlayVideo");
-      video.src = videoSrc;
-      video.style.display = "block";
-      document.getElementById("overlayText").textContent = text;
-      document.getElementById("overlayDoc").style.display = "none";
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeOverlay() {
-      document.getElementById("overlay").style.display = "none";
-      document.body.style.overflow = "auto";
-    }
-
-    // Formular-Submit mit Bestätigung
-    const form = document.getElementById("contactForm");
-    const confirmation = document.getElementById("confirmation");
-
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      const formData = new FormData(form);
-
-      fetch(form.action, {
-        method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
-      })
-        .then((response) => {
-          if (response.ok) {
-            confirmation.style
-
-     
-
-
+  <div id="overlay" class="overlay">
+    <button class="close-btn" onclick="closeOverlay()">
 
