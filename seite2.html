@@ -52,8 +52,9 @@
     .item img {
       width: 100%;
       height: 220px;
-      object-fit: cover;
+      object-fit: contain;
       object-position: center;
+      background-color: #f0f0f0;
     }
 
     .item p {
@@ -118,7 +119,7 @@
     .form {
       margin-top: 50px;
       text-align: center;
-      max-width: 450px;
+      max-width: 500px;
       margin-left: auto;
       margin-right: auto;
       padding: 0 20px;
@@ -140,20 +141,23 @@
       resize: vertical;
     }
 
-    .consent-label {
+    .checkbox-wrapper {
       display: flex;
+      flex-direction: column;
       align-items: flex-start;
-      gap: 10px;
+      margin-top: 20px;
       font-size: 14px;
       color: #444;
-      margin-top: 15px;
-      text-align: left;
-      line-height: 1.4;
     }
 
-    .consent-label input {
-      margin-top: 4px;
+    .checkbox-wrapper input[type="checkbox"] {
+      margin-bottom: 10px;
       transform: scale(1.2);
+    }
+
+    .checkbox-wrapper a {
+      color: #2563eb;
+      text-decoration: underline;
     }
 
     .form button {
@@ -207,16 +211,6 @@
       z-index: 10001;
       user-select: none;
     }
-
-    @media (max-width: 500px) {
-      .item img {
-        height: 180px;
-      }
-
-      .form {
-        padding: 0 10px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -225,28 +219,17 @@
 <p>Auf dieser Seite erfährst du noch mehr über mich und meine Interessen.</p>
 
 <div class="container">
-  <div class="item" onclick="openOverlay(
-    'images/Grizzlys.png',
-    'Ich spiele seit ca. 4 Jahren leidenschaftlich Unihockey beim Club Unihockey am Greifensee Grizzlys. Zusätzlich bin ich dort seit einem Jahr auch als Trainer aktiv.',
-    'docs/Nachweis Freiwilligenarbeit Levin Nigg (Grizzlys).pdf',
-    '📄 (Nachweis Freiwilligenarbeit als Trainer) öffnen'
-  )">
+  <div class="item" onclick="openOverlay('images/Grizzlys.png', 'Ich spiele seit ca. 4 Jahren leidenschaftlich Unihockey beim Club Unihockey am Greifensee Grizzlys. Zusätzlich bin ich dort seit einem Jahr auch als Trainer aktiv.', 'docs/Nachweis Freiwilligenarbeit Levin Nigg (Grizzlys).pdf', '📄 (Nachweis Freiwilligenarbeit als Trainer) öffnen')">
     <img src="images/Sporthobbys.png" alt="Sporthobbys" />
     <p>Sporthobbys</p>
   </div>
 
-  <div class="item" onclick="openOverlay(
-    'images/Freizeit.png',
-    'Ich liebe es, Filme zu schneiden und kreative Projekte umzusetzen.'
-  )">
+  <div class="item" onclick="openOverlay('images/Freizeit.png', 'Ich liebe es, Filme zu schneiden und kreative Projekte umzusetzen.')">
     <img src="images/Freizeit.png" alt="Freizeit" />
     <p>Freizeit</p>
   </div>
 
-  <div class="item" onclick="openOverlay(
-    'images/u3.png',
-    'Ich habe mich auch schon immer sehr für das Erstellen von Filmen, das Bearbeiten von Bildern, das Erstellen von Designs (z.B. Trikot für den Unihockeyverein) interessiert.'
-  )">
+  <div class="item" onclick="openOverlay('images/u3.png', 'Ich habe mich auch schon immer sehr für das Erstellen von Filmen, das Bearbeiten von Bildern, das Erstellen von Designs (z.B. Trikot für den Unihockeyverein) interessiert.')">
     <img src="images/Mediamatiker.png" alt="Warum Mediamatiker" />
     <p>Warum Mediamatiker?</p>
   </div>
@@ -274,10 +257,13 @@
     <input type="email" name="email" placeholder="Email" required />
     <textarea name="message" placeholder="Nachricht" required></textarea>
 
-    <label class="consent-label">
-      <input type="checkbox" name="privacy" required />
-      <span>Ich stimme zu, dass meine Nachricht über Formspree verarbeitet wird. <br> Weitere Infos findest du in deren <a href="https://formspree.io/legal/privacy-policy/" target="_blank">Datenschutzrichtlinie</a>.</span>
-    </label>
+    <div class="checkbox-wrapper">
+      <input type="checkbox" id="privacy" name="privacy" required />
+      <label for="privacy">
+        Ich stimme zu, dass meine Nachricht über Formspree verarbeitet wird.<br>
+        Weitere Infos findest du in deren <a href="https://formspree.io/legal/privacy-policy/" target="_blank">Datenschutzrichtlinie</a>.
+      </label>
+    </div>
 
     <button type="submit">Abschicken</button>
   </form>
@@ -364,6 +350,7 @@
 
 </body>
 </html>
+
 
 
 
