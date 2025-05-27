@@ -125,7 +125,8 @@
       padding: 0 20px;
     }
 
-    .form input, .form textarea {
+    .form input,
+    .form textarea {
       padding: 10px;
       width: 100%;
       margin: 10px auto;
@@ -141,22 +142,23 @@
       resize: vertical;
     }
 
-    .checkbox-row {
+    .checkbox-field {
       display: flex;
       align-items: flex-start;
-      gap: 12px;
+      gap: 10px;
       margin-top: 20px;
       font-size: 14px;
       color: #444;
       text-align: left;
+      line-height: 1.5;
     }
 
-    .checkbox-row input[type="checkbox"] {
+    .checkbox-field input[type="checkbox"] {
       margin-top: 5px;
       transform: scale(1.2);
     }
 
-    .checkbox-row a {
+    .checkbox-field a {
       color: #2563eb;
       text-decoration: underline;
     }
@@ -218,7 +220,7 @@
         height: 180px;
       }
 
-      .checkbox-row {
+      .checkbox-field {
         flex-direction: column;
         align-items: flex-start;
       }
@@ -269,14 +271,14 @@
     <input type="email" name="email" placeholder="Email" required />
     <textarea name="message" placeholder="Nachricht" required></textarea>
 
-    <div class="checkbox-row">
-      <input type="checkbox" id="privacy" name="privacy" required />
-      <label for="privacy">
-        Ich stimme zu, dass meine Nachricht über Formspree verarbeitet wird. <br>
+    <label class="checkbox-field">
+      <input type="checkbox" name="privacy" required />
+      <span>
+        Ich stimme zu, dass meine Nachricht über Formspree verarbeitet wird.
         Weitere Infos findest du in deren
         <a href="https://formspree.io/legal/privacy-policy/" target="_blank">Datenschutzrichtlinie</a>.
-      </label>
-    </div>
+      </span>
+    </label>
 
     <button type="submit">Abschicken</button>
   </form>
@@ -363,6 +365,7 @@
 
 </body>
 </html>
+
 
 
 
