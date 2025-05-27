@@ -141,21 +141,22 @@
       resize: vertical;
     }
 
-    .checkbox-wrapper {
+    .checkbox-row {
       display: flex;
-      flex-direction: column;
       align-items: flex-start;
+      gap: 12px;
       margin-top: 20px;
       font-size: 14px;
       color: #444;
+      text-align: left;
     }
 
-    .checkbox-wrapper input[type="checkbox"] {
-      margin-bottom: 10px;
+    .checkbox-row input[type="checkbox"] {
+      margin-top: 5px;
       transform: scale(1.2);
     }
 
-    .checkbox-wrapper a {
+    .checkbox-row a {
       color: #2563eb;
       text-decoration: underline;
     }
@@ -211,6 +212,17 @@
       z-index: 10001;
       user-select: none;
     }
+
+    @media (max-width: 500px) {
+      .item img {
+        height: 180px;
+      }
+
+      .checkbox-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
   </style>
 </head>
 <body>
@@ -257,11 +269,12 @@
     <input type="email" name="email" placeholder="Email" required />
     <textarea name="message" placeholder="Nachricht" required></textarea>
 
-    <div class="checkbox-wrapper">
+    <div class="checkbox-row">
       <input type="checkbox" id="privacy" name="privacy" required />
       <label for="privacy">
-        Ich stimme zu, dass meine Nachricht über Formspree verarbeitet wird.<br>
-        Weitere Infos findest du in deren <a href="https://formspree.io/legal/privacy-policy/" target="_blank">Datenschutzrichtlinie</a>.
+        Ich stimme zu, dass meine Nachricht über Formspree verarbeitet wird. <br>
+        Weitere Infos findest du in deren
+        <a href="https://formspree.io/legal/privacy-policy/" target="_blank">Datenschutzrichtlinie</a>.
       </label>
     </div>
 
