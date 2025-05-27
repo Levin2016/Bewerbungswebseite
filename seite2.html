@@ -13,8 +13,7 @@
       padding: 20px;
       color: #1f2937;
       min-height: 100vh;
-      position: relative;
-      padding-bottom: 100px;
+      padding-bottom: 120px;
     }
 
     h1 {
@@ -38,7 +37,6 @@
     }
 
     .item {
-      position: relative;
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -55,6 +53,7 @@
       width: 100%;
       height: 200px;
       object-fit: cover;
+      object-position: top center;
     }
 
     .item p {
@@ -79,12 +78,12 @@
       flex-direction: column;
       color: white;
       padding: 40px;
+      padding-bottom: 120px;
       box-sizing: border-box;
       z-index: 9999;
     }
 
-    .overlay img,
-    .overlay video {
+    .overlay img, .overlay video {
       max-width: 90%;
       max-height: 70vh;
       object-fit: contain;
@@ -111,7 +110,7 @@
 
     .overlay a {
       margin-top: 16px;
-      margin-bottom: 60px;
+      margin-bottom: 80px;
       color: #4cc9f0;
       text-decoration: underline;
     }
@@ -125,8 +124,7 @@
       padding: 0 20px;
     }
 
-    .form input,
-    .form textarea {
+    .form input, .form textarea {
       padding: 10px;
       width: 100%;
       margin: 10px auto;
@@ -135,24 +133,22 @@
       border: 1px solid #ccc;
       font-size: 16px;
       box-sizing: border-box;
-      resize: vertical;
     }
 
     .form textarea {
       min-height: 120px;
     }
 
-    .form label {
+    .consent-label {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
+      justify-content: flex-start;
+      gap: 10px;
       font-size: 14px;
       color: #444;
-      margin-top: 10px;
-      user-select: none;
-      cursor: pointer;
+      margin-top: 15px;
       text-align: left;
+      max-width: 100%;
     }
 
     .form button {
@@ -185,7 +181,7 @@
       font-size: 18px;
       background: white;
       padding: 10px 0;
-      box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 -1px 6px rgba(0,0,0,0.1);
       z-index: 10000;
     }
 
@@ -218,7 +214,7 @@
     'docs/Nachweis Freiwilligenarbeit Levin Nigg (Grizzlys).pdf',
     '📄 (Nachweis Freiwilligenarbeit als Trainer) öffnen'
   )">
-    <img src="images/Sporthobbys.png" alt="Sport" style="object-position: center top;" />
+    <img src="images/Sporthobbys.png" alt="Sporthobbys" />
     <p>Sporthobbys</p>
   </div>
 
@@ -234,12 +230,12 @@
     'images/u3.png',
     'Ich habe mich auch schon immer sehr für das Erstellen von Filmen, das Bearbeiten von Bildern, das Erstellen von Designs (z.B. Trikot für den Unihockeyverein) interessiert.'
   )">
-    <img src="images/Mediamatiker.png" alt="Mediamatiker" />
+    <img src="images/Mediamatiker.png" alt="Warum Mediamatiker" />
     <p>Warum Mediamatiker?</p>
   </div>
 
   <div class="item" onclick="openOverlayVideo('video/was_macht_mich_aus.mp4', 'Was macht mich aus?')">
-    <img src="images/levin_bild.png" alt="Levin im Video" style="object-position: center top;" />
+    <img src="images/levin_bild.png" alt="Levin im Video" />
     <p>Was macht mich aus?</p>
   </div>
 </div>
@@ -257,12 +253,12 @@
 <div class="form">
   <p>Hast du noch Fragen an mich?</p>
   <form action="https://formspree.io/f/mwpojakl" method="POST" id="contactForm">
-    <input type="text" name="name" placeholder="Name" required>
-    <input type="email" name="email" placeholder="Email" required>
+    <input type="text" name="name" placeholder="Name" required />
+    <input type="email" name="email" placeholder="Email" required />
     <textarea name="message" placeholder="Nachricht" required></textarea>
 
-    <label>
-      <input type="checkbox" name="privacy" required>
+    <label class="consent-label">
+      <input type="checkbox" name="privacy" required />
       Ich stimme zu, dass Formspree meine Nachricht verarbeiten darf.
     </label>
 
@@ -280,13 +276,13 @@
     document.getElementById("overlayVideo").style.display = "none";
     document.getElementById("overlayText").textContent = text;
 
+    const doc = document.getElementById("overlayDoc");
     if (docLink) {
-      const doc = document.getElementById("overlayDoc");
       doc.href = docLink;
       doc.textContent = docText;
       doc.style.display = "block";
     } else {
-      document.getElementById("overlayDoc").style.display = "none";
+      doc.style.display = "none";
     }
 
     overlay.style.display = "flex";
@@ -351,6 +347,7 @@
 
 </body>
 </html>
+
 
 
 
