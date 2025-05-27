@@ -14,18 +14,21 @@
       color: #1f2937;
       min-height: 100vh;
       position: relative;
-      padding-bottom: 80px; /* Platz für Footer */
+      padding-bottom: 100px;
     }
+
     h1 {
       text-align: center;
       color: #2563eb;
       margin-bottom: 20px;
     }
+
     p {
       text-align: center;
       max-width: 700px;
       margin: 0 auto 30px;
     }
+
     .container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -33,6 +36,7 @@
       max-width: 1000px;
       margin: 0 auto;
     }
+
     .item {
       position: relative;
       border-radius: 12px;
@@ -42,14 +46,17 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
+
     .item:hover {
       transform: scale(1.03);
     }
+
     .item img {
       width: 100%;
       height: 200px;
       object-fit: cover;
     }
+
     .item p {
       margin: 0;
       padding: 12px;
@@ -58,13 +65,14 @@
       text-align: center;
       font-weight: 600;
     }
+
     .overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0,0,0,0.85);
+      background: rgba(0, 0, 0, 0.85);
       display: none;
       justify-content: center;
       align-items: center;
@@ -74,17 +82,22 @@
       box-sizing: border-box;
       z-index: 9999;
     }
-    .overlay img, .overlay video {
+
+    .overlay img,
+    .overlay video {
       max-width: 90%;
-      max-height: 60vh;
+      max-height: 70vh;
+      object-fit: contain;
       border-radius: 12px;
       margin-bottom: 20px;
     }
+
     .overlay p {
       font-size: 18px;
       max-width: 700px;
       text-align: center;
     }
+
     .overlay .close-btn {
       position: absolute;
       top: 20px;
@@ -95,19 +108,25 @@
       color: white;
       cursor: pointer;
     }
+
     .overlay a {
       margin-top: 16px;
+      margin-bottom: 60px;
       color: #4cc9f0;
       text-decoration: underline;
     }
+
     .form {
       margin-top: 50px;
       text-align: center;
       max-width: 450px;
       margin-left: auto;
       margin-right: auto;
+      padding: 0 20px;
     }
-    .form input, .form textarea {
+
+    .form input,
+    .form textarea {
       padding: 10px;
       width: 100%;
       margin: 10px auto;
@@ -118,19 +137,24 @@
       box-sizing: border-box;
       resize: vertical;
     }
+
     .form textarea {
       min-height: 120px;
     }
+
     .form label {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       font-size: 14px;
       color: #444;
       margin-top: 10px;
       user-select: none;
       cursor: pointer;
+      text-align: left;
     }
+
     .form button {
       padding: 12px 25px;
       background-color: #2563eb;
@@ -143,12 +167,14 @@
       margin-top: 20px;
       transition: background-color 0.3s ease;
     }
+
     .form button:hover {
       background-color: #1e3a8a;
     }
+
     .back-link {
       position: fixed;
-      bottom: 10px;
+      bottom: 0;
       left: 0;
       right: 0;
       text-align: center;
@@ -159,9 +185,10 @@
       font-size: 18px;
       background: white;
       padding: 10px 0;
-      box-shadow: 0 -1px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.1);
       z-index: 10000;
     }
+
     #successMessage {
       position: fixed;
       top: 0;
@@ -212,14 +239,14 @@
   </div>
 
   <div class="item" onclick="openOverlayVideo('video/was_macht_mich_aus.mp4', 'Was macht mich aus?')">
-    <img src="images/levin_bild.png" alt="Video" style="object-position: center top;" />
+    <img src="images/levin_bild.png" alt="Levin im Video" style="object-position: center top;" />
     <p>Was macht mich aus?</p>
   </div>
 </div>
 
 <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="overlayText">
   <button class="close-btn" onclick="closeOverlay()" aria-label="Overlay schließen">×</button>
-  <img id="overlayImg" src="" alt="" />
+  <img id="overlayImg" src="" alt="Overlay Bild" />
   <video id="overlayVideo" controls style="display:none;"></video>
   <p id="overlayText"></p>
   <a id="overlayDoc" href="" target="_blank" style="display:none;"></a>
@@ -229,27 +256,23 @@
 
 <div class="form">
   <p>Hast du noch Fragen an mich?</p>
- <form action="https://formspree.io/f/mwpojakl" method="POST" id="contact-form">
-  <input type="text" name="name" placeholder="Name" required>
-  <input type="email" name="_replyto" placeholder="Email" required>
-  <textarea name="message" placeholder="Nachricht" required></textarea>
-  
-  <div style="margin: 15px 0; text-align: left; max-width: 400px; margin-left: auto; margin-right: auto;">
+  <form action="https://formspree.io/f/mwpojakl" method="POST" id="contactForm">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="message" placeholder="Nachricht" required></textarea>
+
     <label>
-      <input type="checkbox" name="consent" required style="margin-right: 8px;">
+      <input type="checkbox" name="privacy" required>
       Ich stimme zu, dass Formspree meine Nachricht verarbeiten darf.
     </label>
-  </div>
-  
-  <button type="submit">Abschicken</button>
-</form>
 
+    <button type="submit">Abschicken</button>
+  </form>
 </div>
 
 <a href="index.html" class="back-link" aria-label="Zurück zur Startseite">← Zurück zur Startseite</a>
 
 <script>
-  // Overlay Funktionen
   function openOverlay(imageSrc, text, docLink = "", docText = "") {
     const overlay = document.getElementById("overlay");
     document.getElementById("overlayImg").src = imageSrc;
@@ -265,6 +288,7 @@
     } else {
       document.getElementById("overlayDoc").style.display = "none";
     }
+
     overlay.style.display = "flex";
     document.body.style.overflow = "hidden";
   }
@@ -290,14 +314,12 @@
     video.currentTime = 0;
   }
 
-  // Formspree AJAX Formular
   const form = document.getElementById('contactForm');
   const successMessage = document.getElementById('successMessage');
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Validierung: Pflichtfelder und Checkbox
     if (!form.name.value.trim() || !form.email.value.trim() || !form.message.value.trim() || !form.privacy.checked) {
       alert('Bitte fülle alle Felder aus und stimme der Datenschutzerklärung zu.');
       return;
@@ -306,21 +328,17 @@
     const data = new FormData(form);
 
     try {
-      const response = await fetch('https://formspree.io/f/manozlrv', {
+      const response = await fetch(form.action, {
         method: 'POST',
-        headers: {
-          'Accept': 'application/json'
-        },
+        headers: { 'Accept': 'application/json' },
         body: data
       });
 
       if (response.ok) {
-        // Erfolg: Nachricht anzeigen, Formular zurücksetzen
         successMessage.style.display = 'block';
         setTimeout(() => {
           successMessage.style.display = 'none';
         }, 7000);
-
         form.reset();
       } else {
         alert('Fehler beim Senden. Bitte versuche es später nochmal.');
@@ -333,6 +351,7 @@
 
 </body>
 </html>
+
 
 
 
