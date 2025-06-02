@@ -143,26 +143,29 @@
     }
 
     .checkbox-field {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      margin-top: 20px;
-      font-size: 14px;
-      color: #444;
-      text-align: left;
-      line-height: 1.5;
-    }
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #444;
+  text-align: left;
+  line-height: 1.5;
+  padding: 10px 0; /* sorgt für mehr Luft oben/unten */
+}
 
-    .checkbox-field input[type="checkbox"] {
-      margin-top: 4px;
-      transform: scale(1.2);
-      flex-shrink: 0;
-    }
+.checkbox-field span {
+  display: block;
+  max-width: 100%;
+  line-height: 1.6;
+}
 
-    .checkbox-field span {
-      display: inline-block;
-      max-width: 400px;
-    }
+.checkbox-field input[type="checkbox"] {
+  margin-top: 4px;
+  transform: scale(1.2);
+  flex-shrink: 0;
+}
+
 
     .checkbox-field a {
       color: #2563eb;
