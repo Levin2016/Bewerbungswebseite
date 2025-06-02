@@ -151,7 +151,6 @@
       color: #444;
       text-align: left;
       line-height: 1.5;
-      max-width: 100%;
     }
 
     .checkbox-field input[type="checkbox"] {
@@ -160,10 +159,9 @@
       flex-shrink: 0;
     }
 
-    .checkbox-field div {
-      flex: 1;
-      word-wrap: break-word;
-      max-width: 450px;
+    .checkbox-field span {
+      display: inline-block;
+      max-width: 400px;
     }
 
     .checkbox-field a {
@@ -233,7 +231,7 @@
         align-items: flex-start;
       }
 
-      .checkbox-field div {
+      .checkbox-field span {
         max-width: 100%;
       }
     }
@@ -245,7 +243,22 @@
 <p>Auf dieser Seite erfährst du noch mehr über mich und meine Interessen.</p>
 
 <div class="container">
-  <!-- Cards kannst du hier wie vorher hinzufügen -->
+  <div class="item" onclick="openOverlay('images/Grizzlys.png', 'Ich spiele seit ca. 4 Jahren leidenschaftlich Unihockey beim Club Unihockey am Greifensee Grizzlys. Zusätzlich bin ich dort seit einem Jahr auch als Trainer aktiv.', 'docs/Nachweis Freiwilligenarbeit Levin Nigg (Grizzlys).pdf', '📄 (Nachweis Freiwilligenarbeit als Trainer) öffnen')">
+    <img src="images/Sporthobbys.png" alt="Sporthobbys" />
+    <p>Sporthobbys</p>
+  </div>
+  <div class="item" onclick="openOverlay('images/Freizeit.png', 'Ich liebe es, Filme zu schneiden und kreative Projekte umzusetzen.')">
+    <img src="images/Freizeit.png" alt="Freizeit" />
+    <p>Freizeit</p>
+  </div>
+  <div class="item" onclick="openOverlay('images/u3.png', 'Ich habe mich auch schon immer sehr für das Erstellen von Filmen, das Bearbeiten von Bildern, das Erstellen von Designs (z.B. Trikot für den Unihockeyverein) interessiert.')">
+    <img src="images/Mediamatiker.png" alt="Warum Mediamatiker" />
+    <p>Warum Mediamatiker?</p>
+  </div>
+  <div class="item" onclick="openOverlayVideo('video/was_macht_mich_aus.mp4', 'Was macht mich aus?')">
+    <img src="images/levin_bild.png" alt="Levin im Video" />
+    <p>Was macht mich aus?</p>
+  </div>
 </div>
 
 <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="overlayText">
@@ -267,11 +280,11 @@
 
     <label class="checkbox-field">
       <input type="checkbox" name="privacy" required />
-      <div>
+      <span>
         Ich stimme zu, dass meine Nachricht über Formspree verarbeitet wird.
         Weitere Infos findest du in deren
         <a href="https://formspree.io/legal/privacy-policy/" target="_blank">Datenschutzrichtlinie</a>.
-      </div>
+      </span>
     </label>
 
     <button type="submit">Abschicken</button>
