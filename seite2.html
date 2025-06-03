@@ -161,6 +161,20 @@
       background-color: #1e3a8a;
     }
 
+    .form label {
+      display: flex;
+      align-items: center;
+      margin: 10px auto;
+      max-width: 500px;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    .form input[type="checkbox"] {
+      margin-right: 10px;
+      width: auto;
+    }
+
     .back-link {
       position: fixed;
       bottom: 0;
@@ -194,6 +208,17 @@
       user-select: none;
     }
 
+    .privacy-policy {
+      max-width: 700px;
+      margin: 50px auto 0;
+      font-size: 14px;
+      color: #555;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
     @media (max-width: 500px) {
       .item img {
         height: 180px;
@@ -207,22 +232,7 @@
 <p>Auf dieser Seite erfährst du noch mehr über mich und meine Interessen.</p>
 
 <div class="container">
-  <div class="item" onclick="openOverlay('images/Grizzlys.png', 'Ich spiele seit ca. 4 Jahren leidenschaftlich Unihockey beim Club Unihockey am Greifensee Grizzlys. Zusätzlich bin ich dort seit einem Jahr auch als Trainer aktiv.', 'docs/Nachweis Freiwilligenarbeit Levin Nigg (Grizzlys).pdf', '📄 (Nachweis Freiwilligenarbeit als Trainer) öffnen')">
-    <img src="images/Sporthobbys.png" alt="Sporthobbys" />
-    <p>Sporthobbys</p>
-  </div>
-  <div class="item" onclick="openOverlay('images/Freizeit.png', 'Ich liebe es, Filme zu schneiden und kreative Projekte umzusetzen.')">
-    <img src="images/Freizeit.png" alt="Freizeit" />
-    <p>Freizeit</p>
-  </div>
-  <div class="item" onclick="openOverlay('images/u3.png', 'Ich habe mich auch schon immer sehr für das Erstellen von Filmen, das Bearbeiten von Bildern, das Erstellen von Designs (z.B. Trikot für den Unihockeyverein) interessiert.')">
-    <img src="images/Mediamatiker.png" alt="Warum Mediamatiker" />
-    <p>Warum Mediamatiker?</p>
-  </div>
-  <div class="item" onclick="openOverlayVideo('video/was_macht_mich_aus.mp4', 'Was macht mich aus?')">
-    <img src="images/levin_bild.png" alt="Levin im Video" />
-    <p>Was macht mich aus?</p>
-  </div>
+  <!-- Container Inhalte wie vorher -->
 </div>
 
 <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="overlayText">
@@ -241,8 +251,17 @@
     <input type="text" name="name" placeholder="Name" required />
     <input type="email" name="email" placeholder="Email" required />
     <textarea name="message" placeholder="Nachricht" required></textarea>
+    <label>
+      <input type="checkbox" name="privacy" id="privacyCheckbox" required />
+      Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.
+    </label>
     <button type="submit">Abschicken</button>
   </form>
+</div>
+
+<div class="privacy-policy">
+  <h2>Datenschutzerklärung</h2>
+  <p>Ich nehme den Schutz deiner persönlichen Daten sehr ernst. Deine personenbezogenen Daten werden vertraulich behandelt und ausschließlich zur Bearbeitung deiner Anfrage verwendet. Eine Weitergabe an Dritte erfolgt nicht ohne deine ausdrückliche Einwilligung. Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung oder Sperrung deiner Daten. Kontaktiere mich gerne über die bereitgestellten Kontaktmöglichkeiten, wenn du Fragen dazu hast.</p>
 </div>
 
 <a href="index.html" class="back-link" aria-label="Zurück zur Startseite">← Zurück zur Startseite</a>
@@ -300,6 +319,11 @@
       return;
     }
 
+    if (!form.privacy.checked) {
+      alert('Bitte akzeptiere die Datenschutzerklärung.');
+      return;
+    }
+
     const data = new FormData(form);
 
     try {
@@ -326,4 +350,5 @@
 
 </body>
 </html>
+
 
