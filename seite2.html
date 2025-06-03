@@ -241,7 +241,17 @@
     <input type="text" name="name" placeholder="Name" required />
     <input type="email" name="email" placeholder="Email" required />
     <textarea name="message" placeholder="Nachricht" required></textarea>
-    <button type="submit">Abschicken</button>
+
+<div style="text-align: left; margin-top: 10px;">
+  <label style="display: flex; align-items: flex-start; font-size: 14px;">
+    <input type="checkbox" id="privacyCheck" style="margin-right: 8px; margin-top: 3px;" required />
+    Ich stimme der <a href="https://formspree.io/legal/privacy-policy/" target="_blank" style="color: #2563eb; text-decoration: underline;">Datenschutzerklärung von Formspree</a> zu.
+  </label>
+</div>
+
+<button type="submit">Abschicken</button>
+
+
   </form>
 </div>
 
