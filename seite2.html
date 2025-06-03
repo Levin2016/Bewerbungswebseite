@@ -52,7 +52,6 @@
       width: 100%;
       height: 220px;
       object-fit: contain;
-      object-position: center;
       background-color: #f0f0f0;
     }
     .item p {
@@ -62,6 +61,18 @@
       color: white;
       text-align: center;
       font-weight: 600;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+    ul li {
+      padding: 10px 0;
+      border-bottom: 1px solid #e5e7eb;
+      font-size: 16px;
+      text-align: center;
     }
     .overlay {
       position: fixed;
@@ -77,7 +88,6 @@
       color: white;
       padding: 40px;
       padding-bottom: 120px;
-      box-sizing: border-box;
       z-index: 9999;
     }
     .overlay img,
@@ -102,12 +112,6 @@
       border: none;
       color: white;
       cursor: pointer;
-    }
-    .overlay a {
-      margin-top: 16px;
-      margin-bottom: 80px;
-      color: #4cc9f0;
-      text-decoration: underline;
     }
     .form {
       margin-top: 50px;
@@ -165,6 +169,19 @@
       box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.1);
       z-index: 10000;
     }
+    .button-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 20px;
+      background: #2563eb;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+    .button-link:hover {
+      background: #1e40af;
+    }
     #successMessage {
       position: fixed;
       top: 0;
@@ -180,19 +197,14 @@
       z-index: 10001;
       user-select: none;
     }
-    @media (max-width: 500px) {
-      .item img {
-        height: 180px;
-      }
-    }
   </style>
 </head>
 <body>
 
 <h1>Über mich!</h1>
-<p>Auf dieser Seite erfährst du noch mehr über mich und meine Interessen.</p>
+<p>Auf dieser Seite erfährst du mehr über mich, meine Interessen und warum ich Mediamatiker werden will.</p>
 
-<!-- Interaktive Interessen -->
+<!-- Interessen -->
 <div class="container">
   <div class="item" onclick="openOverlay('images/Grizzlys.png', 'Ich spiele seit ca. 4 Jahren leidenschaftlich Unihockey beim Club Unihockey am Greifensee Grizzlys. Zusätzlich bin ich dort seit einem Jahr auch als Trainer aktiv.', 'docs/Nachweis Freiwilligenarbeit Levin Nigg (Grizzlys).pdf', '📄 (Nachweis Freiwilligenarbeit als Trainer) öffnen')">
     <img src="images/Sporthobbys.png" alt="Sporthobbys" />
@@ -202,7 +214,7 @@
     <img src="images/Freizeit.png" alt="Freizeit" />
     <p>Freizeit</p>
   </div>
-  <div class="item" onclick="openOverlay('images/u3.png', 'Ich habe mich auch schon immer sehr für das Erstellen von Filmen, das Bearbeiten von Bildern, das Erstellen von Designs (z.B. Trikot für den Unihockeyverein) interessiert.')">
+  <div class="item" onclick="openOverlay('images/u3.png', 'Ich habe mich auch schon immer sehr für das Erstellen von Filmen, das Bearbeiten von Bildern und das Erstellen von Designs interessiert.')">
     <img src="images/Mediamatiker.png" alt="Warum Mediamatiker" />
     <p>Warum Mediamatiker?</p>
   </div>
@@ -212,7 +224,7 @@
   </div>
 </div>
 
-<!-- NEU: Projekte -->
+<!-- Projekte -->
 <h2>📁 Meine Projekte</h2>
 <div class="container">
   <div class="item" onclick="openOverlay('images/trikot.png', 'Mein eigenes Trikot-Design für meinen Unihockey-Verein. Erstellt mit Canva und Affinity Designer.')">
@@ -229,24 +241,33 @@
   </div>
 </div>
 
-<!-- NEU: Feedback -->
-<h2>💬 Feedback</h2>
-<div class="container">
-  <div class="item">
-    <p>„Levin zeigt eine grosse Eigeninitiative und Kreativität. Besonders in Medienprojekten arbeitet er sehr sorgfältig und mit viel Begeisterung.“<br><br>– Lehrer (Informatik/TTG)</p>
-  </div>
-  <div class="item">
-    <p>„Levin übernimmt im Training Verantwortung und hat einen tollen Umgang mit den Kindern.“<br><br>– Vereinsleitung Grizzlys</p>
-  </div>
-</div>
+<!-- Inspiration -->
+<h2>🚀 Meine Inspiration</h2>
+<p>Ich liebe es, mit digitalen Medien kreativ zu sein. Besonders inspiriert mich, wie man mit Design, Code und Technik gemeinsam etwas Neues erschaffen kann. Genau das möchte ich lernen – und später selbst einsetzen.</p>
 
-<!-- Optional: PDF-Link -->
+<!-- Wie ich arbeite -->
+<h2>🛠️ Wie ich arbeite</h2>
+<ul>
+  <li><strong>🔍 Sorgfältig:</strong> Ich achte auf Details und arbeite genau.</li>
+  <li><strong>🤝 Teamfähig:</strong> Ich arbeite gerne mit anderen zusammen und unterstütze aktiv.</li>
+  <li><strong>🎯 Zielstrebig:</strong> Ich gebe nicht auf, wenn etwas schwierig wird.</li>
+</ul>
+
+<!-- Ideen -->
+<h2>💡 Ideen, die ich umsetzen möchte</h2>
+<ul>
+  <li>Eine eigene Website über Unihockey</li>
+  <li>Ein Logo für meinen Verein gestalten</li>
+  <li>Ein Video über meinen Weg zum Mediamatiker schneiden</li>
+</ul>
+
+<!-- PDF Download -->
 <div style="text-align:center; margin-top: 40px;">
   <a href="docs/Levin_Nigg_Bewerbung.pdf" class="button-link">📄 Lebenslauf & Bewerbung als PDF</a>
 </div>
 
-<!-- Overlay + JS -->
-<div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="overlayText">
+<!-- Overlay -->
+<div id="overlay" class="overlay">
   <button class="close-btn" onclick="closeOverlay()" aria-label="Overlay schließen">×</button>
   <img id="overlayImg" src="" alt="Overlay Bild" />
   <video id="overlayVideo" controls style="display:none;"></video>
@@ -254,30 +275,26 @@
   <a id="overlayDoc" href="" target="_blank" style="display:none;"></a>
 </div>
 
-<div id="successMessage">Deine Nachricht wurde versendet ✅</div>
-
 <!-- Kontaktformular -->
+<div id="successMessage">Deine Nachricht wurde versendet ✅</div>
 <div class="form">
   <p>Hast du noch Fragen an mich?</p>
   <form action="https://formspree.io/f/mwpojakl" method="POST" id="contactForm">
     <input type="text" name="name" placeholder="Name" required />
     <input type="email" name="email" placeholder="Email" required />
     <textarea name="message" placeholder="Nachricht" required></textarea>
-
     <p style="font-size: 14px; color: #6b7280; max-width: 500px; margin: 10px auto;">
       Mit dem Absenden erklärst du dich mit der Verarbeitung deiner Daten gemäß der
-      <a href="https://formspree.io/legal/privacy-policy/" target="_blank" style="color: #2563eb; text-decoration: underline;">Datenschutzerklärung von Formspree</a> einverstanden.
+      <a href="https://formspree.io/legal/privacy-policy/" target="_blank">Datenschutzerklärung von Formspree</a> einverstanden.
     </p>
-
     <button type="submit">Abschicken</button>
   </form>
 </div>
 
-<a href="index.html" class="back-link" aria-label="Zurück zur Startseite">← Zurück zur Startseite</a>
+<a href="index.html" class="back-link">← Zurück zur Startseite</a>
 
 <script>
   function openOverlay(imageSrc, text, docLink = "", docText = "") {
-    const overlay = document.getElementById("overlay");
     document.getElementById("overlayImg").src = imageSrc;
     document.getElementById("overlayImg").style.display = "block";
     document.getElementById("overlayVideo").style.display = "none";
@@ -292,25 +309,23 @@
       doc.style.display = "none";
     }
 
-    overlay.style.display = "flex";
+    document.getElementById("overlay").style.display = "flex";
     document.body.style.overflow = "hidden";
   }
 
   function openOverlayVideo(videoSrc, text) {
-    const overlay = document.getElementById("overlay");
     document.getElementById("overlayImg").style.display = "none";
     const video = document.getElementById("overlayVideo");
     video.src = videoSrc;
     video.style.display = "block";
     document.getElementById("overlayText").textContent = text;
     document.getElementById("overlayDoc").style.display = "none";
-    overlay.style.display = "flex";
+    document.getElementById("overlay").style.display = "flex";
     document.body.style.overflow = "hidden";
   }
 
   function closeOverlay() {
-    const overlay = document.getElementById("overlay");
-    overlay.style.display = "none";
+    document.getElementById("overlay").style.display = "none";
     document.body.style.overflow = "auto";
     const video = document.getElementById("overlayVideo");
     video.pause();
@@ -324,13 +339,7 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      if (!form.name.value.trim() || !form.email.value.trim() || !form.message.value.trim()) {
-        alert('Bitte fülle alle Felder aus.');
-        return;
-      }
-
       const data = new FormData(form);
-
       try {
         const response = await fetch(form.action, {
           method: 'POST',
@@ -348,7 +357,7 @@
           alert('Fehler beim Senden. Bitte versuche es später nochmal.');
         }
       } catch (error) {
-        alert('Fehler beim Senden. Bitte prüfe deine Internetverbindung und versuche es erneut.');
+        alert('Fehler beim Senden. Bitte prüfe deine Internetverbindung.');
       }
     });
   });
