@@ -142,36 +142,6 @@
       resize: vertical;
     }
 
-   .checkbox-field {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-top: 20px;
-  font-size: 14px;
-  color: #444;
-  text-align: left;
-  line-height: 1.5;
-  padding: 10px 0; /* sorgt für mehr Luft oben/unten */
-}
-
-.checkbox-field span {
-  display: block;
-  max-width: 100%;
-  line-height: 1.6;
-}
-
-.checkbox-field input[type="checkbox"] {
-  margin-top: 4px;
-  transform: scale(1.2);
-  flex-shrink: 0;
-}
-
-.checkbox-field a {
-  color: #2563eb;
-  text-decoration: underline;
-}
-
-
     .form button {
       padding: 12px 25px;
       background-color: #2563eb;
@@ -228,15 +198,6 @@
       .item img {
         height: 180px;
       }
-
-      .checkbox-field {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .checkbox-field span {
-        max-width: 100%;
-      }
     }
   </style>
 </head>
@@ -280,17 +241,6 @@
     <input type="text" name="name" placeholder="Name" required />
     <input type="email" name="email" placeholder="Email" required />
     <textarea name="message" placeholder="Nachricht" required></textarea>
-
-  <label class="checkbox-field">
-  <input type="checkbox" name="privacy" required />
-  <span>
-    Ich stimme zu, dass meine Nachricht über Formspree verarbeitet wird.
-    Weitere Infos findest du in deren
-    <a href="https://formspree.io/legal/privacy-policy/" target="_blank">Datenschutzrichtlinie</a>.
-  </span>
-</label>
-
-
     <button type="submit">Abschicken</button>
   </form>
 </div>
@@ -345,8 +295,8 @@
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    if (!form.name.value.trim() || !form.email.value.trim() || !form.message.value.trim() || !form.privacy.checked) {
-      alert('Bitte fülle alle Felder aus und stimme der Datenschutzerklärung zu.');
+    if (!form.name.value.trim() || !form.email.value.trim() || !form.message.value.trim()) {
+      alert('Bitte fülle alle Felder aus.');
       return;
     }
 
@@ -376,3 +326,4 @@
 
 </body>
 </html>
+
