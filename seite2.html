@@ -20,6 +20,11 @@
       color: #2563eb;
       margin-bottom: 20px;
     }
+    h2 {
+      text-align: center;
+      color: #2563eb;
+      margin: 50px 0 20px;
+    }
     p {
       text-align: center;
       max-width: 700px;
@@ -187,6 +192,7 @@
 <h1>Über mich!</h1>
 <p>Auf dieser Seite erfährst du noch mehr über mich und meine Interessen.</p>
 
+<!-- Interaktive Interessen -->
 <div class="container">
   <div class="item" onclick="openOverlay('images/Grizzlys.png', 'Ich spiele seit ca. 4 Jahren leidenschaftlich Unihockey beim Club Unihockey am Greifensee Grizzlys. Zusätzlich bin ich dort seit einem Jahr auch als Trainer aktiv.', 'docs/Nachweis Freiwilligenarbeit Levin Nigg (Grizzlys).pdf', '📄 (Nachweis Freiwilligenarbeit als Trainer) öffnen')">
     <img src="images/Sporthobbys.png" alt="Sporthobbys" />
@@ -206,6 +212,40 @@
   </div>
 </div>
 
+<!-- NEU: Projekte -->
+<h2>📁 Meine Projekte</h2>
+<div class="container">
+  <div class="item" onclick="openOverlay('images/trikot.png', 'Mein eigenes Trikot-Design für meinen Unihockey-Verein. Erstellt mit Canva und Affinity Designer.')">
+    <img src="images/trikot.png" alt="Trikot" />
+    <p>Trikot-Design</p>
+  </div>
+  <div class="item" onclick="openOverlay('images/video-editor.png', 'Ein Screenshot von meinem Videoschnitt-Projekt mit DaVinci Resolve.')">
+    <img src="images/video-editor.png" alt="Videoschnitt" />
+    <p>Videoschnitt</p>
+  </div>
+  <div class="item" onclick="openOverlay('images/webprojekt.png', 'Eine einfache Website, die ich selbst mit HTML & CSS erstellt habe.')">
+    <img src="images/webprojekt.png" alt="Webprojekt" />
+    <p>Eigene Website</p>
+  </div>
+</div>
+
+<!-- NEU: Feedback -->
+<h2>💬 Feedback</h2>
+<div class="container">
+  <div class="item">
+    <p>„Levin zeigt eine grosse Eigeninitiative und Kreativität. Besonders in Medienprojekten arbeitet er sehr sorgfältig und mit viel Begeisterung.“<br><br>– Lehrer (Informatik/TTG)</p>
+  </div>
+  <div class="item">
+    <p>„Levin übernimmt im Training Verantwortung und hat einen tollen Umgang mit den Kindern.“<br><br>– Vereinsleitung Grizzlys</p>
+  </div>
+</div>
+
+<!-- Optional: PDF-Link -->
+<div style="text-align:center; margin-top: 40px;">
+  <a href="docs/Levin_Nigg_Bewerbung.pdf" class="button-link">📄 Lebenslauf & Bewerbung als PDF</a>
+</div>
+
+<!-- Overlay + JS -->
 <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="overlayText">
   <button class="close-btn" onclick="closeOverlay()" aria-label="Overlay schließen">×</button>
   <img id="overlayImg" src="" alt="Overlay Bild" />
@@ -216,6 +256,7 @@
 
 <div id="successMessage">Deine Nachricht wurde versendet ✅</div>
 
+<!-- Kontaktformular -->
 <div class="form">
   <p>Hast du noch Fragen an mich?</p>
   <form action="https://formspree.io/f/mwpojakl" method="POST" id="contactForm">
@@ -223,7 +264,6 @@
     <input type="email" name="email" placeholder="Email" required />
     <textarea name="message" placeholder="Nachricht" required></textarea>
 
-    <!-- ✅ Datenschutzhinweis über dem Button -->
     <p style="font-size: 14px; color: #6b7280; max-width: 500px; margin: 10px auto;">
       Mit dem Absenden erklärst du dich mit der Verarbeitung deiner Daten gemäß der
       <a href="https://formspree.io/legal/privacy-policy/" target="_blank" style="color: #2563eb; text-decoration: underline;">Datenschutzerklärung von Formspree</a> einverstanden.
