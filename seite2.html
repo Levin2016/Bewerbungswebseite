@@ -242,14 +242,16 @@
     <input type="email" name="email" placeholder="Email" required />
     <textarea name="message" placeholder="Nachricht" required></textarea>
 
-<div style="text-align: left; margin-top: 10px;">
-  <label style="display: flex; align-items: flex-start; font-size: 14px;">
-    <input type="checkbox" id="privacyCheck" style="margin-right: 8px; margin-top: 3px;" required />
-    Ich stimme der <a href="https://formspree.io/legal/privacy-policy/" target="_blank" style="color: #2563eb; text-decoration: underline;">Datenschutzerklärung von Formspree</a> zu.
-  </label>
-</div>
+    <div style="text-align: left; margin-top: 10px;">
+      <label style="display: flex; align-items: flex-start; font-size: 14px;">
+        <input type="checkbox" id="privacyCheck" style="margin-right: 8px; margin-top: 3px;" required />
+        Ich stimme der <a href="https://formspree.io/legal/privacy-policy/" target="_blank" style="color: #2563eb; text-decoration: underline;">Datenschutzerklärung von Formspree</a> zu.
+      </label>
+    </div>
 
-<button type="submit">Abschicken</button>
+    <button type="submit">Abschicken</button>
+  </form>
+</div>
 
 
   </form>
@@ -303,14 +305,43 @@
   const successMessage = document.getElementById('successMessage');
 
   form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (!form.name.value.trim() || !form.email.value.trim() || !form.message.value.trim()) {
-      alert('Bitte fülle alle Felder aus.');
-      return;
+  const checkbox = document.getElementById('privacyCheck');
+
+  if (!form.name.value.trim() || !form.email.value.trim() || !form.message.value.trim()) {
+    alert('Bitte fülle alle Felder aus.');
+    return;
+  }
+
+  if (!checkbox.checked) {
+    alert('Bitte stimme der Datenschutzerklärung zu, bevor du fortfährst.');
+    return;
+  }
+
+  const data = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: data
+    });
+
+    if (response.ok) {
+      successMessage.style.display = 'block';
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+      }, 7000);
+      form.reset();
+    } else {
+      alert('Fehler beim Senden. Bitte versuche es später nochmal.');
     }
+  } catch (error) {
+    alert('Fehler beim Senden. Bitte prüfe deine Internetverbindung und versuche es erneut.');
+  }
+});
 
-    const data = new FormData(form);
 
     try {
       const response = await fetch(form.action, {
