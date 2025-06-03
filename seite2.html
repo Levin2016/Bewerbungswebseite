@@ -1,4 +1,4 @@
-<!<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
@@ -52,7 +52,7 @@
     .item img {
       width: 100%;
       height: 220px;
-      object-fit: cover;
+      object-fit: contain;
       object-position: center;
       background-color: #f0f0f0;
     }
@@ -79,6 +79,7 @@
       flex-direction: column;
       color: white;
       padding: 40px;
+      padding-bottom: 120px;
       box-sizing: border-box;
       z-index: 9999;
     }
@@ -106,6 +107,13 @@
       border: none;
       color: white;
       cursor: pointer;
+    }
+
+    .overlay a {
+      margin-top: 16px;
+      margin-bottom: 80px;
+      color: #4cc9f0;
+      text-decoration: underline;
     }
 
     .form {
@@ -153,20 +161,6 @@
       background-color: #1e3a8a;
     }
 
-    .form label {
-      display: flex;
-      align-items: center;
-      margin: 10px auto;
-      max-width: 500px;
-      font-size: 14px;
-      text-align: left;
-    }
-
-    .form input[type="checkbox"] {
-      margin-right: 10px;
-      width: auto;
-    }
-
     .back-link {
       position: fixed;
       bottom: 0;
@@ -200,15 +194,10 @@
       user-select: none;
     }
 
-    .privacy-policy {
-      max-width: 700px;
-      margin: 50px auto 0;
-      font-size: 14px;
-      color: #555;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    @media (max-width: 500px) {
+      .item img {
+        height: 180px;
+      }
     }
   </style>
 </head>
@@ -218,28 +207,30 @@
 <p>Auf dieser Seite erfährst du noch mehr über mich und meine Interessen.</p>
 
 <div class="container">
-  <div class="item" onclick="openOverlay('https://via.placeholder.com/400', 'Freizeit – ich liebe es, mit Freunden draußen unterwegs zu sein.')">
-    <img src="https://via.placeholder.com/400" alt="Freizeit" />
-    <p>Freizeit</p>
-  </div>
-  <div class="item" onclick="openOverlay('https://via.placeholder.com/400', 'Sporthobbys – besonders gerne spiele ich Fußball und gehe joggen.')">
-    <img src="https://via.placeholder.com/400" alt="Sporthobbys" />
+  <div class="item" onclick="openOverlay('images/Grizzlys.png', 'Ich spiele seit ca. 4 Jahren leidenschaftlich Unihockey beim Club Unihockey am Greifensee Grizzlys. Zusätzlich bin ich dort seit einem Jahr auch als Trainer aktiv.', 'docs/Nachweis Freiwilligenarbeit Levin Nigg (Grizzlys).pdf', '📄 (Nachweis Freiwilligenarbeit als Trainer) öffnen')">
+    <img src="images/Sporthobbys.png" alt="Sporthobbys" />
     <p>Sporthobbys</p>
   </div>
-  <div class="item" onclick="openOverlay('https://via.placeholder.com/400', 'Meine Lieblingsfilme sind vor allem Action und Comedy.')">
-    <img src="https://via.placeholder.com/400" alt="Lieblingsfilme" />
-    <p>Lieblingsfilme</p>
+  <div class="item" onclick="openOverlay('images/Freizeit.png', 'Ich liebe es, Filme zu schneiden und kreative Projekte umzusetzen.')">
+    <img src="images/Freizeit.png" alt="Freizeit" />
+    <p>Freizeit</p>
   </div>
-  <div class="item" onclick="openOverlay('https://via.placeholder.com/400', 'Mein Lieblingsessen ist Pizza 🍕.')">
-    <img src="https://via.placeholder.com/400" alt="Lieblingsessen" />
-    <p>Lieblingsessen</p>
+  <div class="item" onclick="openOverlay('images/u3.png', 'Ich habe mich auch schon immer sehr für das Erstellen von Filmen, das Bearbeiten von Bildern, das Erstellen von Designs (z.B. Trikot für den Unihockeyverein) interessiert.')">
+    <img src="images/Mediamatiker.png" alt="Warum Mediamatiker" />
+    <p>Warum Mediamatiker?</p>
+  </div>
+  <div class="item" onclick="openOverlayVideo('video/was_macht_mich_aus.mp4', 'Was macht mich aus?')">
+    <img src="images/levin_bild.png" alt="Levin im Video" />
+    <p>Was macht mich aus?</p>
   </div>
 </div>
 
 <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="overlayText">
   <button class="close-btn" onclick="closeOverlay()" aria-label="Overlay schließen">×</button>
   <img id="overlayImg" src="" alt="Overlay Bild" />
+  <video id="overlayVideo" controls style="display:none;"></video>
   <p id="overlayText"></p>
+  <a id="overlayDoc" href="" target="_blank" style="display:none;"></a>
 </div>
 
 <div id="successMessage">Deine Nachricht wurde versendet ✅</div>
@@ -250,26 +241,41 @@
     <input type="text" name="name" placeholder="Name" required />
     <input type="email" name="email" placeholder="Email" required />
     <textarea name="message" placeholder="Nachricht" required></textarea>
-    <label>
-      <input type="checkbox" name="privacy" id="privacyCheckbox" required />
-      Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.
-    </label>
     <button type="submit">Abschicken</button>
   </form>
-</div>
-
-<div class="privacy-policy">
-  <h2>Datenschutzerklärung</h2>
-  <p>Ich nehme den Schutz deiner persönlichen Daten sehr ernst. Deine personenbezogenen Daten werden vertraulich behandelt und ausschließlich zur Bearbeitung deiner Anfrage verwendet. Eine Weitergabe an Dritte erfolgt nicht ohne deine ausdrückliche Einwilligung. Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung oder Sperrung deiner Daten. Kontaktiere mich gerne über die bereitgestellten Kontaktmöglichkeiten, wenn du Fragen dazu hast.</p>
 </div>
 
 <a href="index.html" class="back-link" aria-label="Zurück zur Startseite">← Zurück zur Startseite</a>
 
 <script>
-  function openOverlay(imageSrc, text) {
+  function openOverlay(imageSrc, text, docLink = "", docText = "") {
     const overlay = document.getElementById("overlay");
     document.getElementById("overlayImg").src = imageSrc;
+    document.getElementById("overlayImg").style.display = "block";
+    document.getElementById("overlayVideo").style.display = "none";
     document.getElementById("overlayText").textContent = text;
+
+    const doc = document.getElementById("overlayDoc");
+    if (docLink) {
+      doc.href = docLink;
+      doc.textContent = docText;
+      doc.style.display = "block";
+    } else {
+      doc.style.display = "none";
+    }
+
+    overlay.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
+
+  function openOverlayVideo(videoSrc, text) {
+    const overlay = document.getElementById("overlay");
+    document.getElementById("overlayImg").style.display = "none";
+    const video = document.getElementById("overlayVideo");
+    video.src = videoSrc;
+    video.style.display = "block";
+    document.getElementById("overlayText").textContent = text;
+    document.getElementById("overlayDoc").style.display = "none";
     overlay.style.display = "flex";
     document.body.style.overflow = "hidden";
   }
@@ -278,6 +284,9 @@
     const overlay = document.getElementById("overlay");
     overlay.style.display = "none";
     document.body.style.overflow = "auto";
+    const video = document.getElementById("overlayVideo");
+    video.pause();
+    video.currentTime = 0;
   }
 
   const form = document.getElementById('contactForm');
@@ -288,11 +297,6 @@
 
     if (!form.name.value.trim() || !form.email.value.trim() || !form.message.value.trim()) {
       alert('Bitte fülle alle Felder aus.');
-      return;
-    }
-
-    if (!form.privacy.checked) {
-      alert('Bitte akzeptiere die Datenschutzerklärung.');
       return;
     }
 
