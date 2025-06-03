@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
@@ -52,7 +52,7 @@
     .item img {
       width: 100%;
       height: 220px;
-      object-fit: contain;
+      object-fit: cover;
       object-position: center;
       background-color: #f0f0f0;
     }
@@ -79,7 +79,6 @@
       flex-direction: column;
       color: white;
       padding: 40px;
-      padding-bottom: 120px;
       box-sizing: border-box;
       z-index: 9999;
     }
@@ -107,13 +106,6 @@
       border: none;
       color: white;
       cursor: pointer;
-    }
-
-    .overlay a {
-      margin-top: 16px;
-      margin-bottom: 80px;
-      color: #4cc9f0;
-      text-decoration: underline;
     }
 
     .form {
@@ -218,12 +210,6 @@
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
-
-    @media (max-width: 500px) {
-      .item img {
-        height: 180px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -232,15 +218,28 @@
 <p>Auf dieser Seite erfährst du noch mehr über mich und meine Interessen.</p>
 
 <div class="container">
-  <!-- Container Inhalte wie vorher -->
+  <div class="item" onclick="openOverlay('https://via.placeholder.com/400', 'Freizeit – ich liebe es, mit Freunden draußen unterwegs zu sein.')">
+    <img src="https://via.placeholder.com/400" alt="Freizeit" />
+    <p>Freizeit</p>
+  </div>
+  <div class="item" onclick="openOverlay('https://via.placeholder.com/400', 'Sporthobbys – besonders gerne spiele ich Fußball und gehe joggen.')">
+    <img src="https://via.placeholder.com/400" alt="Sporthobbys" />
+    <p>Sporthobbys</p>
+  </div>
+  <div class="item" onclick="openOverlay('https://via.placeholder.com/400', 'Meine Lieblingsfilme sind vor allem Action und Comedy.')">
+    <img src="https://via.placeholder.com/400" alt="Lieblingsfilme" />
+    <p>Lieblingsfilme</p>
+  </div>
+  <div class="item" onclick="openOverlay('https://via.placeholder.com/400', 'Mein Lieblingsessen ist Pizza 🍕.')">
+    <img src="https://via.placeholder.com/400" alt="Lieblingsessen" />
+    <p>Lieblingsessen</p>
+  </div>
 </div>
 
 <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="overlayText">
   <button class="close-btn" onclick="closeOverlay()" aria-label="Overlay schließen">×</button>
   <img id="overlayImg" src="" alt="Overlay Bild" />
-  <video id="overlayVideo" controls style="display:none;"></video>
   <p id="overlayText"></p>
-  <a id="overlayDoc" href="" target="_blank" style="display:none;"></a>
 </div>
 
 <div id="successMessage">Deine Nachricht wurde versendet ✅</div>
@@ -267,34 +266,10 @@
 <a href="index.html" class="back-link" aria-label="Zurück zur Startseite">← Zurück zur Startseite</a>
 
 <script>
-  function openOverlay(imageSrc, text, docLink = "", docText = "") {
+  function openOverlay(imageSrc, text) {
     const overlay = document.getElementById("overlay");
     document.getElementById("overlayImg").src = imageSrc;
-    document.getElementById("overlayImg").style.display = "block";
-    document.getElementById("overlayVideo").style.display = "none";
     document.getElementById("overlayText").textContent = text;
-
-    const doc = document.getElementById("overlayDoc");
-    if (docLink) {
-      doc.href = docLink;
-      doc.textContent = docText;
-      doc.style.display = "block";
-    } else {
-      doc.style.display = "none";
-    }
-
-    overlay.style.display = "flex";
-    document.body.style.overflow = "hidden";
-  }
-
-  function openOverlayVideo(videoSrc, text) {
-    const overlay = document.getElementById("overlay");
-    document.getElementById("overlayImg").style.display = "none";
-    const video = document.getElementById("overlayVideo");
-    video.src = videoSrc;
-    video.style.display = "block";
-    document.getElementById("overlayText").textContent = text;
-    document.getElementById("overlayDoc").style.display = "none";
     overlay.style.display = "flex";
     document.body.style.overflow = "hidden";
   }
@@ -303,9 +278,6 @@
     const overlay = document.getElementById("overlay");
     overlay.style.display = "none";
     document.body.style.overflow = "auto";
-    const video = document.getElementById("overlayVideo");
-    video.pause();
-    video.currentTime = 0;
   }
 
   const form = document.getElementById('contactForm');
@@ -350,5 +322,3 @@
 
 </body>
 </html>
-
-
