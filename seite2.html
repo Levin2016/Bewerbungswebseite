@@ -70,34 +70,48 @@
       justify-content: center;
       align-items: center;
       z-index: 9999;
+      overflow: auto;
     }
 
-    .overlay-content {
+    .overlay-inner {
       position: relative;
-      background: transparent;
       max-width: 90%;
       max-height: 90vh;
-      overflow-y: auto;
-      overflow-x: hidden;
+      background: transparent;
+      overflow: hidden;
       padding: 20px;
-      text-align: center;
       box-sizing: border-box;
     }
 
-    .overlay img,
-    .overlay video {
+    .overlay-content {
+      overflow-y: auto;
+      max-height: 80vh;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .overlay-content img,
+    .overlay-content video {
       width: 100%;
-      max-height: 70vh;
+      max-height: 60vh;
       object-fit: contain;
       border-radius: 12px;
       margin-bottom: 20px;
     }
 
-    .overlay p {
+    .overlay-content p {
       color: white;
       font-size: 18px;
       max-width: 700px;
       margin: 10px auto;
+    }
+
+    .overlay-content a {
+      color: #4cc9f0;
+      display: block;
+      margin-top: 12px;
+      font-weight: 600;
+      text-decoration: underline;
     }
 
     .close-btn {
@@ -109,23 +123,7 @@
       background: none;
       border: none;
       cursor: pointer;
-    }
-
-    .back-link {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      text-align: center;
-      font-weight: 600;
-      color: #2563eb;
-      text-decoration: none;
-      user-select: none;
-      font-size: 18px;
-      background: white;
-      padding: 10px 0;
-      box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.1);
-      z-index: 10000;
+      z-index: 10001;
     }
 
     .form {
@@ -173,6 +171,23 @@
       background-color: #1e3a8a;
     }
 
+    .back-link {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-weight: 600;
+      color: #2563eb;
+      text-decoration: none;
+      user-select: none;
+      font-size: 18px;
+      background: white;
+      padding: 10px 0;
+      box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.1);
+      z-index: 10000;
+    }
+
     #successMessage {
       position: fixed;
       top: 0;
@@ -214,18 +229,20 @@
   </div>
 </div>
 
-<!-- Overlay -->
+<!-- ✅ Overlay mit Scroll-Funktion -->
 <div id="overlay" class="overlay" onclick="handleOverlayClick(event)">
-  <div class="overlay-content">
+  <div class="overlay-inner">
     <button class="close-btn" onclick="closeOverlay()">×</button>
-    <img id="overlayImg" src="" alt="Overlay Bild" />
-    <video id="overlayVideo" controls style="display:none;"></video>
-    <p id="overlayText"></p>
-    <a id="overlayDoc" href="" target="_blank" style="display:none;"></a>
+    <div class="overlay-content">
+      <img id="overlayImg" src="" alt="Overlay Bild" />
+      <video id="overlayVideo" controls style="display:none;"></video>
+      <p id="overlayText"></p>
+      <a id="overlayDoc" href="" target="_blank" style="display:none;"></a>
+    </div>
   </div>
 </div>
 
-<!-- Formular -->
+<!-- ✅ Formular -->
 <div id="successMessage">Deine Nachricht wurde versendet ✅</div>
 <div class="form">
   <p>Hast du noch Fragen an mich?</p>
@@ -243,6 +260,7 @@
 
 <a href="index.html" class="back-link">← Zurück zur Startseite</a>
 
+<!-- ✅ JS für Overlay -->
 <script>
   function openOverlay(imageSrc, text, docLink = "", docText = "") {
     document.getElementById("overlayImg").src = imageSrc;
