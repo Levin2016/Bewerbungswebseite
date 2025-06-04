@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>Meine Arbeiten – Levin Nigg</title>
+  <title>Levin interaktiv – Meine Stärken</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
@@ -11,99 +11,125 @@
       background-color: #f9fafb;
       color: #1f2937;
       margin: 0;
-      padding: 20px;
-    }
-    h1 {
+      padding: 40px 20px;
       text-align: center;
-      color: #2563eb;
-      margin-bottom: 40px;
     }
+
+    h1 {
+      color: #2563eb;
+      margin-bottom: 30px;
+    }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
       max-width: 1000px;
       margin: 0 auto;
     }
+
     .card {
       background: white;
       border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-      overflow: hidden;
-      transition: transform 0.3s ease;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+      perspective: 1000px;
       cursor: pointer;
     }
-    .card:hover {
-      transform: scale(1.03);
+
+    .inner {
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      position: relative;
+      height: 260px;
+      border-radius: 12px;
     }
-    .card img {
+
+    .card.flipped .inner {
+      transform: rotateY(180deg);
+    }
+
+    .front, .back {
+      position: absolute;
+      backface-visibility: hidden;
+      border-radius: 12px;
       width: 100%;
-      height: 180px;
-      object-fit: cover;
-      background-color: #f0f0f0;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
     }
-    .card .content {
-      padding: 16px;
-    }
-    .card h3 {
-      margin: 0 0 10px;
-      color: #2563eb;
-    }
-    .card p {
-      margin: 0;
-      font-size: 14px;
-      color: #4b5563;
-    }
-    .back-link {
-      display: block;
-      text-align: center;
-      margin: 40px 0 10px;
+
+    .front {
+      background: #2563eb;
+      color: white;
       font-weight: 600;
+      font-size: 20px;
+    }
+
+    .back {
+      background: #f1f5f9;
+      color: #1f2937;
+      transform: rotateY(180deg);
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .back-link {
+      margin-top: 40px;
+      display: inline-block;
       color: #2563eb;
+      font-weight: 600;
       text-decoration: none;
       font-size: 16px;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-<h1>📁 Meine Arbeiten</h1>
+<h1>🎯 Klick dich durch meine Stärken!</h1>
+<p>Klick auf eine Karte und erfahre, was mich auszeichnet:</p>
 
 <div class="grid">
-  <div class="card">
-    <img src="images/trikot.png" alt="Trikot Design" />
-    <div class="content">
-      <h3>Trikot-Design</h3>
-      <p>Für meinen Unihockey-Verein habe ich ein eigenes Trikot gestaltet – mit Farben, Typografie und Vereinslogo.</p>
+  <div class="card" onclick="this.classList.toggle('flipped')">
+    <div class="inner">
+      <div class="front">💡 Kreativität</div>
+      <div class="back">Ich liebe es, Ideen umzusetzen – vom Video bis zum Trikot-Design.</div>
     </div>
   </div>
 
-  <div class="card">
-    <img src="images/video-editor.png" alt="Videoschnitt-Projekt" />
-    <div class="content">
-      <h3>Videoschnitt</h3>
-      <p>Ich habe ein Trainings-Video mit Musik und Übergängen erstellt, geschnitten mit DaVinci Resolve.</p>
+  <div class="card" onclick="this.classList.toggle('flipped')">
+    <div class="inner">
+      <div class="front">🛠️ Technik-Verständnis</div>
+      <div class="back">Ich verstehe schnell, wie Software und Systeme funktionieren – und lerne gern Neues.</div>
     </div>
   </div>
 
-  <div class="card">
-    <img src="images/webprojekt.png" alt="Website-Projekt" />
-    <div class="content">
-      <h3>Eigene Website</h3>
-      <p>Diese HTML-Seite ist Teil meiner Bewerbung – selbst gestaltet und programmiert mit HTML & CSS.</p>
+  <div class="card" onclick="this.classList.toggle('flipped')">
+    <div class="inner">
+      <div class="front">🤝 Teamfähigkeit</div>
+      <div class="back">Im Verein als Trainer und in der Schule arbeite ich gern mit anderen zusammen.</div>
     </div>
   </div>
 
-  <div class="card">
-    <img src="images/affinity.png" alt="Grafikprojekt" />
-    <div class="content">
-      <h3>Grafikprojekt</h3>
-      <p>Ein Plakat für die Schule, gestaltet mit Affinity Designer – Farbwahl, Bildbearbeitung und Typografie.</p>
+  <div class="card" onclick="this.classList.toggle('flipped')">
+    <div class="inner">
+      <div class="front">🎬 Medien-Begeisterung</div>
+      <div class="back">Ob Website, Video oder Gestaltung – ich will lernen, wie es geht, und es selbst machen.</div>
     </div>
   </div>
 </div>
 
 <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+
+<script>
+  // Kein JS nötig – Flip per CSS + class
+</script>
 
 </body>
 </html>
