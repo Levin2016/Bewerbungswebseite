@@ -213,10 +213,17 @@
 <script>
   const correctCode = "528392";
 
+  // Prüfen ob Code schon eingegeben wurde
+  if (sessionStorage.getItem("access_granted") === "true") {
+    document.getElementById("lockscreen").style.display = "none";
+    document.getElementById("pageContent").style.display = "block";
+  }
+
   function checkCode() {
     const input = document.getElementById("codeInput").value;
     const error = document.getElementById("errorMsg");
     if (input === correctCode) {
+      sessionStorage.setItem("access_granted", "true");
       document.getElementById("lockscreen").style.display = "none";
       document.getElementById("pageContent").style.display = "block";
       error.textContent = "";
@@ -225,6 +232,3 @@
     }
   }
 </script>
-
-</body>
-</html>
