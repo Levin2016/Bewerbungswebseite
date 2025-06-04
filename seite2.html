@@ -71,20 +71,7 @@
       font-weight: 600;
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
-      max-width: 700px;
-      margin: 0 auto 40px;
-    }
-
-    ul li {
-      padding: 10px 0;
-      border-bottom: 1px solid #e5e7eb;
-      font-size: 16px;
-      text-align: center;
-    }
-
+    /* Overlay komplett */
     .overlay {
       position: fixed;
       top: 0;
@@ -95,15 +82,22 @@
       display: none;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      color: white;
-      padding: 40px;
       z-index: 9999;
+    }
+
+    .overlay-content {
+      position: relative;
+      background: transparent;
+      max-width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 20px;
+      text-align: center;
     }
 
     .overlay img,
     .overlay video {
-      max-width: 90%;
+      width: 100%;
       max-height: 70vh;
       object-fit: contain;
       border-radius: 12px;
@@ -111,19 +105,20 @@
     }
 
     .overlay p {
+      color: white;
       font-size: 18px;
       max-width: 700px;
-      text-align: center;
+      margin: 10px auto;
     }
 
-    .overlay .close-btn {
+    .close-btn {
       position: absolute;
-      top: 20px;
-      right: 30px;
+      top: 10px;
+      right: 20px;
       font-size: 32px;
+      color: white;
       background: none;
       border: none;
-      color: white;
       cursor: pointer;
     }
 
@@ -211,7 +206,6 @@
 <h1>Über mich!</h1>
 <p>Auf dieser Seite erfährst du mehr über mich, meine Interessen und warum ich Mediamatiker werden will.</p>
 
-<!-- Interessen -->
 <div class="container">
   <div class="item" onclick="openOverlay('images/Grizzlys.png', 'Ich spiele seit ca. 4 Jahren leidenschaftlich Unihockey beim Club Unihockey am Greifensee Grizzlys. Zusätzlich bin ich dort seit einem Jahr auch als Trainer aktiv.', 'docs/Nachweis Freiwilligenarbeit Levin Nigg (Grizzlys).pdf', '📄 (Nachweis Freiwilligenarbeit als Trainer) öffnen')">
     <img src="images/Sporthobbys.png" alt="Sporthobbys" />
@@ -221,7 +215,7 @@
     <img src="images/Freizeit.png" alt="Freizeit" />
     <p>Freizeit</p>
   </div>
-  <div class="item" onclick="openOverlay('images/u3.png', 'Ich habe mich auch schon immer sehr für das Erstellen von Filmen, das Bearbeiten von Bildern und das Erstellen von Designs interessiert.')">
+  <div class="item" onclick="openOverlay('images/u3.png', 'Ich interessiere mich für Film, Bildbearbeitung und Design.')">
     <img src="images/Mediamatiker.png" alt="Warum Mediamatiker" />
     <p>Warum Mediamatiker?</p>
   </div>
@@ -231,30 +225,15 @@
   </div>
 </div>
 
-<!-- Projekte -->
-<h2>📁 Meine Projekte</h2>
-<div class="container">
-  <div class="item" onclick="openOverlay('images/trikot.png', 'Mein eigenes Trikot-Design für meinen Unihockey-Verein. Erstellt mit Canva und Affinity Designer.')">
-    <img src="images/trikot.png" alt="Trikot" />
-    <p>Trikot-Design</p>
-  </div>
-  <div class="item" onclick="openOverlay('images/video-editor.png', 'Ein Screenshot von meinem Videoschnitt-Projekt mit DaVinci Resolve.')">
-    <img src="images/video-editor.png" alt="Videoschnitt" />
-    <p>Videoschnitt</p>
-  </div>
-  <div class="item" onclick="openOverlay('images/webprojekt.png', 'Eine einfache Website, die ich selbst mit HTML & CSS erstellt habe.')">
-    <img src="images/webprojekt.png" alt="Webprojekt" />
-    <p>Eigene Website</p>
-  </div>
-</div>
-
 <!-- Overlay -->
 <div id="overlay" class="overlay" onclick="handleOverlayClick(event)">
-  <button class="close-btn" onclick="closeOverlay()">×</button>
-  <img id="overlayImg" src="" alt="Overlay Bild" />
-  <video id="overlayVideo" controls style="display:none;"></video>
-  <p id="overlayText"></p>
-  <a id="overlayDoc" href="" target="_blank" style="display:none;"></a>
+  <div class="overlay-content">
+    <button class="close-btn" onclick="closeOverlay()">×</button>
+    <img id="overlayImg" src="" alt="Overlay Bild" />
+    <video id="overlayVideo" controls style="display:none;"></video>
+    <p id="overlayText"></p>
+    <a id="overlayDoc" href="" target="_blank" style="display:none;"></a>
+  </div>
 </div>
 
 <!-- Kontaktformular -->
@@ -278,6 +257,7 @@
 <script>
   function openOverlay(imageSrc, text, docLink = "", docText = "") {
     const overlay = document.getElementById("overlay");
+    const content = document.querySelector(".overlay-content");
     document.getElementById("overlayImg").src = imageSrc;
     document.getElementById("overlayImg").style.display = "block";
     document.getElementById("overlayVideo").style.display = "none";
