@@ -96,6 +96,35 @@
       border-radius: 8px;
     }
 
+    /* Passwortbereich */
+    #lockscreen {
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    #lockscreen input {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    #lockscreen button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+
+    #lockscreen button:hover {
+      background-color: #1e40af;
+    }
+
     @media (max-width: 600px) {
       body {
         padding: 12px;
@@ -109,62 +138,93 @@
 </head>
 <body>
 
-<header>
-  <h1>Levin Nigg</h1>
-  <p>Mediamatik-Interessierter Schüler – 14 Jahre – Schweiz</p>
-  <img src="images/levin_bild.png" alt="Mein Bewerbungsfoto">
-</header>
+<!-- 🔐 Sicherungscode-Abfrage -->
+<div id="lockscreen">
+  <h2>🔒 Zugang gesichert</h2>
+  <p>Bitte gib den Sicherungscode ein, um die Bewerbung zu sehen:</p>
+  <input type="password" id="codeInput" placeholder="Sicherungscode eingeben">
+  <br>
+  <button onclick="checkCode()">🔓 Entsperren</button>
+  <p id="errorMsg" style="color: red; margin-top: 10px;"></p>
+</div>
 
-<section>
-  <h2>Über mich</h2>
-  <p>Ich bin Levin Nigg, 14 Jahre alt, kreativ, technisch interessiert und begeistert von Design, Webentwicklung und Medien. Mein Berufsziel ist Mediamatiker – weil ich Technik mit Kreativität verbinden will.</p>
-</section>
+<!-- 🔓 Inhalt der Bewerbung – wird erst angezeigt wenn Code korrekt -->
+<div id="pageContent" style="display:none;">
 
-<section>
-  <h2>Warum Mediamatiker?</h2>
-  <p>Ich interessiere mich schon lange für Technik, Computer und kreatives Gestalten. Mediamatik ist genau die Mischung, die zu mir passt – ich kann Websites bauen, Bilder bearbeiten, Videos schneiden und gleichzeitig lernen, wie digitale Kommunikation funktioniert.</p>
-</section>
+  <header>
+    <h1>Levin Nigg</h1>
+    <p>Mediamatik-Interessierter Schüler – 14 Jahre – Schweiz</p>
+    <img src="images/levin_bild.png" alt="Mein Bewerbungsfoto">
+  </header>
 
-<section>
-  <h2>Meine Stärken</h2>
-  <div class="grid">
-    <div class="card"><strong>Kreativität:</strong> Ich bringe gerne eigene Ideen ein.</div>
-    <div class="card"><strong>Technisches Verständnis:</strong> Ich verstehe schnell, wie Programme & Geräte funktionieren.</div>
-    <div class="card"><strong>Teamfähigkeit:</strong> Im Verein und in der Schule arbeite ich gern mit anderen.</div>
-  </div>
-</section>
+  <section>
+    <h2>Über mich</h2>
+    <p>Ich bin Levin Nigg, 14 Jahre alt, kreativ, technisch interessiert und begeistert von Design, Webentwicklung und Medien. Mein Berufsziel ist Mediamatiker – weil ich Technik mit Kreativität verbinden will.</p>
+  </section>
 
-<section>
-  <h2>Kenntnisse</h2>
-  <ul>
-    <li>Gestaltung (Privat & Schule)</li>
-    <li>Technisches Verständnis</li>
-    <li>Teamarbeit & Zuverlässigkeit</li>
-  </ul>
-</section>
+  <section>
+    <h2>Warum Mediamatiker?</h2>
+    <p>Ich interessiere mich schon lange für Technik, Computer und kreatives Gestalten. Mediamatik ist genau die Mischung, die zu mir passt – ich kann Websites bauen, Bilder bearbeiten, Videos schneiden und gleichzeitig lernen, wie digitale Kommunikation funktioniert.</p>
+  </section>
 
-<section>
-  <h2>Erfahrungen</h2>
-  <p>
-    <strong>Berufsmesse Zürich:</strong> November 2024<br>
-    <strong>Swisscom Schnupperlehre:</strong> März 2025
-  </p>
-</section>
+  <section>
+    <h2>Meine Stärken</h2>
+    <div class="grid">
+      <div class="card"><strong>Kreativität:</strong> Ich bringe gerne eigene Ideen ein.</div>
+      <div class="card"><strong>Technisches Verständnis:</strong> Ich verstehe schnell, wie Programme & Geräte funktionieren.</div>
+      <div class="card"><strong>Teamfähigkeit:</strong> Im Verein und in der Schule arbeite ich gern mit anderen.</div>
+    </div>
+  </section>
 
-<section>
-  <h2>Kontakt</h2>
-  <p>
-    📧 <a href="mailto:lev_nigg@volketswil.schule">lev_nigg@volketswil.schule</a><br>
-    📞 <a href="tel:+41445205498">044 520 54 98</a>
-  </p>
-</section>
+  <section>
+    <h2>Kenntnisse</h2>
+    <ul>
+      <li>Gestaltung (Privat & Schule)</li>
+      <li>Technisches Verständnis</li>
+      <li>Teamarbeit & Zuverlässigkeit</li>
+    </ul>
+  </section>
 
-<a class="button-link" href="seite2.html">✨ Erfahre mehr über mich</a>
-<a class="button-link" href="seite3.html">🖼️ Meine Arbeiten ansehen</a>
+  <section>
+    <h2>Erfahrungen</h2>
+    <p>
+      <strong>Berufsmesse Zürich:</strong> November 2024<br>
+      <strong>Swisscom Schnupperlehre:</strong> März 2025
+    </p>
+  </section>
 
-<footer>
-  © 2025 Levin Nigg – Danke fürs Vorbeischauen!
-</footer>
+  <section>
+    <h2>Kontakt</h2>
+    <p>
+      📧 <a href="mailto:lev_nigg@volketswil.schule">lev_nigg@volketswil.schule</a><br>
+      📞 <a href="tel:+41445205498">044 520 54 98</a>
+    </p>
+  </section>
+
+  <a class="button-link" href="seite2.html">✨ Erfahre mehr über mich</a>
+  <a class="button-link" href="seite3.html">🖼️ Meine Arbeiten ansehen</a>
+
+  <footer>
+    © 2025 Levin Nigg – Danke fürs Vorbeischauen!
+  </footer>
+
+</div>
+
+<script>
+  const correctCode = "528392";
+
+  function checkCode() {
+    const input = document.getElementById("codeInput").value;
+    const error = document.getElementById("errorMsg");
+    if (input === correctCode) {
+      document.getElementById("lockscreen").style.display = "none";
+      document.getElementById("pageContent").style.display = "block";
+      error.textContent = "";
+    } else {
+      error.textContent = "❌ Falscher Code. Bitte versuche es erneut.";
+    }
+  }
+</script>
 
 </body>
 </html>
