@@ -22,18 +22,6 @@
       margin-bottom: 20px;
     }
 
-    h2 {
-      text-align: center;
-      color: #2563eb;
-      margin: 50px 0 20px;
-    }
-
-    p {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 30px;
-    }
-
     .container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -71,7 +59,6 @@
       font-weight: 600;
     }
 
-    /* Overlay komplett */
     .overlay {
       position: fixed;
       top: 0;
@@ -91,8 +78,10 @@
       max-width: 90%;
       max-height: 90vh;
       overflow-y: auto;
+      overflow-x: hidden;
       padding: 20px;
       text-align: center;
+      box-sizing: border-box;
     }
 
     .overlay img,
@@ -120,6 +109,23 @@
       background: none;
       border: none;
       cursor: pointer;
+    }
+
+    .back-link {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-weight: 600;
+      color: #2563eb;
+      text-decoration: none;
+      user-select: none;
+      font-size: 18px;
+      background: white;
+      padding: 10px 0;
+      box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.1);
+      z-index: 10000;
     }
 
     .form {
@@ -165,23 +171,6 @@
 
     .form button:hover {
       background-color: #1e3a8a;
-    }
-
-    .back-link {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      text-align: center;
-      font-weight: 600;
-      color: #2563eb;
-      text-decoration: none;
-      user-select: none;
-      font-size: 18px;
-      background: white;
-      padding: 10px 0;
-      box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.1);
-      z-index: 10000;
     }
 
     #successMessage {
@@ -236,7 +225,7 @@
   </div>
 </div>
 
-<!-- Kontaktformular -->
+<!-- Formular -->
 <div id="successMessage">Deine Nachricht wurde versendet ✅</div>
 <div class="form">
   <p>Hast du noch Fragen an mich?</p>
@@ -256,8 +245,6 @@
 
 <script>
   function openOverlay(imageSrc, text, docLink = "", docText = "") {
-    const overlay = document.getElementById("overlay");
-    const content = document.querySelector(".overlay-content");
     document.getElementById("overlayImg").src = imageSrc;
     document.getElementById("overlayImg").style.display = "block";
     document.getElementById("overlayVideo").style.display = "none";
@@ -272,25 +259,23 @@
       doc.style.display = "none";
     }
 
-    overlay.style.display = "flex";
+    document.getElementById("overlay").style.display = "flex";
     document.body.style.overflow = "hidden";
   }
 
   function openOverlayVideo(videoSrc, text) {
-    const overlay = document.getElementById("overlay");
     document.getElementById("overlayImg").style.display = "none";
     const video = document.getElementById("overlayVideo");
     video.src = videoSrc;
     video.style.display = "block";
     document.getElementById("overlayText").textContent = text;
     document.getElementById("overlayDoc").style.display = "none";
-    overlay.style.display = "flex";
+    document.getElementById("overlay").style.display = "flex";
     document.body.style.overflow = "hidden";
   }
 
   function closeOverlay() {
-    const overlay = document.getElementById("overlay");
-    overlay.style.display = "none";
+    document.getElementById("overlay").style.display = "none";
     document.body.style.overflow = "auto";
     const video = document.getElementById("overlayVideo");
     video.pause();
