@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <title>Levin interaktiv – Meine Stärken</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Interaktive Übersicht meiner Stärken – Levin Nigg, Mediamatik-Interessierter Schüler aus der Schweiz.">
+  <meta name="author" content="Levin Nigg">
+  <meta name="keywords" content="Levin Nigg, Stärken, Bewerbung, Mediamatik, Schweiz, Schüler">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     body {
@@ -13,6 +16,18 @@
       margin: 0;
       padding: 40px 20px;
       text-align: center;
+    }
+
+    nav {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #2563eb;
     }
 
     h1 {
@@ -92,32 +107,38 @@
 </head>
 <body>
 
+<nav>
+  <a href="index.html">Start</a>
+  <a href="seite2.html">Über mich</a>
+  <a href="seite3.html">Stärken</a>
+</nav>
+
 <h1>🎯 Klick dich durch meine Stärken!</h1>
 <p>Klick auf eine Karte und erfahre, was mich auszeichnet:</p>
 
 <div class="grid">
-  <div class="card" onclick="this.classList.toggle('flipped')">
+  <div class="card" onclick="this.classList.toggle('flipped')" title="Kreativität entdecken">
     <div class="inner">
       <div class="front">💡 Kreativität</div>
       <div class="back">Ich liebe es, Ideen umzusetzen – vom Video bis zum Trikot-Design.</div>
     </div>
   </div>
 
-  <div class="card" onclick="this.classList.toggle('flipped')">
+  <div class="card" onclick="this.classList.toggle('flipped')" title="Technik-Verständnis entdecken">
     <div class="inner">
       <div class="front">🛠️ Technik-Verständnis</div>
       <div class="back">Ich verstehe schnell, wie Software und Systeme funktionieren – und lerne gern Neues.</div>
     </div>
   </div>
 
-  <div class="card" onclick="this.classList.toggle('flipped')">
+  <div class="card" onclick="this.classList.toggle('flipped')" title="Teamfähigkeit entdecken">
     <div class="inner">
       <div class="front">🤝 Teamfähigkeit</div>
       <div class="back">Im Verein als Trainer und in der Schule arbeite ich gern mit anderen zusammen.</div>
     </div>
   </div>
 
-  <div class="card" onclick="this.classList.toggle('flipped')">
+  <div class="card" onclick="this.classList.toggle('flipped')" title="Medien-Begeisterung entdecken">
     <div class="inner">
       <div class="front">🎬 Medien-Begeisterung</div>
       <div class="back">Ob Website, Video oder Gestaltung – ich will lernen, wie es geht, und es selbst machen.</div>
@@ -127,9 +148,7 @@
 
 <a href="index.html" class="back-link">← Zurück zur Startseite</a>
 
-<script>
-  // Kein JS nötig – Flip per CSS + class
-</script>
+<!-- Kein extra JS notwendig, Flip per CSS -->
 
 </body>
 </html>
