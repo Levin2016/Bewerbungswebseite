@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <title>Über mich – Levin Nigg</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Über mich – Bewerbung von Levin Nigg, Mediamatik-Interessierter Schüler aus der Schweiz.">
+  <meta name="author" content="Levin Nigg">
+  <meta name="keywords" content="Levin Nigg, Über mich, Mediamatik, Bewerbung, Schweiz, Webentwicklung">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     body {
@@ -14,6 +17,18 @@
       padding: 20px;
       min-height: 100vh;
       padding-bottom: 120px;
+    }
+
+    nav {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #2563eb;
     }
 
     h1 {
@@ -77,8 +92,6 @@
       position: relative;
       max-width: 90%;
       max-height: 90vh;
-      background: transparent;
-      overflow: hidden;
       padding: 20px;
       box-sizing: border-box;
     }
@@ -140,7 +153,6 @@
       padding: 10px;
       width: 100%;
       margin: 10px auto;
-      display: block;
       border-radius: 8px;
       border: 1px solid #ccc;
       font-size: 16px;
@@ -167,9 +179,7 @@
       max-width: 200px;
     }
 
-    .form button:hover {
-      background-color: #1e3a8a;
-    }
+    .form button:hover { background-color: #1e3a8a; }
 
     .back-link {
       position: fixed;
@@ -207,24 +217,33 @@
 </head>
 <body>
 
+<nav>
+  <a href="index.html">Start</a>
+  <a href="seite2.html">Über mich</a>
+  <a href="seite3.html">Stärken</a>
+</nav>
+
 <h1>Über mich!</h1>
 <p>Auf dieser Seite erfährst du mehr über mich, meine Interessen und warum ich Mediamatiker werden will.</p>
 
 <div class="container">
-  <div class="item" onclick="openOverlay('images/Grizzlys.png', 'Ich spiele seit ca. 4 Jahren leidenschaftlich Unihockey beim Club Unihockey am Greifensee Grizzlys. Zusätzlich bin ich dort seit einem Jahr auch als Trainer aktiv.', 'docs/Nachweis Freiwilligenarbeit Levin Nigg (Grizzlys).pdf', '📄 (Nachweis Freiwilligenarbeit als Trainer) öffnen')">
-    <img src="images/Sporthobbys.png" alt="Sporthobbys" />
+  <div class="item" onclick="openOverlay('images/Grizzlys.png', 'Ich spiele seit ca. 4 Jahren leidenschaftlich Unihockey beim Club Unihockey am Greifensee Grizzlys. Zusätzlich bin ich dort seit einem Jahr auch als Trainer aktiv.', 'docs/Nachweis Freiwilligenarbeit Levin Nigg (Grizzlys).pdf', '📄 Nachweis Freiwilligenarbeit öffnen')">
+    <img src="images/Sporthobbys.png" alt="Sporthobbys" loading="lazy" />
     <p>Sporthobbys</p>
   </div>
+
   <div class="item" onclick="openOverlay('images/Freizeit.png', 'Ich liebe es, Filme zu schneiden und kreative Projekte umzusetzen.')">
-    <img src="images/Freizeit.png" alt="Freizeit" />
+    <img src="images/Freizeit.png" alt="Freizeit" loading="lazy" />
     <p>Freizeit</p>
   </div>
+
   <div class="item" onclick="openOverlay('images/u3.png', 'Ich interessiere mich für Film, Bildbearbeitung und Design.')">
-    <img src="images/Mediamatiker.png" alt="Warum Mediamatiker" />
+    <img src="images/Mediamatiker.png" alt="Warum Mediamatiker" loading="lazy" />
     <p>Warum Mediamatiker?</p>
   </div>
+
   <div class="item" onclick="openOverlayVideo('video/was_macht_mich_aus.mp4', 'Was macht mich aus?')">
-    <img src="images/levin_bild.png" alt="Levin im Video" />
+    <img src="images/levin_bild.png" alt="Levin im Video" loading="lazy" />
     <p>Was macht mich aus?</p>
   </div>
 </div>
@@ -234,7 +253,7 @@
   <div class="overlay-inner">
     <button class="close-btn" onclick="closeOverlay()">×</button>
     <div class="overlay-content">
-      <img id="overlayImg" src="" alt="Overlay Bild" />
+      <img id="overlayImg" src="" alt="Overlay Inhalt" />
       <video id="overlayVideo" controls style="display:none;"></video>
       <p id="overlayText"></p>
       <a id="overlayDoc" href="" target="_blank" style="display:none;"></a>
@@ -242,8 +261,8 @@
   </div>
 </div>
 
-<!-- ✅ Formular -->
 <div id="successMessage">Deine Nachricht wurde versendet ✅</div>
+
 <div class="form">
   <p>Hast du noch Fragen an mich?</p>
   <form action="https://formspree.io/f/mwpojakl" method="POST" id="contactForm">
@@ -260,7 +279,6 @@
 
 <a href="index.html" class="back-link">← Zurück zur Startseite</a>
 
-<!-- ✅ JS für Overlay -->
 <script>
   function openOverlay(imageSrc, text, docLink = "", docText = "") {
     document.getElementById("overlayImg").src = imageSrc;
