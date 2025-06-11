@@ -4,14 +4,12 @@
   <meta charset="UTF-8" />
   <title>Levin Nigg – Bewerbung</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bewerbung von Levin Nigg – Mediamatik-Interessierter Schüler aus der Schweiz.">
+  <meta name="author" content="Levin Nigg">
+  <meta name="keywords" content="Levin Nigg, Bewerbung, Mediamatik, Schweiz, Webdesign, Schüler">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --blue: #2563eb;
-      --light: #f9fafb;
-      --dark: #1f2937;
-      --gray: #6b7280;
-    }
+    :root { --blue: #2563eb; --light: #f9fafb; --dark: #1f2937; --gray: #6b7280; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -20,6 +18,18 @@
       max-width: 900px;
       margin: 0 auto;
       padding: 20px;
+    }
+
+    nav {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--blue);
     }
 
     header {
@@ -47,19 +57,9 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
     }
 
-    h2 {
-      color: var(--blue);
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    a {
-      color: var(--blue);
-      text-decoration: none;
-      font-weight: 600;
-    }
+    h2 { color: var(--blue); }
+    ul { padding-left: 20px; }
+    a { color: var(--blue); text-decoration: none; font-weight: 600; }
 
     footer {
       text-align: center;
@@ -79,60 +79,18 @@
       transition: 0.3s ease;
     }
 
-    .button-link:hover {
-      background: #1e40af;
-    }
+    .button-link:hover { background: #1e40af; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+    .card { background: #f1f5f9; padding: 12px; border-radius: 8px; }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .card {
-      background: #f1f5f9;
-      padding: 12px;
-      border-radius: 8px;
-    }
-
-    /* Passwortbereich */
-    #lockscreen {
-      text-align: center;
-      padding-top: 100px;
-    }
-
-    #lockscreen input {
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-      margin-top: 10px;
-    }
-
-    #lockscreen button {
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 6px;
-      background-color: #2563eb;
-      color: white;
-      border: none;
-      cursor: pointer;
-      margin-top: 12px;
-    }
-
-    #lockscreen button:hover {
-      background-color: #1e40af;
-    }
+    #lockscreen { text-align: center; padding-top: 100px; }
+    #lockscreen input { padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 16px; margin-top: 10px; }
+    #lockscreen button { padding: 10px 20px; font-size: 16px; border-radius: 6px; background-color: #2563eb; color: white; border: none; cursor: pointer; margin-top: 12px; }
+    #lockscreen button:hover { background-color: #1e40af; }
 
     @media (max-width: 600px) {
-      body {
-        padding: 12px;
-      }
-
-      header img {
-        width: 100px;
-      }
+      body { padding: 12px; }
+      header img { width: 100px; }
     }
   </style>
 </head>
@@ -151,10 +109,16 @@
 <!-- 🔓 Inhalt der Bewerbung – wird erst angezeigt wenn Code korrekt -->
 <div id="pageContent" style="display:none;">
 
+  <nav>
+    <a href="index.html">Start</a>
+    <a href="seite2.html">Über mich</a>
+    <a href="seite3.html">Stärken</a>
+  </nav>
+
   <header>
     <h1>Levin Nigg</h1>
     <p>Mediamatik-Interessierter Schüler – 14 Jahre – Schweiz</p>
-    <img src="images/levin_bild.png" alt="Mein Bewerbungsfoto">
+    <img src="images/levin_bild.png" alt="Mein Bewerbungsfoto" loading="lazy">
   </header>
 
   <section>
@@ -212,8 +176,6 @@
 
 <script>
   const correctCode = "528392";
-
-  // Prüfen ob Code schon eingegeben wurde
   if (sessionStorage.getItem("access_granted") === "true") {
     document.getElementById("lockscreen").style.display = "none";
     document.getElementById("pageContent").style.display = "block";
@@ -232,3 +194,6 @@
     }
   }
 </script>
+
+</body>
+</html>
