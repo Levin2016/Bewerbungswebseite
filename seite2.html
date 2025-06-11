@@ -1,79 +1,108 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
   <title>Über mich – Levin Nigg</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Über mich – Bewerbung von Levin Nigg, Mediamatik-Interessierter Schüler aus der Schweiz.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Erfahre mehr über Levin Nigg – Mediamatik-Interessierter Schüler aus der Schweiz.">
   <meta name="author" content="Levin Nigg">
-  <meta name="keywords" content="Levin Nigg, Über mich, Mediamatik, Bewerbung, Schweiz, Webentwicklung">
+  <meta name="keywords" content="Levin Nigg, Bewerbung, Über mich, Mediamatik, Schweiz, Galerie, Projekte">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
   <style>
+    :root {
+      --blue: #2563eb;
+      --blue-light: #3b82f6;
+      --light: #f9fafb;
+      --dark: #1f2937;
+      --gray: #6b7280;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f9fafb;
-      color: #1f2937;
+      background: linear-gradient(180deg, #f9fafb, #e5e7eb);
+      color: var(--dark);
       margin: 0;
-      padding: 20px;
-      min-height: 100vh;
-      padding-bottom: 120px;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem 2rem 1rem;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
     }
 
     nav {
-      text-align: center;
-      margin: 20px 0;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
 
     nav a {
-      margin: 0 15px;
-      text-decoration: none;
+      color: var(--blue);
       font-weight: 600;
-      color: #2563eb;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--blue-light);
     }
 
     h1 {
-      text-align: center;
-      color: #2563eb;
-      margin-bottom: 20px;
+      font-size: 2.2rem;
+      margin: 0;
     }
 
     .container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
+      padding: 2rem 1rem;
+      max-width: 1100px;
+      margin: auto;
     }
 
     .item {
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       background: white;
+      border-radius: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
       cursor: pointer;
-      transition: transform 0.3s ease;
     }
 
     .item:hover {
-      transform: scale(1.03);
+      transform: translateY(-5px);
     }
 
     .item img {
       width: 100%;
       height: 220px;
-      object-fit: contain;
+      object-fit: cover;
       background-color: #f0f0f0;
     }
 
     .item p {
       margin: 0;
-      padding: 12px;
-      background-color: #2563eb;
+      padding: 1rem;
+      background-color: var(--blue);
       color: white;
-      text-align: center;
       font-weight: 600;
+      text-align: center;
     }
 
+    /* Overlay */
     .overlay {
       position: fixed;
       top: 0;
@@ -85,46 +114,36 @@
       justify-content: center;
       align-items: center;
       z-index: 9999;
-      overflow: auto;
+      padding: 20px;
     }
 
     .overlay-inner {
-      position: relative;
-      max-width: 90%;
+      background: #fff;
+      border-radius: 20px;
+      max-width: 800px;
       max-height: 90vh;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    .overlay-content {
       overflow-y: auto;
-      max-height: 80vh;
-      padding: 10px;
-      text-align: center;
+      position: relative;
+      padding: 20px;
     }
 
     .overlay-content img,
     .overlay-content video {
       width: 100%;
-      max-height: 60vh;
-      object-fit: contain;
       border-radius: 12px;
       margin-bottom: 20px;
     }
 
     .overlay-content p {
-      color: white;
-      font-size: 18px;
-      max-width: 700px;
-      margin: 10px auto;
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 10px;
     }
 
     .overlay-content a {
-      color: #4cc9f0;
-      display: block;
-      margin-top: 12px;
-      font-weight: 600;
+      color: var(--blue);
       text-decoration: underline;
+      font-weight: 600;
     }
 
     .close-btn {
@@ -132,90 +151,73 @@
       top: 10px;
       right: 20px;
       font-size: 32px;
-      color: white;
+      color: #333;
       background: none;
       border: none;
       cursor: pointer;
-      z-index: 10001;
     }
 
-    .form {
-      margin-top: 50px;
-      text-align: center;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 0 20px;
-    }
-
-    .form input,
-    .form textarea {
-      padding: 10px;
-      width: 100%;
-      margin: 10px auto;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-      box-sizing: border-box;
-    }
-
-    .form textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .form button {
-      padding: 12px 25px;
-      background-color: #2563eb;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 16px;
-      margin-top: 20px;
-      transition: background-color 0.3s ease;
-      width: 100%;
-      max-width: 200px;
-    }
-
-    .form button:hover { background-color: #1e3a8a; }
-
-    .back-link {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      text-align: center;
-      font-weight: 600;
-      color: #2563eb;
-      text-decoration: none;
-      user-select: none;
-      font-size: 18px;
+    /* Formular */
+    .form-container {
+      max-width: 600px;
+      margin: 3rem auto;
       background: white;
-      padding: 10px 0;
-      box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.1);
-      z-index: 10000;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
     }
 
-    #successMessage {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background-color: #22c55e;
+    .form-container h2 {
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      font-size: 1rem;
+    }
+
+    form button {
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
       color: white;
-      text-align: center;
-      padding: 15px 10px;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
       font-weight: 600;
-      font-size: 18px;
-      display: none;
-      z-index: 10001;
-      user-select: none;
+      margin-top: 1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    form button:hover {
+      transform: translateY(-3px);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin: 3rem 0 1rem 0;
+    }
+
+    @media (max-width: 600px) {
+      nav { flex-direction: column; gap: 10px; }
+      h1 { font-size: 1.8rem; }
     }
   </style>
 </head>
 <body>
+
+<header>
+  <h1>Über mich</h1>
+  <p>Meine Hobbys, Interessen und Projekte</p>
+</header>
 
 <nav>
   <a href="index.html">Start</a>
@@ -223,10 +225,8 @@
   <a href="seite3.html">Stärken</a>
 </nav>
 
-<h1>Über mich!</h1>
-<p>Auf dieser Seite erfährst du mehr über mich, meine Interessen und warum ich Mediamatiker werden will.</p>
-
 <div class="container">
+
   <div class="item" onclick="openOverlay('images/Grizzlys.png', 'Ich spiele seit ca. 4 Jahren leidenschaftlich Unihockey beim Club Unihockey am Greifensee Grizzlys. Zusätzlich bin ich dort seit einem Jahr auch als Trainer aktiv.', 'docs/Nachweis Freiwilligenarbeit Levin Nigg (Grizzlys).pdf', '📄 Nachweis Freiwilligenarbeit öffnen')">
     <img src="images/Sporthobbys.png" alt="Sporthobbys" loading="lazy" />
     <p>Sporthobbys</p>
@@ -242,116 +242,55 @@
     <p>Warum Mediamatiker?</p>
   </div>
 
-  <div class="item" onclick="openOverlayVideo('video/was_macht_mich_aus.mp4', 'Was macht mich aus?')">
-    <img src="images/levin_bild.png" alt="Levin im Video" loading="lazy" />
+  <div class="item" onclick="openVideo('video/was_macht_mich_aus.mp4', 'Was macht mich aus?')">
+    <img src="images/levin_bild.png" alt="Video" loading="lazy" />
     <p>Was macht mich aus?</p>
   </div>
+
 </div>
 
-<!-- ✅ Overlay mit Scroll-Funktion -->
-<div id="overlay" class="overlay" onclick="handleOverlayClick(event)">
+<!-- Overlay Bereich -->
+<div id="overlay" class="overlay">
   <div class="overlay-inner">
     <button class="close-btn" onclick="closeOverlay()">×</button>
-    <div class="overlay-content">
-      <img id="overlayImg" src="" alt="Overlay Inhalt" />
-      <video id="overlayVideo" controls style="display:none;"></video>
-      <p id="overlayText"></p>
-      <a id="overlayDoc" href="" target="_blank" style="display:none;"></a>
-    </div>
+    <div class="overlay-content" id="overlayContent"></div>
   </div>
 </div>
 
-<div id="successMessage">Deine Nachricht wurde versendet ✅</div>
-
-<div class="form">
-  <p>Hast du noch Fragen an mich?</p>
-  <form action="https://formspree.io/f/mwpojakl" method="POST" id="contactForm">
-    <input type="text" name="name" placeholder="Name" required />
-    <input type="email" name="email" placeholder="Email" required />
-    <textarea name="message" placeholder="Nachricht" required></textarea>
-    <p style="font-size: 14px; color: #6b7280; max-width: 500px; margin: 10px auto;">
-      Mit dem Absenden erklärst du dich mit der Verarbeitung deiner Daten gemäß der
-      <a href="https://formspree.io/legal/privacy-policy/" target="_blank">Datenschutzerklärung von Formspree</a> einverstanden.
-    </p>
-    <button type="submit">Abschicken</button>
+<!-- Formular -->
+<div class="form-container">
+  <h2>Kontaktformular</h2>
+  <form action="https://formspree.io/f/mwpojakl" method="POST">
+    <input type="text" name="name" placeholder="Dein Name" required />
+    <input type="email" name="email" placeholder="Deine E-Mail" required />
+    <textarea name="message" placeholder="Deine Nachricht" required></textarea>
+    <button type="submit">Nachricht senden</button>
   </form>
 </div>
 
-<a href="index.html" class="back-link">← Zurück zur Startseite</a>
+<footer>
+  © 2025 Levin Nigg – Danke fürs Vorbeischauen!
+</footer>
 
 <script>
-  function openOverlay(imageSrc, text, docLink = "", docText = "") {
-    document.getElementById("overlayImg").src = imageSrc;
-    document.getElementById("overlayImg").style.display = "block";
-    document.getElementById("overlayVideo").style.display = "none";
-    document.getElementById("overlayText").textContent = text;
-
-    const doc = document.getElementById("overlayDoc");
-    if (docLink) {
-      doc.href = docLink;
-      doc.textContent = docText;
-      doc.style.display = "block";
-    } else {
-      doc.style.display = "none";
+  function openOverlay(image, text, doc = '', docText = '') {
+    let content = `<img src="${image}" alt="" /><p>${text}</p>`;
+    if (doc) {
+      content += `<a href="${doc}" target="_blank">${docText}</a>`;
     }
-
-    document.getElementById("overlay").style.display = "flex";
-    document.body.style.overflow = "hidden";
+    document.getElementById('overlayContent').innerHTML = content;
+    document.getElementById('overlay').style.display = 'flex';
   }
 
-  function openOverlayVideo(videoSrc, text) {
-    document.getElementById("overlayImg").style.display = "none";
-    const video = document.getElementById("overlayVideo");
-    video.src = videoSrc;
-    video.style.display = "block";
-    document.getElementById("overlayText").textContent = text;
-    document.getElementById("overlayDoc").style.display = "none";
-    document.getElementById("overlay").style.display = "flex";
-    document.body.style.overflow = "hidden";
+  function openVideo(video, text) {
+    let content = `<video src="${video}" controls></video><p>${text}</p>`;
+    document.getElementById('overlayContent').innerHTML = content;
+    document.getElementById('overlay').style.display = 'flex';
   }
 
   function closeOverlay() {
-    document.getElementById("overlay").style.display = "none";
-    document.body.style.overflow = "auto";
-    const video = document.getElementById("overlayVideo");
-    video.pause();
-    video.currentTime = 0;
+    document.getElementById('overlay').style.display = 'none';
   }
-
-  function handleOverlayClick(event) {
-    if (event.target.id === "overlay") {
-      closeOverlay();
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contactForm');
-    const successMessage = document.getElementById('successMessage');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: data
-        });
-
-        if (response.ok) {
-          successMessage.style.display = 'block';
-          setTimeout(() => {
-            successMessage.style.display = 'none';
-          }, 7000);
-          form.reset();
-        } else {
-          alert('Fehler beim Senden. Bitte versuche es später nochmal.');
-        }
-      } catch (error) {
-        alert('Fehler beim Senden. Bitte prüfe deine Internetverbindung.');
-      }
-    });
-  });
 </script>
 
 </body>
