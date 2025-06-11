@@ -8,119 +8,161 @@
   <meta name="author" content="Levin Nigg">
   <meta name="keywords" content="Levin Nigg, Bewerbung, Mediamatik, Schweiz, Webdesign, Schüler">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
-    :root { --blue: #2563eb; --light: #f9fafb; --dark: #1f2937; --gray: #6b7280; }
+    :root {
+      --blue: #2563eb;
+      --blue-light: #3b82f6;
+      --light: #f9fafb;
+      --dark: #1f2937;
+      --gray: #6b7280;
+    }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--light);
+      background: linear-gradient(180deg, #f9fafb, #e5e7eb);
       color: var(--dark);
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    nav {
-      text-align: center;
-      margin: 20px 0;
-    }
-
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: 600;
-      color: var(--blue);
+      margin: 0;
+      padding: 0;
     }
 
     header {
-      background: var(--blue);
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
       color: white;
-      padding: 2rem;
-      border-radius: 12px;
       text-align: center;
+      padding: 4rem 1rem 2rem 1rem;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
     }
 
     header img {
       width: 180px;
-      border-radius: 12px;
-      margin-top: 12px;
-      border: 4px solid white;
+      border-radius: 50%;
+      border: 5px solid white;
+      margin-top: 20px;
       object-fit: cover;
-      object-position: top center;
+    }
+
+    nav {
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav a {
+      color: var(--blue);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--blue-light);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem 1rem;
     }
 
     section {
       background: white;
-      margin: 30px 0;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      margin: 2rem 0;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s;
     }
 
-    h2 { color: var(--blue); }
-    ul { padding-left: 20px; }
-    a { color: var(--blue); text-decoration: none; font-weight: 600; }
+    section:hover {
+      transform: translateY(-5px);
+    }
 
-    footer {
-      text-align: center;
-      font-size: 0.85em;
-      color: var(--gray);
-      margin-top: 40px;
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 1rem;
+    }
+
+    .card {
+      background: #f1f5f9;
+      padding: 1rem;
+      border-radius: 12px;
     }
 
     .button-link {
       display: inline-block;
-      margin-top: 20px;
-      padding: 12px 20px;
-      background: var(--blue);
+      margin: 20px 10px;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
       color: white;
-      border-radius: 8px;
       text-decoration: none;
-      transition: 0.3s ease;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
     }
 
-    .button-link:hover { background: #1e40af; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
-    .card { background: #f1f5f9; padding: 12px; border-radius: 8px; }
+    .button-link:hover {
+      transform: translateY(-5px);
+    }
 
-    #lockscreen { text-align: center; padding-top: 100px; }
-    #lockscreen input { padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 16px; margin-top: 10px; }
-    #lockscreen button { padding: 10px 20px; font-size: 16px; border-radius: 6px; background-color: #2563eb; color: white; border: none; cursor: pointer; margin-top: 12px; }
-    #lockscreen button:hover { background-color: #1e40af; }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin: 3rem 0 1rem 0;
+    }
 
     @media (max-width: 600px) {
-      body { padding: 12px; }
-      header img { width: 100px; }
+      header img {
+        width: 120px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- 🔐 Sicherungscode-Abfrage -->
-<div id="lockscreen">
-  <h2>🔒 Zugang gesichert</h2>
-  <p>Bitte gib den Sicherungscode ein, um die Webseite zu sehen:</p>
-  <input type="password" id="codeInput" placeholder="Sicherungscode eingeben">
-  <br>
-  <button onclick="checkCode()">🔓 Entsperren</button>
-  <p id="errorMsg" style="color: red; margin-top: 10px;"></p>
-</div>
+<header>
+  <h1>Levin Nigg</h1>
+  <p>Mediamatik-Interessierter Schüler – 14 Jahre – Schweiz</p>
+  <img src="images/levin_bild.png" alt="Mein Bewerbungsfoto" loading="lazy">
+</header>
 
-<!-- 🔓 Inhalt der Bewerbung – wird erst angezeigt wenn Code korrekt -->
-<div id="pageContent" style="display:none;">
+<nav>
+  <a href="index.html">Start</a>
+  <a href="seite2.html">Über mich</a>
+  <a href="seite3.html">Stärken</a>
+</nav>
 
-  <nav>
-    <a href="index.html">Start</a>
-    <a href="seite2.html">Über mich</a>
-    <a href="seite3.html">Stärken</a>
-  </nav>
-
-  <header>
-    <h1>Levin Nigg</h1>
-    <p>Mediamatik-Interessierter Schüler – 14 Jahre – Schweiz</p>
-    <img src="images/levin_bild.png" alt="Mein Bewerbungsfoto" loading="lazy">
-  </header>
-
+<main>
   <section>
     <h2>Über mich</h2>
     <p>Ich bin Levin Nigg, 14 Jahre alt, kreativ, technisch interessiert und begeistert von Design, Webentwicklung und Medien. Mein Berufsziel ist Mediamatiker – weil ich Technik mit Kreativität verbinden will.</p>
@@ -141,20 +183,14 @@
   </section>
 
   <section>
-    <h2>Kenntnisse</h2>
+    <h2>Kenntnisse & Erfahrungen</h2>
     <ul>
       <li>Gestaltung (Privat & Schule)</li>
       <li>Technisches Verständnis</li>
       <li>Teamarbeit & Zuverlässigkeit</li>
+      <li>Berufsmesse Zürich (Nov 2024)</li>
+      <li>Swisscom Schnupperlehre (März 2025)</li>
     </ul>
-  </section>
-
-  <section>
-    <h2>Erfahrungen</h2>
-    <p>
-      <strong>Berufsmesse Zürich:</strong> November 2024<br>
-      <strong>Swisscom Schnupperlehre:</strong> März 2025
-    </p>
   </section>
 
   <section>
@@ -165,35 +201,16 @@
     </p>
   </section>
 
-  <a class="button-link" href="seite2.html">✨ Erfahre mehr über mich</a>
-  <a class="button-link" href="seite3.html">🖼️ Meine Arbeiten ansehen</a>
+  <div style="text-align:center;">
+    <a class="button-link" href="seite2.html">✨ Erfahre mehr über mich</a>
+    <a class="button-link" href="seite3.html">💪 Meine Stärken ansehen</a>
+  </div>
 
-  <footer>
-    © 2025 Levin Nigg – Danke fürs Vorbeischauen!
-  </footer>
+</main>
 
-</div>
-
-<script>
-  const correctCode = "528392";
-  if (sessionStorage.getItem("access_granted") === "true") {
-    document.getElementById("lockscreen").style.display = "none";
-    document.getElementById("pageContent").style.display = "block";
-  }
-
-  function checkCode() {
-    const input = document.getElementById("codeInput").value;
-    const error = document.getElementById("errorMsg");
-    if (input === correctCode) {
-      sessionStorage.setItem("access_granted", "true");
-      document.getElementById("lockscreen").style.display = "none";
-      document.getElementById("pageContent").style.display = "block";
-      error.textContent = "";
-    } else {
-      error.textContent = "❌ Falscher Code. Bitte versuche es erneut.";
-    }
-  }
-</script>
+<footer>
+  © 2025 Levin Nigg – Danke fürs Vorbeischauen!
+</footer>
 
 </body>
 </html>
