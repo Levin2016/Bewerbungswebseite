@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <title>Levin interaktiv – Meine Stärken</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Interaktive Übersicht meiner Stärken – Levin Nigg, Mediamatik-Interessierter Schüler aus der Schweiz.">
-  <meta name="author" content="Levin Nigg">
-  <meta name="keywords" content="Levin Nigg, Stärken, Bewerbung, Mediamatik, Schweiz, Schüler">
+  <meta name="description" content="Interaktive Übersicht meiner Stärken – Levin Nigg, Mediamatik-Interessierter Schüler aus der Schweiz." />
+  <meta name="author" content="Levin Nigg" />
+  <meta name="keywords" content="Levin Nigg, Stärken, Bewerbung, Mediamatik, Schweiz, Schüler" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     body {
@@ -19,7 +19,6 @@
     }
 
     nav {
-      text-align: center;
       margin-bottom: 20px;
     }
 
@@ -28,11 +27,26 @@
       text-decoration: none;
       font-weight: 600;
       color: #2563eb;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #1d4ed8;
+      outline: none;
+      text-decoration: underline;
     }
 
     h1 {
       color: #2563eb;
       margin-bottom: 30px;
+      font-weight: 700;
+    }
+
+    p {
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+      color: #374151;
     }
 
     .grid {
@@ -49,6 +63,14 @@
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
       perspective: 1000px;
       cursor: pointer;
+      outline-offset: 4px;
+      outline: none;
+      transition: box-shadow 0.3s ease;
+      user-select: none;
+    }
+    .card:focus {
+      outline: 3px solid #2563eb;
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
     }
 
     .inner {
@@ -81,6 +103,7 @@
       color: white;
       font-weight: 600;
       font-size: 20px;
+      user-select: none;
     }
 
     .back {
@@ -89,6 +112,8 @@
       transform: rotateY(180deg);
       font-size: 16px;
       line-height: 1.5;
+      text-align: center;
+      user-select: text;
     }
 
     .back-link {
@@ -98,47 +123,51 @@
       font-weight: 600;
       text-decoration: none;
       font-size: 16px;
+      transition: color 0.3s ease;
     }
 
-    .back-link:hover {
+    .back-link:hover,
+    .back-link:focus {
       text-decoration: underline;
+      color: #1d4ed8;
+      outline: none;
     }
   </style>
 </head>
 <body>
 
-<nav>
+<nav aria-label="Hauptnavigation">
   <a href="index.html">Start</a>
   <a href="seite2.html">Über mich</a>
-  <a href="seite3.html">Stärken</a>
+  <a href="seite3.html" aria-current="page">Stärken</a>
 </nav>
 
 <h1>🎯 Klick dich durch meine Stärken!</h1>
 <p>Klick auf eine Karte und erfahre, was mich auszeichnet:</p>
 
-<div class="grid">
-  <div class="card" onclick="this.classList.toggle('flipped')" title="Kreativität entdecken">
+<div class="grid" role="list">
+  <div class="card" role="listitem" tabindex="0" onclick="this.classList.toggle('flipped')" onkeypress="if(event.key==='Enter' || event.key===' ') this.classList.toggle('flipped')" title="Kreativität entdecken" aria-label="Karte Kreativität - klicken oder drücken zum umdrehen">
     <div class="inner">
       <div class="front">💡 Kreativität</div>
       <div class="back">Ich liebe es, Ideen umzusetzen – vom Video bis zum Trikot-Design.</div>
     </div>
   </div>
 
-  <div class="card" onclick="this.classList.toggle('flipped')" title="Technik-Verständnis entdecken">
+  <div class="card" role="listitem" tabindex="0" onclick="this.classList.toggle('flipped')" onkeypress="if(event.key==='Enter' || event.key===' ') this.classList.toggle('flipped')" title="Technik-Verständnis entdecken" aria-label="Karte Technik-Verständnis - klicken oder drücken zum umdrehen">
     <div class="inner">
       <div class="front">🛠️ Technik-Verständnis</div>
       <div class="back">Ich verstehe schnell, wie Software und Systeme funktionieren – und lerne gern Neues.</div>
     </div>
   </div>
 
-  <div class="card" onclick="this.classList.toggle('flipped')" title="Teamfähigkeit entdecken">
+  <div class="card" role="listitem" tabindex="0" onclick="this.classList.toggle('flipped')" onkeypress="if(event.key==='Enter' || event.key===' ') this.classList.toggle('flipped')" title="Teamfähigkeit entdecken" aria-label="Karte Teamfähigkeit - klicken oder drücken zum umdrehen">
     <div class="inner">
       <div class="front">🤝 Teamfähigkeit</div>
       <div class="back">Im Verein als Trainer und in der Schule arbeite ich gern mit anderen zusammen.</div>
     </div>
   </div>
 
-  <div class="card" onclick="this.classList.toggle('flipped')" title="Medien-Begeisterung entdecken">
+  <div class="card" role="listitem" tabindex="0" onclick="this.classList.toggle('flipped')" onkeypress="if(event.key==='Enter' || event.key===' ') this.classList.toggle('flipped')" title="Medien-Begeisterung entdecken" aria-label="Karte Medien-Begeisterung - klicken oder drücken zum umdrehen">
     <div class="inner">
       <div class="front">🎬 Medien-Begeisterung</div>
       <div class="back">Ob Website, Video oder Gestaltung – ich will lernen, wie es geht, und es selbst machen.</div>
@@ -148,7 +177,9 @@
 
 <a href="index.html" class="back-link">← Zurück zur Startseite</a>
 
-<!-- Kein extra JS notwendig, Flip per CSS -->
+<script>
+  // Optional: Keyboard event handled inline, keine weitere JS notwendig
+</script>
 
 </body>
 </html>
