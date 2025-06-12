@@ -37,10 +37,13 @@
       background: white;
       cursor: pointer;
       transition: transform 0.3s ease;
+      outline: none;
     }
 
-    .item:hover {
+    .item:hover,
+    .item:focus {
       transform: scale(1.03);
+      outline: 3px solid #2563eb;
     }
 
     .item img {
@@ -78,15 +81,13 @@
       max-width: 90%;
       max-height: 90vh;
       background: transparent;
-      overflow: hidden;
+      overflow-y: auto;
       padding: 20px;
       box-sizing: border-box;
+      border-radius: 12px;
     }
 
     .overlay-content {
-      overflow-y: auto;
-      max-height: 80vh;
-      padding: 10px;
       text-align: center;
     }
 
@@ -211,38 +212,38 @@
 <p>Auf dieser Seite erfährst du mehr über mich, meine Interessen und warum ich Mediamatiker werden will.</p>
 
 <div class="container">
-  <div class="item" onclick="openOverlay('images/Grizzlys.png', 'Ich spiele seit ca. 4 Jahren leidenschaftlich Unihockey beim Club Unihockey am Greifensee Grizzlys. Zusätzlich bin ich dort seit einem Jahr auch als Trainer aktiv.', 'docs/Nachweis Freiwilligenarbeit Levin Nigg (Grizzlys).pdf', '📄 (Nachweis Freiwilligenarbeit als Trainer) öffnen')">
-    <img src="images/Sporthobbys.png" alt="Sporthobbys" />
+  <div class="item" tabindex="0" onclick="openOverlay('images/Grizzlys.png', 'Ich spiele seit ca. 4 Jahren leidenschaftlich Unihockey beim Club Unihockey am Greifensee Grizzlys. Zusätzlich bin ich dort seit einem Jahr auch als Trainer aktiv.', 'docs/Nachweis Freiwilligenarbeit Levin Nigg (Grizzlys).pdf', '📄 (Nachweis Freiwilligenarbeit als Trainer) öffnen')">
+    <img src="images/Sporthobbys.png" alt="Sporthobbys" loading="lazy" />
     <p>Sporthobbys</p>
   </div>
-  <div class="item" onclick="openOverlay('images/Freizeit.png', 'Ich liebe es, Filme zu schneiden und kreative Projekte umzusetzen.')">
-    <img src="images/Freizeit.png" alt="Freizeit" />
+  <div class="item" tabindex="0" onclick="openOverlay('images/Freizeit.png', 'Ich liebe es, Filme zu schneiden und kreative Projekte umzusetzen.')">
+    <img src="images/Freizeit.png" alt="Freizeit" loading="lazy" />
     <p>Freizeit</p>
   </div>
-  <div class="item" onclick="openOverlay('images/u3.png', 'Ich interessiere mich für Film, Bildbearbeitung und Design.')">
-    <img src="images/Mediamatiker.png" alt="Warum Mediamatiker" />
+  <div class="item" tabindex="0" onclick="openOverlay('images/u3.png', 'Ich interessiere mich für Film, Bildbearbeitung und Design.')">
+    <img src="images/Mediamatiker.png" alt="Warum Mediamatiker" loading="lazy" />
     <p>Warum Mediamatiker?</p>
   </div>
-  <div class="item" onclick="openOverlayVideo('video/was_macht_mich_aus.mp4', 'Was macht mich aus?')">
-    <img src="images/levin_bild.png" alt="Levin im Video" />
+  <div class="item" tabindex="0" onclick="openOverlayVideo('video/was_macht_mich_aus.mp4', 'Was macht mich aus?')">
+    <img src="images/levin_bild.png" alt="Levin im Video" loading="lazy" />
     <p>Was macht mich aus?</p>
   </div>
 </div>
 
-<!-- ✅ Overlay mit Scroll-Funktion -->
+<!-- Overlay mit Scroll-Funktion -->
 <div id="overlay" class="overlay" onclick="handleOverlayClick(event)">
   <div class="overlay-inner">
-    <button class="close-btn" onclick="closeOverlay()">×</button>
+    <button class="close-btn" onclick="closeOverlay()" aria-label="Overlay schließen">×</button>
     <div class="overlay-content">
       <img id="overlayImg" src="" alt="Overlay Bild" />
       <video id="overlayVideo" controls style="display:none;"></video>
       <p id="overlayText"></p>
-      <a id="overlayDoc" href="" target="_blank" style="display:none;"></a>
+      <a id="overlayDoc" href="" target="_blank" style="display:none;" rel="noopener noreferrer"></a>
     </div>
   </div>
 </div>
 
-<!-- ✅ Formular -->
+<!-- Formular -->
 <div id="successMessage">Deine Nachricht wurde versendet ✅</div>
 <div class="form">
   <p>Hast du noch Fragen an mich?</p>
@@ -252,7 +253,7 @@
     <textarea name="message" placeholder="Nachricht" required></textarea>
     <p style="font-size: 14px; color: #6b7280; max-width: 500px; margin: 10px auto;">
       Mit dem Absenden erklärst du dich mit der Verarbeitung deiner Daten gemäß der
-      <a href="https://formspree.io/legal/privacy-policy/" target="_blank">Datenschutzerklärung von Formspree</a> einverstanden.
+      <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von Formspree</a> einverstanden.
     </p>
     <button type="submit">Abschicken</button>
   </form>
@@ -260,7 +261,6 @@
 
 <a href="index.html" class="back-link">← Zurück zur Startseite</a>
 
-<!-- ✅ JS für Overlay -->
 <script>
   function openOverlay(imageSrc, text, docLink = "", docText = "") {
     document.getElementById("overlayImg").src = imageSrc;
@@ -300,38 +300,44 @@
     video.currentTime = 0;
   }
 
+  // Overlay schließen, wenn außerhalb des Inhalts geklickt wird
   function handleOverlayClick(event) {
     if (event.target.id === "overlay") {
       closeOverlay();
     }
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contactForm');
-    const successMessage = document.getElementById('successMessage');
+  // ESC-Taste schließt das Overlay
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeOverlay();
+    }
+  });
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: data
-        });
+  // Formular senden mit Erfolgsmeldung
+  const form = document.getElementById("contactForm");
+  const successMessage = document.getElementById("successMessage");
 
-        if (response.ok) {
-          successMessage.style.display = 'block';
-          setTimeout(() => {
-            successMessage.style.display = 'none';
-          }, 7000);
-          form.reset();
-        } else {
-          alert('Fehler beim Senden. Bitte versuche es später nochmal.');
-        }
-      } catch (error) {
-        alert('Fehler beim Senden. Bitte prüfe deine Internetverbindung.');
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+
+    fetch(form.action, {
+      method: "POST",
+      body: data,
+      headers: {
+        'Accept': 'application/json'
       }
+    }).then(response => {
+      if (response.ok) {
+        form.reset();
+        successMessage.style.display = "block";
+        setTimeout(() => successMessage.style.display = "none", 4000);
+      } else {
+        alert("Beim Senden ist ein Fehler aufgetreten. Bitte versuche es später noch einmal.");
+      }
+    }).catch(() => {
+      alert("Beim Senden ist ein Fehler aufgetreten. Bitte versuche es später noch einmal.");
     });
   });
 </script>
