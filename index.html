@@ -7,6 +7,8 @@
   <meta name="description" content="Bewerbung von Levin Nigg – Mediamatik-Interessierter Schüler aus der Schweiz.">
   <meta name="author" content="Levin Nigg">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
     :root {
       --primary: #2563eb;
@@ -23,6 +25,12 @@
       margin: 0;
       padding: 0;
       color: var(--dark);
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
 
     header {
@@ -116,6 +124,13 @@
       background: #eef2f7;
       padding: 1rem;
       border-radius: 12px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
     }
 
     .button-link {
@@ -128,11 +143,12 @@
       color: white;
       text-decoration: none;
       box-shadow: var(--shadow);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .button-link:hover {
       transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
     }
 
     footer {
@@ -171,17 +187,17 @@
   </nav>
 
   <main>
-    <section>
+    <section data-aos="fade-up">
       <h2>Über mich</h2>
       <p>Ich bin Levin Nigg, 14 Jahre alt, kreativ, technisch interessiert und begeistert von Design, Webentwicklung und Medien. Mein Berufsziel ist Mediamatiker – weil ich Technik mit Kreativität verbinden will.</p>
     </section>
 
-    <section>
+    <section data-aos="fade-up">
       <h2>Warum Mediamatiker?</h2>
       <p>Ich interessiere mich schon lange für Technik, Computer und kreatives Gestalten. Mediamatik ist genau die Mischung, die zu mir passt – ich kann Websites bauen, Bilder bearbeiten, Videos schneiden und gleichzeitig lernen, wie digitale Kommunikation funktioniert.</p>
     </section>
 
-    <section>
+    <section data-aos="zoom-in-up">
       <h2>Meine Stärken</h2>
       <div class="grid">
         <div class="card"><strong>Kreativität:</strong> Ich bringe gerne eigene Ideen ein.</div>
@@ -190,7 +206,7 @@
       </div>
     </section>
 
-    <section>
+    <section data-aos="fade-up">
       <h2>Kenntnisse & Erfahrungen</h2>
       <ul>
         <li>Gestaltung (Privat & Schule)</li>
@@ -201,17 +217,25 @@
       </ul>
     </section>
 
-    <section>
+    <section data-aos="fade-up">
       <h2>Kontakt</h2>
       <p>📧 <a href="mailto:lev_nigg@volketswil.schule">lev_nigg@volketswil.schule</a><br>📞 <a href="tel:+41445205498">044 520 54 98</a></p>
     </section>
 
-    <div style="text-align:center;">
+    <div style="text-align:center;" data-aos="fade-up">
       <a class="button-link" href="seite2.html">✨ Erfahre mehr über mich</a>
       <a class="button-link" href="seite3.html">💪 Meine Stärken ansehen</a>
     </div>
   </main>
 
   <footer>© 2025 Levin Nigg – Danke fürs Vorbeischauen!</footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+  </script>
 </body>
 </html>
