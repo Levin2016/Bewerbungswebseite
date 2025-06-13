@@ -2,367 +2,339 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>Levin Nigg – Bewerbung</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Bewerbung von Levin Nigg – Mediamatik-Interessierter Schüler aus der Schweiz." />
-  <meta name="author" content="Levin Nigg" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <title>Über mich – Levin Nigg</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --primary: #2563eb;
-      --secondary: #3b82f6;
-      --bg: #f9fafb;
-      --dark: #1f2937;
-      --light: #ffffff;
-      --shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg);
-      color: var(--dark);
-      animation: fadeIn 1.2s ease forwards;
-      opacity: 0;
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    header {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      text-align: center;
-      padding: 4rem 1rem 2rem;
-      border-bottom-left-radius: 50px;
-      border-bottom-right-radius: 50px;
-      box-shadow: var(--shadow);
-      transition: all 0.4s ease;
-    }
-
-    header:hover {
-      transform: scale(1.02);
-    }
-
-    header img {
-      width: 160px;
-      border-radius: 50%;
-      border: 5px solid white;
-      margin-top: 20px;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    header img:hover {
-      transform: scale(1.1);
-    }
-
-    nav {
-      background: var(--light);
-      box-shadow: var(--shadow);
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    nav a {
-      color: var(--primary);
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: var(--secondary);
-    }
-
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 2rem 1rem;
-    }
-
-    section {
-      background: white;
-      margin: 2rem 0;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease;
-    }
-
-    section:hover {
-      transform: translateY(-8px);
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+      color: #1f2937;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      padding-bottom: 120px;
     }
 
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      text-align: center;
+      color: #2563eb;
+      margin-bottom: 20px;
     }
 
-    h2 {
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .grid {
+    .container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
-    .card {
-      background: #eef2f7;
-      padding: 1rem;
+    .item {
       border-radius: 12px;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-    }
-
-    .button-link {
-      display: inline-block;
-      margin: 20px 10px;
-      padding: 15px 30px;
-      font-size: 1.1rem;
-      border-radius: 50px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      text-decoration: none;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .button-link:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #6b7280;
-      margin: 3rem 0 1rem 0;
-    }
-
-    @media (max-width: 600px) {
-      header img {
-        width: 120px;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      nav {
-        flex-direction: column;
-        gap: 10px;
-      }
-    }
-
-    /* 🔐 Zugriffscode Overlay */
-    #code-overlay {
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(circle at top left, #1e3a8a, #2563eb, #1e40af);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
       overflow: hidden;
-    }
-
-    .bubbles {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-
-    .bubble {
-      position: absolute;
-      bottom: -100px;
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 50%;
-      animation: rise 14s infinite ease-in-out;
-    }
-
-    .bubble:nth-child(1) { left: 10%; width: 40px; height: 40px; animation-delay: 0s; }
-    .bubble:nth-child(2) { left: 30%; width: 60px; height: 60px; animation-delay: 2s; }
-    .bubble:nth-child(3) { left: 50%; width: 50px; height: 50px; animation-delay: 4s; }
-    .bubble:nth-child(4) { left: 70%; width: 70px; height: 70px; animation-delay: 1s; }
-    .bubble:nth-child(5) { left: 85%; width: 40px; height: 40px; animation-delay: 3s; }
-
-    @keyframes rise {
-      0% { transform: translateY(0) scale(1); opacity: 0.5; }
-      100% { transform: translateY(-130vh) scale(1.8); opacity: 0; }
-    }
-
-    .code-box {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(24px);
-      border-radius: 24px;
-      padding: 2.5rem;
-      text-align: center;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      max-width: 350px;
-      width: 90%;
-      color: white;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    .code-box input {
-      width: 100%;
-      padding: 14px 18px;
-      font-size: 1rem;
-      border-radius: 12px;
-      border: none;
-      background: rgba(255, 255, 255, 0.12);
-      color: white;
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .code-box input::placeholder {
-      color: #e5e7eb;
-    }
-
-    .code-box button {
-      padding: 12px 24px;
-      border: none;
-      border-radius: 30px;
-      background: linear-gradient(to right, #3b82f6, #60a5fa);
-      color: white;
-      font-weight: 600;
-      font-size: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      background: white;
       cursor: pointer;
-      transition: 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
-    .code-box button:hover {
-      transform: scale(1.05);
-      background: linear-gradient(to right, #2563eb, #3b82f6);
+    .item:hover {
+      transform: scale(1.03);
     }
 
-    .code-error {
-      color: #fca5a5;
-      min-height: 1.2rem;
-      margin-top: 0.5rem;
+    .item img {
+      width: 100%;
+      height: 220px;
+      object-fit: contain;
+      background-color: #f0f0f0;
+    }
+
+    .item p {
+      margin: 0;
+      padding: 12px;
+      background-color: #2563eb;
+      color: white;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      overflow: auto;
+    }
+
+    .overlay-inner {
+      position: relative;
+      max-width: 90%;
+      max-height: 90vh;
+      background: transparent;
+      overflow: hidden;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .overlay-content {
+      overflow-y: auto;
+      max-height: 80vh;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .overlay-content img,
+    .overlay-content video {
+      width: 100%;
+      max-height: 60vh;
+      object-fit: contain;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .overlay-content p {
+      color: white;
+      font-size: 18px;
+      max-width: 700px;
+      margin: 10px auto;
+    }
+
+    .overlay-content a {
+      color: #4cc9f0;
+      display: block;
+      margin-top: 12px;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 32px;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10001;
+    }
+
+    .form {
+      margin-top: 50px;
+      text-align: center;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 20px;
+    }
+
+    .form input,
+    .form textarea {
+      padding: 10px;
+      width: 100%;
+      margin: 10px auto;
+      display: block;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    .form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form button {
+      padding: 12px 25px;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 16px;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+      width: 100%;
+      max-width: 200px;
+    }
+
+    .form button:hover {
+      background-color: #1e3a8a;
+    }
+
+    .back-link {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-weight: 600;
+      color: #2563eb;
+      text-decoration: none;
+      user-select: none;
+      font-size: 18px;
+      background: white;
+      padding: 10px 0;
+      box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.1);
+      z-index: 10000;
+    }
+
+    #successMessage {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #22c55e;
+      color: white;
+      text-align: center;
+      padding: 15px 10px;
+      font-weight: 600;
+      font-size: 18px;
+      display: none;
+      z-index: 10001;
+      user-select: none;
     }
   </style>
 </head>
 <body>
 
-  <!-- 🔐 Zugriffscode -->
-  <div id="code-overlay">
-    <div class="bubbles">
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-    </div>
+<h1>Über mich!</h1>
+<p>Auf dieser Seite erfährst du mehr über mich, meine Interessen und warum ich Mediamatiker werden will.</p>
 
-    <div class="code-box">
-      <h2>🚀 Zugriffscode</h2>
-      <p>Bitte gib den Code ein, um fortzufahren:</p>
-      <input type="password" id="code-input" placeholder="Zugangscode eingeben" />
-      <button onclick="checkCode()">🔓 Weiter</button>
-      <div class="code-error" id="error-msg"></div>
+<div class="container">
+  <div class="item" onclick="openOverlay('images/Grizzlys.png', 'Ich spiele seit ca. 4 Jahren leidenschaftlich Unihockey beim Club Unihockey am Greifensee Grizzlys. Zusätzlich bin ich dort seit einem Jahr auch als Trainer aktiv.', 'docs/Nachweis Freiwilligenarbeit Levin Nigg (Grizzlys).pdf', '📄 (Nachweis Freiwilligenarbeit als Trainer) öffnen')">
+    <img src="images/Sporthobbys.png" alt="Sporthobbys" />
+    <p>Sporthobbys</p>
+  </div>
+  <div class="item" onclick="openOverlay('images/Freizeit.png', 'Ich liebe es, Filme zu schneiden und kreative Projekte umzusetzen.')">
+    <img src="images/Freizeit.png" alt="Freizeit" />
+    <p>Freizeit</p>
+  </div>
+  <div class="item" onclick="openOverlay('images/u3.png', 'Ich interessiere mich für Film, Bildbearbeitung und Design.')">
+    <img src="images/Mediamatiker.png" alt="Warum Mediamatiker" />
+    <p>Warum Mediamatiker?</p>
+  </div>
+  <div class="item" onclick="openOverlayVideo('video/was_macht_mich_aus.mp4', 'Was macht mich aus?')">
+    <img src="images/levin_bild.png" alt="Levin im Video" />
+    <p>Was macht mich aus?</p>
+  </div>
+</div>
+
+<!-- ✅ Overlay mit Scroll-Funktion -->
+<div id="overlay" class="overlay" onclick="handleOverlayClick(event)">
+  <div class="overlay-inner">
+    <button class="close-btn" onclick="closeOverlay()">×</button>
+    <div class="overlay-content">
+      <img id="overlayImg" src="" alt="Overlay Bild" />
+      <video id="overlayVideo" controls style="display:none;"></video>
+      <p id="overlayText"></p>
+      <a id="overlayDoc" href="" target="_blank" style="display:none;"></a>
     </div>
   </div>
+</div>
 
-  <!-- 💻 Deine Hauptseite -->
-  <header>
-    <h1>Levin Nigg</h1>
-    <p>Mediamatik-Interessierter Schüler – 14 Jahre – Schweiz</p>
-    <img src="images/levin_bild.png" alt="Mein Bewerbungsfoto" loading="lazy">
-  </header>
+<!-- ✅ Formular -->
+<div id="successMessage">Deine Nachricht wurde versendet ✅</div>
+<div class="form">
+  <p>Hast du noch Fragen an mich?</p>
+  <form action="https://formspree.io/f/mwpojakl" method="POST" id="contactForm">
+    <input type="text" name="name" placeholder="Name" required />
+    <input type="email" name="email" placeholder="Email" required />
+    <textarea name="message" placeholder="Nachricht" required></textarea>
+    <p style="font-size: 14px; color: #6b7280; max-width: 500px; margin: 10px auto;">
+      Mit dem Absenden erklärst du dich mit der Verarbeitung deiner Daten gemäß der
+      <a href="https://formspree.io/legal/privacy-policy/" target="_blank">Datenschutzerklärung von Formspree</a> einverstanden.
+    </p>
+    <button type="submit">Abschicken</button>
+  </form>
+</div>
 
-  <nav>
-    <a href="index.html">Start</a>
-    <a href="seite2.html">Über mich</a>
-    <a href="seite3.html">Stärken</a>
-  </nav>
+<a href="index.html" class="back-link">← Zurück zur Startseite</a>
 
-  <main>
-    <section data-aos="fade-up">
-      <h2>Über mich</h2>
-      <p>Ich bin Levin Nigg, 14 Jahre alt, kreativ, technisch interessiert und begeistert von Design, Webentwicklung und Medien. Mein Berufsziel ist Mediamatiker – weil ich Technik mit Kreativität verbinden will.</p>
-    </section>
+<!-- ✅ JS für Overlay -->
+<script>
+  function openOverlay(imageSrc, text, docLink = "", docText = "") {
+    document.getElementById("overlayImg").src = imageSrc;
+    document.getElementById("overlayImg").style.display = "block";
+    document.getElementById("overlayVideo").style.display = "none";
+    document.getElementById("overlayText").textContent = text;
 
-    <section data-aos="fade-up">
-      <h2>Warum Mediamatiker?</h2>
-      <p>Ich interessiere mich schon lange für Technik, Computer und kreatives Gestalten. Mediamatik ist genau die Mischung, die zu mir passt – ich kann Websites bauen, Bilder bearbeiten, Videos schneiden und gleichzeitig lernen, wie digitale Kommunikation funktioniert.</p>
-    </section>
-
-    <section data-aos="zoom-in-up">
-      <h2>Meine Stärken</h2>
-      <div class="grid">
-        <div class="card"><strong>Kreativität:</strong> Ich bringe gerne eigene Ideen ein.</div>
-        <div class="card"><strong>Technisches Verständnis:</strong> Ich verstehe schnell, wie Programme & Geräte funktionieren.</div>
-        <div class="card"><strong>Teamfähigkeit:</strong> Im Verein und in der Schule arbeite ich gern mit anderen.</div>
-      </div>
-    </section>
-
-    <section data-aos="fade-up">
-      <h2>Kenntnisse & Erfahrungen</h2>
-      <ul>
-        <li>Gestaltung (Privat & Schule)</li>
-        <li>Technisches Verständnis</li>
-        <li>Teamarbeit & Zuverlässigkeit</li>
-        <li>Berufsmesse Zürich (Nov 2024)</li>
-        <li>Swisscom Schnupperlehre (März 2025)</li>
-      </ul>
-    </section>
-
-    <section data-aos="fade-up">
-      <h2>Kontakt</h2>
-      <p>📧 <a href="mailto:lev_nigg@volketswil.schule">lev_nigg@volketswil.schule</a><br>📞 <a href="tel:+41445205498">044 520 54 98</a></p>
-    </section>
-
-    <div style="text-align:center;" data-aos="fade-up">
-      <a class="button-link" href="seite2.html">✨ Erfahre mehr über mich</a>
-      <a class="button-link" href="seite3.html">💪 Meine Stärken ansehen</a>
-    </div>
-  </main>
-
-  <footer>© 2025 Levin Nigg – Danke fürs Vorbeischauen!</footer>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 800, once: true });
-
-    function checkCode() {
-      const input = document.getElementById("code-input").value;
-      const error = document.getElementById("error-msg");
-
-      if (input === "528392") {
-        document.getElementById("code-overlay").style.display = "none";
-      } else {
-        error.textContent = "❌ Falscher Code – versuche es nochmal.";
-      }
+    const doc = document.getElementById("overlayDoc");
+    if (docLink) {
+      doc.href = docLink;
+      doc.textContent = docText;
+      doc.style.display = "block";
+    } else {
+      doc.style.display = "none";
     }
 
-    document.getElementById("code-input").addEventListener("keypress", function (e) {
-      if (e.key === "Enter") checkCode();
+    document.getElementById("overlay").style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
+
+  function openOverlayVideo(videoSrc, text) {
+    document.getElementById("overlayImg").style.display = "none";
+    const video = document.getElementById("overlayVideo");
+    video.src = videoSrc;
+    video.style.display = "block";
+    document.getElementById("overlayText").textContent = text;
+    document.getElementById("overlayDoc").style.display = "none";
+    document.getElementById("overlay").style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeOverlay() {
+    document.getElementById("overlay").style.display = "none";
+    document.body.style.overflow = "auto";
+    const video = document.getElementById("overlayVideo");
+    video.pause();
+    video.currentTime = 0;
+  }
+
+  function handleOverlayClick(event) {
+    if (event.target.id === "overlay") {
+      closeOverlay();
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data
+        });
+
+        if (response.ok) {
+          successMessage.style.display = 'block';
+          setTimeout(() => {
+            successMessage.style.display = 'none';
+          }, 7000);
+          form.reset();
+        } else {
+          alert('Fehler beim Senden. Bitte versuche es später nochmal.');
+        }
+      } catch (error) {
+        alert('Fehler beim Senden. Bitte prüfe deine Internetverbindung.');
+      }
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
