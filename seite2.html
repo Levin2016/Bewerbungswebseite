@@ -4,11 +4,10 @@
   <meta charset="UTF-8" />
   <title>Levin Nigg – Bewerbung</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Bewerbung von Levin Nigg – Mediamatik-Interessierter Schüler aus der Schweiz.">
-  <meta name="author" content="Levin Nigg">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+  <meta name="description" content="Bewerbung von Levin Nigg – Mediamatik-Interessierter Schüler aus der Schweiz." />
+  <meta name="author" content="Levin Nigg" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
     :root {
       --primary: #2563eb;
@@ -28,11 +27,9 @@
     body {
       font-family: 'Poppins', sans-serif;
       background: var(--bg);
-      margin: 0;
-      padding: 0;
       color: var(--dark);
-      opacity: 0;
       animation: fadeIn 1.2s ease forwards;
+      opacity: 0;
     }
 
     @keyframes fadeIn {
@@ -43,7 +40,7 @@
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
       text-align: center;
-      padding: 4rem 1rem 2rem 1rem;
+      padding: 4rem 1rem 2rem;
       border-bottom-left-radius: 50px;
       border-bottom-right-radius: 50px;
       box-shadow: var(--shadow);
@@ -168,9 +165,11 @@
       header img {
         width: 120px;
       }
+
       h1 {
         font-size: 2rem;
       }
+
       nav {
         flex-direction: column;
         gap: 10px;
@@ -181,7 +180,7 @@
     #code-overlay {
       position: fixed;
       inset: 0;
-      background: linear-gradient(to bottom right, #1e3a8a, #2563eb);
+      background: radial-gradient(circle at top left, #1e3a8a, #2563eb, #1e40af);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -199,9 +198,9 @@
     .bubble {
       position: absolute;
       bottom: -100px;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.15);
       border-radius: 50%;
-      animation: rise 12s infinite ease-in;
+      animation: rise 14s infinite ease-in-out;
     }
 
     .bubble:nth-child(1) { left: 10%; width: 40px; height: 40px; animation-delay: 0s; }
@@ -211,30 +210,30 @@
     .bubble:nth-child(5) { left: 85%; width: 40px; height: 40px; animation-delay: 3s; }
 
     @keyframes rise {
-      0% { transform: translateY(0) scale(1); opacity: 0.4; }
-      100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+      0% { transform: translateY(0) scale(1); opacity: 0.5; }
+      100% { transform: translateY(-130vh) scale(1.8); opacity: 0; }
     }
 
     .code-box {
       background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(20px);
-      border-radius: 20px;
+      backdrop-filter: blur(24px);
+      border-radius: 24px;
       padding: 2.5rem;
       text-align: center;
-      color: white;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       max-width: 350px;
       width: 90%;
+      color: white;
+      animation: fadeIn 1s ease-in-out;
     }
 
     .code-box input {
       width: 100%;
-      padding: 12px 18px;
+      padding: 14px 18px;
       font-size: 1rem;
       border-radius: 12px;
       border: none;
-      outline: none;
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.12);
       color: white;
       margin-top: 1rem;
       margin-bottom: 1rem;
@@ -268,10 +267,9 @@
     }
   </style>
 </head>
-
 <body>
 
-  <!-- 🔐 Zugangscode-Overlay -->
+  <!-- 🔐 Zugriffscode -->
   <div id="code-overlay">
     <div class="bubbles">
       <div class="bubble"></div>
@@ -290,7 +288,7 @@
     </div>
   </div>
 
-  <!-- 💻 Deine Webseite -->
+  <!-- 💻 Deine Hauptseite -->
   <header>
     <h1>Levin Nigg</h1>
     <p>Mediamatik-Interessierter Schüler – 14 Jahre – Schweiz</p>
