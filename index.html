@@ -4,11 +4,10 @@
   <meta charset="UTF-8" />
   <title>Levin Nigg – Bewerbung</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Bewerbung von Levin Nigg – Mediamatik-Interessierter Schüler aus der Schweiz.">
-  <meta name="author" content="Levin Nigg">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+  <meta name="description" content="Bewerbung von Levin Nigg – Mediamatik-Interessierter Schüler aus der Schweiz." />
+  <meta name="author" content="Levin Nigg" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
     :root {
       --primary: #2563eb;
@@ -16,7 +15,11 @@
       --bg: #f9fafb;
       --dark: #1f2937;
       --light: #ffffff;
-      --shadow: 0 8px 24px rgba(0,0,0,0.1);
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
@@ -25,216 +28,178 @@
       margin: 0;
       padding: 0;
       color: var(--dark);
-      opacity: 0;
-      animation: fadeIn 1.2s ease forwards;
     }
 
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    header {
+    /* Zugangsschutz Overlay */
+    #code-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
       color: white;
       text-align: center;
-      padding: 4rem 1rem 2rem 1rem;
-      border-bottom-left-radius: 50px;
-      border-bottom-right-radius: 50px;
-      box-shadow: var(--shadow);
-      transition: all 0.4s ease;
     }
 
-    header:hover {
-      transform: scale(1.02);
-    }
-
-    header img {
-      width: 160px;
-      border-radius: 50%;
-      border: 5px solid white;
-      margin-top: 20px;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    header img:hover {
-      transform: scale(1.1);
-    }
-
-    nav {
-      background: var(--light);
-      box-shadow: var(--shadow);
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    nav a {
-      color: var(--primary);
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: var(--secondary);
-    }
-
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 2rem 1rem;
-    }
-
-    section {
-      background: white;
-      margin: 2rem 0;
+    #code-box {
+      background: rgba(255, 255, 255, 0.1);
       padding: 2rem;
-      border-radius: 20px;
+      border-radius: 16px;
       box-shadow: var(--shadow);
-      transition: transform 0.3s ease;
+      max-width: 320px;
+      width: 90%;
+      backdrop-filter: blur(8px);
     }
 
-    section:hover {
-      transform: translateY(-8px);
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    h2 {
-      color: var(--primary);
+    #code-box h2 {
       margin-bottom: 1rem;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+    #code-input {
+      width: 100%;
+      padding: 10px 15px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 1rem;
     }
 
-    .card {
-      background: #eef2f7;
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    #code-submit {
+      background: white;
+      color: var(--primary);
+      border: none;
+      font-weight: bold;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    #code-submit:hover {
+      background: #e5e7eb;
     }
 
-    .button-link {
-      display: inline-block;
-      margin: 20px 10px;
-      padding: 15px 30px;
-      font-size: 1.1rem;
-      border-radius: 50px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      text-decoration: none;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .button-link:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
-    }
-
-    footer {
-      text-align: center;
+    #error-msg {
+      margin-top: 10px;
+      color: #f87171;
       font-size: 0.9rem;
-      color: #6b7280;
-      margin: 3rem 0 1rem 0;
     }
 
-    @media (max-width: 600px) {
-      header img {
-        width: 120px;
-      }
-      h1 {
-        font-size: 2rem;
-      }
-      nav {
-        flex-direction: column;
-        gap: 10px;
-      }
+    /* Verstecke Inhalt bis Code eingegeben */
+    #main-content {
+      display: none;
     }
   </style>
 </head>
-
 <body>
-  <header>
-    <h1>Levin Nigg</h1>
-    <p>Mediamatik-Interessierter Schüler – 14 Jahre – Schweiz</p>
-    <img src="images/levin_bild.png" alt="Mein Bewerbungsfoto" loading="lazy">
-  </header>
 
-  <nav>
-    <a href="index.html">Start</a>
-    <a href="seite2.html">Über mich</a>
-    <a href="seite3.html">Stärken</a>
-  </nav>
-
-  <main>
-    <section data-aos="fade-up">
-      <h2>Über mich</h2>
-      <p>Ich bin Levin Nigg, 14 Jahre alt, kreativ, technisch interessiert und begeistert von Design, Webentwicklung und Medien. Mein Berufsziel ist Mediamatiker – weil ich Technik mit Kreativität verbinden will.</p>
-    </section>
-
-    <section data-aos="fade-up">
-      <h2>Warum Mediamatiker?</h2>
-      <p>Ich interessiere mich schon lange für Technik, Computer und kreatives Gestalten. Mediamatik ist genau die Mischung, die zu mir passt – ich kann Websites bauen, Bilder bearbeiten, Videos schneiden und gleichzeitig lernen, wie digitale Kommunikation funktioniert.</p>
-    </section>
-
-    <section data-aos="zoom-in-up">
-      <h2>Meine Stärken</h2>
-      <div class="grid">
-        <div class="card"><strong>Kreativität:</strong> Ich bringe gerne eigene Ideen ein.</div>
-        <div class="card"><strong>Technisches Verständnis:</strong> Ich verstehe schnell, wie Programme & Geräte funktionieren.</div>
-        <div class="card"><strong>Teamfähigkeit:</strong> Im Verein und in der Schule arbeite ich gern mit anderen.</div>
-      </div>
-    </section>
-
-    <section data-aos="fade-up">
-      <h2>Kenntnisse & Erfahrungen</h2>
-      <ul>
-        <li>Gestaltung (Privat & Schule)</li>
-        <li>Technisches Verständnis</li>
-        <li>Teamarbeit & Zuverlässigkeit</li>
-        <li>Berufsmesse Zürich (Nov 2024)</li>
-        <li>Swisscom Schnupperlehre (März 2025)</li>
-      </ul>
-    </section>
-
-    <section data-aos="fade-up">
-      <h2>Kontakt</h2>
-      <p>📧 <a href="mailto:lev_nigg@volketswil.schule">lev_nigg@volketswil.schule</a><br>📞 <a href="tel:+41445205498">044 520 54 98</a></p>
-    </section>
-
-    <div style="text-align:center;" data-aos="fade-up">
-      <a class="button-link" href="seite2.html">✨ Erfahre mehr über mich</a>
-      <a class="button-link" href="seite3.html">💪 Meine Stärken ansehen</a>
+  <!-- Sicherheitscode Eingabe -->
+  <div id="code-overlay">
+    <div id="code-box">
+      <h2>🔐 Zugang erforderlich</h2>
+      <p>Bitte Sicherheitscode eingeben, um fortzufahren:</p>
+      <input type="password" id="code-input" placeholder="Sicherheitscode" />
+      <button id="code-submit">Weiter</button>
+      <div id="error-msg"></div>
     </div>
-  </main>
+  </div>
 
-  <footer>© 2025 Levin Nigg – Danke fürs Vorbeischauen!</footer>
+  <!-- Hauptinhalt der Seite -->
+  <div id="main-content">
+    <header>
+      <h1>Levin Nigg</h1>
+      <p>Mediamatik-Interessierter Schüler – 14 Jahre – Schweiz</p>
+      <img src="images/levin_bild.png" alt="Levin Nigg Bewerbungsfoto" loading="lazy" />
+    </header>
 
+    <nav aria-label="Hauptnavigation">
+      <a href="index.html">Start</a>
+      <a href="seite2.html">Über mich</a>
+      <a href="seite3.html">Stärken</a>
+    </nav>
+
+    <main>
+      <section data-aos="fade-up">
+        <h2>Über mich</h2>
+        <p>Ich bin Levin Nigg, 14 Jahre alt, kreativ, technisch interessiert und begeistert von Design, Webentwicklung und Medien. Mein Berufsziel ist Mediamatiker – weil ich Technik mit Kreativität verbinden will.</p>
+      </section>
+
+      <section data-aos="fade-up">
+        <h2>Warum Mediamatiker?</h2>
+        <p>Ich interessiere mich schon lange für Technik, Computer und kreatives Gestalten. Mediamatik ist genau die Mischung, die zu mir passt – ich kann Websites bauen, Bilder bearbeiten, Videos schneiden und gleichzeitig lernen, wie digitale Kommunikation funktioniert.</p>
+      </section>
+
+      <section data-aos="zoom-in-up">
+        <h2>Meine Stärken</h2>
+        <div class="grid">
+          <div class="card"><strong>Kreativität:</strong> Ich bringe gerne eigene Ideen ein.</div>
+          <div class="card"><strong>Technisches Verständnis:</strong> Ich verstehe schnell, wie Programme & Geräte funktionieren.</div>
+          <div class="card"><strong>Teamfähigkeit:</strong> Im Verein und in der Schule arbeite ich gern mit anderen.</div>
+        </div>
+      </section>
+
+      <section data-aos="fade-up">
+        <h2>Kenntnisse & Erfahrungen</h2>
+        <ul>
+          <li>Gestaltung (Privat & Schule)</li>
+          <li>Technisches Verständnis</li>
+          <li>Teamarbeit & Zuverlässigkeit</li>
+          <li>Berufsmesse Zürich (Nov 2024)</li>
+          <li>Swisscom Schnupperlehre (März 2025)</li>
+        </ul>
+      </section>
+
+      <section data-aos="fade-up">
+        <h2>Kontakt</h2>
+        <p>
+          📧 <a href="mailto:lev_nigg@volketswil.schule">lev_nigg@volketswil.schule</a><br />
+          📞 <a href="tel:+41445205498">044 520 54 98</a>
+        </p>
+      </section>
+
+      <div style="text-align: center;" data-aos="fade-up">
+        <a class="button-link" href="seite2.html">✨ Erfahre mehr über mich</a>
+        <a class="button-link" href="seite3.html">💪 Meine Stärken ansehen</a>
+      </div>
+    </main>
+
+    <footer>© 2025 Levin Nigg – Danke fürs Vorbeischauen!</footer>
+  </div>
+
+  <!-- AOS Animation -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({
       duration: 800,
       once: true
+    });
+
+    // Sicherheitscode
+    document.getElementById('code-submit').addEventListener('click', function () {
+      const input = document.getElementById('code-input').value;
+      const overlay = document.getElementById('code-overlay');
+      const content = document.getElementById('main-content');
+      const error = document.getElementById('error-msg');
+
+      if (input === '528392') {
+        overlay.style.display = 'none';
+        content.style.display = 'block';
+      } else {
+        error.textContent = '❌ Falscher Code. Bitte versuch es nochmal.';
+      }
+    });
+
+    // Enter-Taste unterstützt
+    document.getElementById('code-input').addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        document.getElementById('code-submit').click();
+      }
     });
   </script>
 </body>
