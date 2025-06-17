@@ -3,38 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <title>Über mich – Levin Nigg</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <style>
-  :root{--primary:#1d4ed8;--secondary:#3b82f6;--bg:#f9fafb;--dark:#131418;--light:#fff;--shadow:0 8px 24px rgba(0,0,0,.1);}
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);min-height:100vh;padding:20px 20px 120px;}
-  nav{display:flex;justify-content:center;gap:30px;padding:20px 0;}
-  nav a{position:relative;color:var(--primary);text-decoration:none;font-weight:600;font-size:1.1rem;}
-  nav a.active::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:3px;background:var(--secondary);}
-  nav a:hover{color:var(--secondary);}
-  h1{text-align:center;color:var(--primary);margin-bottom:20px;}
-  .container{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;max-width:1000px;margin:auto;}
-  .item{position:relative;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);cursor:pointer;transition:transform .3s;}
-  .item:hover{transform:scale(1.04);}
-  .item img{width:100%;height:220px;object-fit:cover;}
-  .item p{padding:12px;background:var(--primary);color:#fff;text-align:center;font-weight:600;}
-  #overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,.8);display:none;justify-content:center;align-items:center;z-index:9999;}
-  .overlay-inner{position:relative;width:90%;max-width:800px;background:var(--light);border-radius:12px;padding:20px;overflow:auto;}
-  .close-btn{position:absolute;top:10px;right:20px;font-size:32px;background:none;border:none;color:#131418;cursor:pointer;}
-  .overlay-content img, .overlay-content video{width:100%;max-height:60vh;border-radius:12px;margin-bottom:20px;}
-  .overlay-content p{color:var(--dark);font-size:1rem;margin-bottom:12px;}
-  .overlay-content a{color:var(--secondary);font-weight:600;text-decoration:underline;}
-  .back-link{position:fixed;bottom:0;width:100%;text-align:center;background:var(--light);padding:10px 0;color:var(--primary);font-weight:600;text-decoration:none;box-shadow:0 -1px 6px rgba(0,0,0,.1);}
-  .form{margin-top:50px;padding:0 20px;text-align:center;max-width:500px;margin:auto;}
-  .form input, .form textarea{width:100%;padding:10px;margin:10px 0;border-radius:8px;border:1px solid #ccc;}
-  .form button{padding:12px 25px;background:var(--primary);color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:16px;font-weight:600;transition:background .3s;}
-  .form button:hover{background:#1e40af;}
-  #successMessage{position:fixed;top:0;width:100%;background:#22c55e;color:#fff;text-align:center;padding:15px;display:none;z-index:9999;}
+:root {--primary:#1d4ed8;--secondary:#3b82f6;--bg:#f9fafb;--light:#fff;--dark:#1f2937;--shadow:0 8px 24px rgba(0,0,0,0.1);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);min-height:100vh;padding:20px 20px 120px;}
+nav{display:flex;justify-content:center;gap:30px;padding:20px 0;}
+nav a{position:relative;color:var(--primary);text-decoration:none;font-weight:600;font-size:1.1rem;padding:4px;}
+nav a.active::after {content:"";position:absolute;left:0;bottom:-4px;width:100%;height:3px;background:var(--secondary);}
+nav a:hover {color:var(--secondary);}
+h1{text-align:center;color:var(--primary);margin-bottom:20px;}
+.container{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;max-width:1000px;margin:auto;}
+.item{position:relative;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);cursor:pointer;transition:transform .3s;}
+.item:hover{transform:scale(1.04);}
+.item img{width:100%;height:220px;object-fit:cover;}
+.item p{padding:12px;background:var(--primary);color:#fff;text-align:center;font-weight:600;}
+#overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.8);display:none;justify-content:center;align-items:center;z-index:9999;}
+.overlay-inner{position:relative;width:90%;max-width:800px;background:var(--light);border-radius:12px;padding:20px;overflow:auto;}
+.close-btn{position:absolute;top:10px;right:20px;font-size:32px;background:none;border:none;color:var(--dark);cursor:pointer;}
+.overlay-content img, .overlay-content video{width:100%;border-radius:12px;margin-bottom:20px;}
+.overlay-content p{font-size:1rem;color:var(--dark);margin-bottom:12px;}
+.overlay-content a{color:var(--secondary);text-decoration:underline;font-weight:600;}
+.form{margin-top:50px;text-align:center;max-width:500px;margin:auto;padding:0 20px;}
+.form input, .form textarea{width:100%;padding:10px;margin:10px 0;border-radius:8px;border:1px solid #ccc;box-sizing:border-box;}
+.form button{padding:12px 25px;background:var(--primary);color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:16px;font-weight:600;transition:background .3s;}
+.form button:hover{background:#1e40af;}
+#successMessage{position:fixed;top:0;width:100%;background:#22c55e;color:#fff;text-align:center;padding:15px;display:none;z-index:9999;}
+.back-link{position:fixed;bottom:0;width:100%;text-align:center;background:var(--light);padding:10px 0;font-weight:600;color:var(--primary);box-shadow:0 -1px 6px rgba(0,0,0,0.1);text-decoration:none;}
 </style>
 </head>
 <body>
+
+<script>
+if (sessionStorage.getItem("entered") !== "true") location.href = "index.html";
+</script>
 
 <nav>
   <a href="index.html">Startseite</a>
@@ -43,31 +47,29 @@
 </nav>
 
 <h1 data-aos="fade-down">Über mich!</h1>
-<p data-aos="fade-up" style="text-align:center;max-width:800px;margin:auto 0 40px;">Ich erzähle dir hier mehr über meine Hobbys und Interessen.</p>
+<p data-aos="fade-up" style="text-align:center;max-width:800px;margin:0 auto 40px;">
+  Ich bin Levin, 14 Jahre alt, kreativ, technikbegeistert und aktiv im Sportverein.
+</p>
 
 <div class="container">
-  <div class="item" onclick="openOverlay('images/Sporthobbys.png','Ich spiele leidenschaftlich Unihockey und bin Trainer','docs/Nachweis.pdf','Nachweis öffnen')" data-aos="zoom-in">
-    <img src="images/Sporthobbys.png" alt="Sport">
+  <div class="item" data-aos="zoom-in" onclick="openOverlay('images/Sporthobbys.png','Ich spiele seit 4 Jahren Unihockey beim Greifensee Grizzlys – seit 1 Jahr auch als Trainer','docs/Nachweis_Freiwilligenarbeit.pdf','Nachweis öffnen')">
+    <img src="images/Sporthobbys.png" alt="Sporthobbys">
     <p>Sport & Trainer</p>
   </div>
-  <div class="item" onclick="openOverlay('images/Freizeit2.png','Filme schneiden und kreative Projekte umsetzen ist meine Leidenschaft.')"
-       data-aos="zoom-in" data-aos-delay="100">
+  <div class="item" data-aos="zoom-in" data-aos-delay="100" onclick="openOverlay('images/Freizeit2.png','Ich liebe Filme schneiden und kreative Projekte gestalten')">
     <img src="images/Freizeit2.png" alt="Freizeit">
-    <p>Filme & Kreativ</p>
+    <p>Filme & Kreativität</p>
   </div>
-  <div class="item" onclick="openOverlay('images/Mediamatiker2.png','Film, Bildbearbeitung & Design faszinieren mich.')"
-       data-aos="zoom-in" data-aos-delay="200">
+  <div class="item" data-aos="zoom-in" data-aos-delay="200" onclick="openOverlay('images/Mediamatiker2.png','Mediengestaltung & Design faszinieren mich seit langem')">
     <img src="images/Mediamatiker2.png" alt="Mediamatiker">
-    <p>Warum Mediamatiker</p>
+    <p>Warum Mediamatiker?</p>
   </div>
-  <div class="item" onclick="openOverlayVideo('video/was_macht_mich_aus.mp4','Das bin ich in Aktion!')"
-       data-aos="zoom-in" data-aos-delay="300">
-    <img src="images/levin_bild.png" alt="Video Vorschau">
+  <div class="item" data-aos="zoom-in" data-aos-delay="300" onclick="openOverlayVideo('video/was_macht_mich_aus.mp4','Schau mich in Aktion!')">
+    <img src="images/levin_bild.png" alt="Video: Was mich ausmacht">
     <p>Was mich ausmacht</p>
   </div>
 </div>
 
-<!-- Overlay -->
 <div id="overlay" onclick="overlayClick(event)">
   <div class="overlay-inner">
     <button class="close-btn" onclick="closeOverlay()">×</button>
@@ -81,14 +83,16 @@
 </div>
 
 <div id="successMessage">Deine Nachricht wurde versendet ✅</div>
-<div class="form">
-  <p>Hast du Fragen? Schreib mir!</p>
-  <form action="https://formspree.io/f/mwpojakl" method="POST" id="contactForm">
-    <input name="name" placeholder="Name" required>
-    <input name="email" type="email" placeholder="Email" required>
+<div class="form" data-aos="fade-up">
+  <p>📩 Hast du Fragen? Schreib mir gerne!</p>
+  <form id="contactForm" action="https://formspree.io/f/mwpojakl" method="POST">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="E‑Mail" required>
     <textarea name="message" placeholder="Nachricht" required></textarea>
-    <p style="font-size:14px;color:#6b7280;">Mit Absenden akzeptierst du die <a href="https://formspree.io/legal/privacy-policy/" target="_blank">Datenschutzrichtlinien</a>.</p>
-    <button type="submit">Abschicken</button>
+    <p style="font-size:14px;color:#6b7280;">
+      Durch Absenden stimmst du der <a href="https://formspree.io/legal/privacy-policy/" target="_blank">Datenschutzerklärung</a> zu.
+    </p>
+    <button type="submit">Absenden</button>
   </form>
 </div>
 
@@ -96,54 +100,43 @@
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init({duration:800,once:true});
-  if(sessionStorage.getItem("entered")!=="true"){location.href="index.html"}
-
-  function openOverlay(src,text,docLink="",docText=""){
-    const img=document.getElementById("overlayImg"),
-          vid=document.getElementById("overlayVideo"),
-          p=document.getElementById("overlayText"),
-          doc=document.getElementById("overlayDoc");
-    img.src=src;img.style.display="block";
-    vid.style.display="none";vid.pause();
-    p.textContent=text;
-    if(docLink){
-      doc.href=docLink;doc.textContent=docText;doc.style.display="block";
-    }else doc.style.display="none";
-    document.getElementById("overlay").style.display="flex";
-  }
-
-  function openOverlayVideo(src,text){
-    const vid=document.getElementById("overlayVideo"),
-          img=document.getElementById("overlayImg"),
-          p=document.getElementById("overlayText"),
-          doc=document.getElementById("overlayDoc");
-    img.style.display="none";
-    vid.src=src;vid.style.display="block";
-    p.textContent=text;doc.style.display="none";
-    document.getElementById("overlay").style.display="flex";
-  }
-
-  function closeOverlay(){
-    document.getElementById("overlay").style.display="none";
-    const vid=document.getElementById("overlayVideo");
-    vid.pause();vid.currentTime=0;
-  }
-
-  function overlayClick(e){ if(e.target.id==="overlay") closeOverlay();}
-
-  document.getElementById('contactForm').addEventListener('submit',async function(e){
-    e.preventDefault();
-    const form=this, data=new FormData(form);
-    try {
-      const res=await fetch(form.action,{method:'POST',headers:{'Accept':'application/json'},body:data});
-      if(res.ok){
-        document.getElementById('successMessage').style.display='block';
-        setTimeout(()=>{document.getElementById('successMessage').style.display='none';},7000);
-        form.reset();
-      } else alert('Fehler 😕');
-    } catch{alert('Netzwerkfehler');}
-  });
+AOS.init({duration:800,once:true});
+function openOverlay(src, text, docLink="", docText="") {
+  document.getElementById('overlayImg').src = src;
+  document.getElementById('overlayImg').style.display = 'block';
+  document.getElementById('overlayVideo').style.display = 'none';
+  document.getElementById('overlayText').textContent = text;
+  const doc = document.getElementById('overlayDoc');
+  if (docLink) { doc.href = docLink; doc.textContent = docText; doc.style.display = 'block'; }
+  else { doc.style.display = 'none'; }
+  document.getElementById('overlay').style.display = 'flex';
+}
+function openOverlayVideo(src, text) {
+  document.getElementById('overlayImg').style.display = 'none';
+  const vid = document.getElementById('overlayVideo');
+  vid.src = src; vid.style.display = 'block';
+  document.getElementById('overlayText').textContent = text;
+  document.getElementById('overlayDoc').style.display = 'none';
+  document.getElementById('overlay').style.display = 'flex';
+}
+function closeOverlay(){
+  const vid = document.getElementById('overlayVideo');
+  vid.pause(); vid.currentTime = 0;
+  document.getElementById('overlay').style.display = 'none';
+}
+function overlayClick(e){
+  if(e.target.id === 'overlay') closeOverlay();
+}
+document.getElementById('contactForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const data = new FormData(this);
+  const resp = await fetch(this.action, { method:'POST', headers:{'Accept':'application/json'}, body:data });
+  if(resp.ok) {
+    document.getElementById('successMessage').style.display = 'block';
+    setTimeout(()=>document.getElementById('successMessage').style.display='none',7000);
+    this.reset();
+  } else alert('Fehler beim Senden.');
+});
 </script>
 </body>
 </html>
