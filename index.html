@@ -1,368 +1,197 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <title>Levin Nigg – Bewerbung</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Bewerbung von Levin Nigg – Mediamatik-Interessierter Schüler aus der Schweiz." />
-  <meta name="author" content="Levin Nigg" />
-  <meta property="og:title" content="Levin Nigg – Bewerbung" />
-  <meta property="og:description" content="Mediamatik-Interessierter Schüler aus der Schweiz – Bewerbung & Portfolio." />
-  <meta property="og:image" content="https://levin-nigg.ch/images/levin_bild.png" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://levin-nigg.ch/" />
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-  <style>
-    :root {
-      --primary: #2563eb;
-      --secondary: #3b82f6;
-      --bg: #f9fafb;
-      --dark: #1f2937;
-      --light: #ffffff;
-      --shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg);
-      margin: 0;
-      padding: 0;
-      color: var(--dark);
-      opacity: 0;
-      animation: fadeIn 1.2s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    header {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      text-align: center;
-      padding: 4rem 1rem 2rem 1rem;
-      border-bottom-left-radius: 50px;
-      border-bottom-right-radius: 50px;
-      box-shadow: var(--shadow);
-      transition: all 0.4s ease;
-    }
-
-    header:hover {
-      transform: scale(1.02);
-    }
-
-    header img {
-      width: 160px;
-      border-radius: 50%;
-      border: 5px solid white;
-      margin-top: 20px;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    header img:hover {
-      transform: scale(1.1);
-    }
-
-    nav {
-      background: var(--light);
-      box-shadow: var(--shadow);
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    nav a {
-      color: var(--primary);
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: var(--secondary);
-    }
-
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 2rem 1rem;
-    }
-
-    section {
-      background: white;
-      margin: 2rem 0;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease;
-    }
-
-    section:hover {
-      transform: translateY(-8px);
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    h2 {
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: #eef2f7;
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-    }
-
-    .button-link {
-      display: inline-block;
-      margin: 20px 10px;
-      padding: 15px 30px;
-      font-size: 1.1rem;
-      border-radius: 50px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      text-decoration: none;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .button-link:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #6b7280;
-      margin: 3rem 0 1rem 0;
-    }
-
-    @media (max-width: 600px) {
-      header img {
-        width: 120px;
-      }
-      h1 {
-        font-size: 2rem;
-      }
-      nav {
-        flex-direction: column;
-        gap: 10px;
-      }
-    }
-
-    /* 🔐 Zugangscode Overlay */
-    #code-overlay {
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(to bottom right, #1e3a8a, #2563eb);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      overflow: hidden;
-    }
-
-    .bubbles {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-
-    .bubble {
-      position: absolute;
-      bottom: -100px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      animation: rise 12s infinite ease-in;
-    }
-
-    .bubble:nth-child(1) { left: 10%; width: 40px; height: 40px; animation-delay: 0s; }
-    .bubble:nth-child(2) { left: 30%; width: 60px; height: 60px; animation-delay: 2s; }
-    .bubble:nth-child(3) { left: 50%; width: 50px; height: 50px; animation-delay: 4s; }
-    .bubble:nth-child(4) { left: 70%; width: 70px; height: 70px; animation-delay: 1s; }
-    .bubble:nth-child(5) { left: 85%; width: 40px; height: 40px; animation-delay: 3s; }
-
-    @keyframes rise {
-      0% { transform: translateY(0) scale(1); opacity: 0.4; }
-      100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
-    }
-
-    .code-box {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(20px);
-      border-radius: 20px;
-      padding: 2rem 2.5rem;
-      text-align: center;
-      color: white;
-      box-shadow: var(--shadow);
-      max-width: 350px;
-    }
-
-    .code-box input {
-      width: 100%;
-      padding: 10px 15px;
-      margin: 1rem 0;
-      font-size: 1rem;
-      border-radius: 10px;
-      border: none;
-      outline: none;
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-    }
-
-    .code-box input::placeholder {
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    .code-box button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 50px;
-      background: linear-gradient(to right, #3b82f6, #60a5fa);
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .code-box button:hover {
-      transform: scale(1.05);
-    }
-
-    .code-error {
-      color: #fca5a5;
-      min-height: 1.2rem;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Levin Nigg – Startseite</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<style>
+  :root{
+    --primary:#1d4ed8; --secondary:#3b82f6; 
+    --bg:#f9fafb; --dark:#131418; --light:#fff;
+    --shadow:0 8px 24px rgba(0,0,0,.1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:var(--bg);
+    color:var(--dark);
+    opacity:0;
+    animation:fadeIn 1.2s ease forwards;
+  }
+  @keyframes fadeIn{to{opacity:1;}}
+  header{
+    position:relative;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:#fff;
+    text-align:center;
+    padding:4rem 1rem;
+    border-bottom-left-radius:50px;
+    border-bottom-right-radius:50px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  header::after{
+    content:"";
+    position:absolute;
+    bottom:-20px;
+    left:50%;
+    width:150%;
+    height:100px;
+    background:radial-gradient(circle at center,rgba(255,255,255,.15),transparent);
+    transform:translateX(-50%);
+  }
+  header img{
+    width:160px;border-radius:50%;border:5px solid #fff;
+    margin-top:20px;object-fit:cover;
+    transition:transform .5s ease;
+  }
+  header img:hover{transform:scale(1.15) rotate(3deg);}
+  nav{
+    background:var(--light);
+    display:flex;justify-content:center;
+    gap:30px;padding:1rem;
+    position:sticky;top:0;z-index:1000;
+    box-shadow:var(--shadow);
+  }
+  nav a{
+    position:relative;
+    color:var(--primary);text-decoration:none;
+    font-weight:600;font-size:1.1rem;
+    padding:4px 0;
+    transition:color .3s ease;
+  }
+  nav a.active::after,
+  nav a:hover::after{
+    content:"";position:absolute;left:0;bottom:0;
+    width:100%;height:3px;
+    background:var(--secondary);
+  }
+  nav a:hover{color:var(--secondary);}
+  main{max-width:1100px;margin:auto;padding:2rem 1rem;}
+  section{background:#fff;margin:2rem 0;
+    padding:2rem;border-radius:20px;
+    box-shadow:var(--shadow);
+    transition:transform .3s ease,box-shadow .3s ease;
+  }
+  section:hover{transform:translateY(-8px);box-shadow:0 12px 24px rgba(0,0,0,.15);}
+  h1{font-size:2.5rem;margin-bottom:.5rem;}
+  h2{color:var(--primary);margin-bottom:1rem;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+  .card{background:#eef2f7;padding:1rem;border-radius:12px;
+        box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s;}
+  .card:hover{transform:translateY(-5px);box-shadow:0 12px 24px rgba(0,0,0,.15);}
+  .button-link{
+    display:inline-block;margin:20px 10px;
+    padding:15px 30px;font-size:1.1rem;
+    border-radius:50px;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:#fff;text-decoration:none;
+    box-shadow:var(--shadow);
+    transition:transform .3s,box-shadow .3s;
+  }
+  .button-link:hover{transform:scale(1.05);box-shadow:0 0 15px rgba(59,130,246,.6);}
+  footer{text-align:center;font-size:.9rem;color:#6b7280;margin:3rem 0 1rem;}
+  /* Zugangscode */
+  #code-overlay{position:fixed;inset:0;
+    background:linear-gradient(to br,var(--primary),var(--secondary));
+    display:flex;align-items:center;justify-content:center;
+    z-index:9999;
+    transition:opacity .5s ease;
+  }
+  .bubbles{position:absolute;width:100%;height:100%;z-index:-1;}
+  .bubble{position:absolute;bottom:-100px;background:rgba(255,255,255,.2);
+          border-radius:50%;animation:rise 12s infinite ease-in;}
+  .bubble:nth-child(1){left:10%;width:40px;height:40px;animation-delay:0;}
+  .bubble:nth-child(2){left:30%;width:60px;height:60px;animation-delay:2s;}
+  .bubble:nth-child(3){left:50%;width:50px;height:50px;animation-delay:4s;}
+  .bubble:nth-child(4){left:70%;width:70px;height:70px;animation-delay:1s;}
+  .bubble:nth-child(5){left:85%;width:40px;height:40px;animation-delay:3s;}
+  @keyframes rise{
+    0%{transform:translateY(0) scale(1);opacity:.4;}
+    100%{transform:translateY(-120vh) scale(1.5);opacity:0;}
+  }
+  .code-box{background:rgba(255,255,255,.15);backdrop-filter:blur(20px);
+    border-radius:20px;padding:2rem 2.5rem;text-align:center;color:#fff;
+    box-shadow:var(--shadow);max-width:350px;}
+  .code-box input{width:100%;padding:10px 15px;margin:1rem 0;
+    font-size:1rem;border:none;border-radius:10px;
+    background:rgba(255,255,255,.1);color:#fff;}
+  .code-box input::placeholder{color:rgba(255,255,255,.7);}
+  .code-box button{padding:10px 20px;border:none;border-radius:50px;
+    background:linear-gradient(to right,#3b82f6,#60a5fa);
+    color:#fff;font-weight:bold;cursor:pointer;transition:.3s;}
+  .code-box button:hover{transform:scale(1.05);}
+  .code-error{color:#fca5a5;min-height:1.2rem;}
+</style>
 </head>
 <body>
 
-  <div id="code-overlay">
-    <div class="bubbles">
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-    </div>
-    <div class="code-box">
-      <h2>🚀 Zugriffscode</h2>
-      <p>Bitte gib den Code ein, um fortzufahren:</p>
-      <input type="password" id="code-input" placeholder="Zugangscode" />
-      <button onclick="checkCode()">🔓 Weiter</button>
-      <div class="code-error" id="error-msg"></div>
-    </div>
+<div id="code-overlay">
+  <div class="bubbles">
+    <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+    <div class="bubble"></div><div class="bubble"></div>
   </div>
+  <div class="code-box" data-aos="zoom-in">
+    <h2>🚀 Zugriffscode</h2>
+    <p>Bitte gib den Code ein, um fortzufahren:</p>
+    <input type="password" id="code-input" placeholder="Zugangscode">
+    <button onclick="checkCode()">🔓 Weiter</button>
+    <div class="code-error" id="error-msg"></div>
+  </div>
+</div>
 
-  <header>
-    <h1>Levin Nigg</h1>
-    <p>Mediamatik-Interessierter Schüler – 14 Jahre – Schweiz</p>
-    <img src="images/levin_bild.png" alt="Mein Bewerbungsfoto" loading="lazy">
-  </header>
+<header data-aos="fade-down">
+  <h1>Levin Nigg</h1>
+  <p>Mediamatik-Interessierter Schüler – 14 Jahre – Schweiz</p>
+  <img src="images/levin_bild.png" alt="Mein Bewerbungsfoto" loading="lazy">
+</header>
 
-  <nav>
-    <a href="index.html">Start</a>
-    <a href="seite2.html">Über mich</a>
-    <a href="seite3.html">Stärken</a>
-  </nav>
+<nav>
+  <a href="index.html" class="active">Startseite</a>
+  <a href="seite2.html">Über mich</a>
+  <a href="seite3.html">Meine Stärken</a>
+</nav>
 
-  <main>
-    <section data-aos="fade-up">
-      <h2>Über mich</h2>
-      <p>Ich bin Levin Nigg, 14 Jahre alt, kreativ, technisch interessiert und begeistert von Design, Webentwicklung und Medien. Mein Berufsziel ist Mediamatiker – weil ich Technik mit Kreativität verbinden will.</p>
-    </section>
-
-    <section data-aos="fade-up">
-      <h2>Warum Mediamatiker?</h2>
-      <p>Ich interessiere mich schon lange für Technik, Computer und kreatives Gestalten. Mediamatik ist genau die Mischung, die zu mir passt – ich kann Websites bauen, Bilder bearbeiten, Videos schneiden und gleichzeitig lernen, wie digitale Kommunikation funktioniert.</p>
-    </section>
-
-    <section data-aos="zoom-in-up">
-      <h2>Meine Stärken</h2>
-      <div class="grid">
-        <div class="card"><strong>Kreativität:</strong> Ich bringe gerne eigene Ideen ein.</div>
-        <div class="card"><strong>Technisches Verständnis:</strong> Ich verstehe schnell, wie Programme & Geräte funktionieren.</div>
-        <div class="card"><strong>Teamfähigkeit:</strong> Im Verein und in der Schule arbeite ich gern mit anderen.</div>
-      </div>
-    </section>
-
-    <section data-aos="fade-up">
-      <h2>Kenntnisse & Erfahrungen</h2>
-      <ul>
-        <li>Gestaltung (Privat & Schule)</li>
-        <li>Technisches Verständnis</li>
-        <li>Teamarbeit & Zuverlässigkeit</li>
-        <li>Berufsmesse Zürich (Nov 2024)</li>
-        <li>Swisscom Schnupperlehre (März 2025)</li>
-      </ul>
-    </section>
-
-    <section data-aos="fade-up">
-      <h2>Kontakt</h2>
-      <p>📧 <a href="mailto:lev_nigg@volketswil.schule">lev_nigg@volketswil.schule</a><br>📞 <a href="tel:+41445205498">044 520 54 98</a></p>
-    </section>
-
-    <div style="text-align:center;" data-aos="fade-up">
-      <a class="button-link" href="seite2.html">✨ Erfahre mehr über mich</a>
-      <a class="button-link" href="seite3.html">💪 Meine Stärken ansehen</a>
+<main>
+  <section data-aos="fade-up">
+    <h2>Wer bin ich?</h2>
+    <p>Ich bin Levin … (Kurzvorstellung)</p>
+  </section>
+  <section data-aos="fade-up">
+    <h2>Meine Interessen</h2>
+    <div class="grid">
+      <div class="card">🎬 Film & Video</div>
+      <div class="card">💻 Technik & Design</div>
+      <div class="card">⚽ Sport & Teamarbeit</div>
     </div>
-  </main>
+  </section>
+  <div style="text-align:center;" data-aos="fade-up">
+    <a class="button-link" href="seite2.html">Über mich</a>
+    <a class="button-link" href="seite3.html">Meine Stärken</a>
+  </div>
+</main>
 
-  <footer>© 2025 Levin Nigg – Danke fürs Vorbeischauen!</footer>
+<footer data-aos="fade-up">© 2025 Levin Nigg – Danke fürs Vorbeischauen!</footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 800, once: true });
-
-    function checkCode() {
-      const input = document.getElementById("code-input").value;
-      const error = document.getElementById("error-msg");
-
-      if (input === "528392") {
-        document.getElementById("code-overlay").style.display = "none";
-      } else {
-        error.textContent = "❌ Falscher Code – versuche es nochmal.";
-      }
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({duration:800,once:true});
+  function checkCode(){
+    const inpt = document.getElementById("code-input");
+    const error = document.getElementById("error-msg");
+    if(inpt.value==="528392"){
+      sessionStorage.setItem("entered", "true");
+      document.getElementById("code-overlay").style.display="none";
+    } else {
+      error.textContent="❌ Falscher Code – versuchs nochmal.";
     }
-
-    document.getElementById("code-input").addEventListener("keypress", function (e) {
-      if (e.key === "Enter") checkCode();
-    });
-  </script>
-
+  }
+  window.addEventListener("load",()=>{
+    if(sessionStorage.getItem("entered")==="true")
+      document.getElementById("code-overlay").style.display="none";
+  });
+</script>
 </body>
 </html>
