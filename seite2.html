@@ -1,240 +1,78 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <title>Über mich – Levin Nigg</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f9fafb;
-      color: #1f2937;
-      margin: 0;
-      padding: 20px;
-      min-height: 100vh;
-      padding-bottom: 120px;
-    }
-
-    h1 {
-      text-align: center;
-      color: #2563eb;
-      margin-bottom: 20px;
-    }
-
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .item {
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      background: white;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .item:hover {
-      transform: scale(1.03);
-    }
-
-    .item img {
-      width: 100%;
-      height: 220px;
-      object-fit: contain;
-      background-color: #f0f0f0;
-    }
-
-    .item p {
-      margin: 0;
-      padding: 12px;
-      background-color: #2563eb;
-      color: white;
-      text-align: center;
-      font-weight: 600;
-    }
-
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.85);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      overflow: auto;
-    }
-
-    .overlay-inner {
-      position: relative;
-      max-width: 90%;
-      max-height: 90vh;
-      background: transparent;
-      overflow: hidden;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    .overlay-content {
-      overflow-y: auto;
-      max-height: 80vh;
-      padding: 10px;
-      text-align: center;
-    }
-
-    .overlay-content img,
-    .overlay-content video {
-      width: 100%;
-      max-height: 60vh;
-      object-fit: contain;
-      border-radius: 12px;
-      margin-bottom: 20px;
-    }
-
-    .overlay-content p {
-      color: white;
-      font-size: 18px;
-      max-width: 700px;
-      margin: 10px auto;
-    }
-
-    .overlay-content a {
-      color: #4cc9f0;
-      display: block;
-      margin-top: 12px;
-      font-weight: 600;
-      text-decoration: underline;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      font-size: 32px;
-      color: white;
-      background: none;
-      border: none;
-      cursor: pointer;
-      z-index: 10001;
-    }
-
-    .form {
-      margin-top: 50px;
-      text-align: center;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 0 20px;
-    }
-
-    .form input,
-    .form textarea {
-      padding: 10px;
-      width: 100%;
-      margin: 10px auto;
-      display: block;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-      box-sizing: border-box;
-    }
-
-    .form textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .form button {
-      padding: 12px 25px;
-      background-color: #2563eb;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 16px;
-      margin-top: 20px;
-      transition: background-color 0.3s ease;
-      width: 100%;
-      max-width: 200px;
-    }
-
-    .form button:hover {
-      background-color: #1e3a8a;
-    }
-
-    .back-link {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      text-align: center;
-      font-weight: 600;
-      color: #2563eb;
-      text-decoration: none;
-      user-select: none;
-      font-size: 18px;
-      background: white;
-      padding: 10px 0;
-      box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.1);
-      z-index: 10000;
-    }
-
-    #successMessage {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background-color: #22c55e;
-      color: white;
-      text-align: center;
-      padding: 15px 10px;
-      font-weight: 600;
-      font-size: 18px;
-      display: none;
-      z-index: 10001;
-      user-select: none;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Über mich – Levin Nigg</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<style>
+  :root{--primary:#1d4ed8;--secondary:#3b82f6;--bg:#f9fafb;--dark:#131418;--light:#fff;--shadow:0 8px 24px rgba(0,0,0,.1);}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);min-height:100vh;padding:20px 20px 120px;}
+  nav{display:flex;justify-content:center;gap:30px;padding:20px 0;}
+  nav a{position:relative;color:var(--primary);text-decoration:none;font-weight:600;font-size:1.1rem;}
+  nav a.active::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:3px;background:var(--secondary);}
+  nav a:hover{color:var(--secondary);}
+  h1{text-align:center;color:var(--primary);margin-bottom:20px;}
+  .container{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;max-width:1000px;margin:auto;}
+  .item{position:relative;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);cursor:pointer;transition:transform .3s;}
+  .item:hover{transform:scale(1.04);}
+  .item img{width:100%;height:220px;object-fit:cover;}
+  .item p{padding:12px;background:var(--primary);color:#fff;text-align:center;font-weight:600;}
+  #overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,.8);display:none;justify-content:center;align-items:center;z-index:9999;}
+  .overlay-inner{position:relative;width:90%;max-width:800px;background:var(--light);border-radius:12px;padding:20px;overflow:auto;}
+  .close-btn{position:absolute;top:10px;right:20px;font-size:32px;background:none;border:none;color:#131418;cursor:pointer;}
+  .overlay-content img, .overlay-content video{width:100%;max-height:60vh;border-radius:12px;margin-bottom:20px;}
+  .overlay-content p{color:var(--dark);font-size:1rem;margin-bottom:12px;}
+  .overlay-content a{color:var(--secondary);font-weight:600;text-decoration:underline;}
+  .back-link{position:fixed;bottom:0;width:100%;text-align:center;background:var(--light);padding:10px 0;color:var(--primary);font-weight:600;text-decoration:none;box-shadow:0 -1px 6px rgba(0,0,0,.1);}
+  .form{margin-top:50px;padding:0 20px;text-align:center;max-width:500px;margin:auto;}
+  .form input, .form textarea{width:100%;padding:10px;margin:10px 0;border-radius:8px;border:1px solid #ccc;}
+  .form button{padding:12px 25px;background:var(--primary);color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:16px;font-weight:600;transition:background .3s;}
+  .form button:hover{background:#1e40af;}
+  #successMessage{position:fixed;top:0;width:100%;background:#22c55e;color:#fff;text-align:center;padding:15px;display:none;z-index:9999;}
+</style>
 </head>
 <body>
 
-<h1>Über mich!</h1>
-<p>Auf dieser Seite erfährst du mehr über mich, meine Interessen und warum ich Mediamatiker werden will.</p>
+<nav>
+  <a href="index.html">Startseite</a>
+  <a href="seite2.html" class="active">Über mich</a>
+  <a href="seite3.html">Meine Stärken</a>
+</nav>
+
+<h1 data-aos="fade-down">Über mich!</h1>
+<p data-aos="fade-up" style="text-align:center;max-width:800px;margin:auto 0 40px;">Ich erzähle dir hier mehr über meine Hobbys und Interessen.</p>
 
 <div class="container">
-  <div class="item" onclick="openOverlay('images/Grizzlys.png', 'Ich spiele seit ca. 4 Jahren leidenschaftlich Unihockey beim Club Unihockey am Greifensee Grizzlys. Zusätzlich bin ich dort seit einem Jahr auch als Trainer aktiv.', 'docs/Nachweis Freiwilligenarbeit Levin Nigg (Grizzlys).pdf', '📄 (Nachweis Freiwilligenarbeit als Trainer) öffnen')">
-    <img src="images/Sporthobbys.png" alt="Sporthobbys" />
-    <p>Sporthobbys</p>
+  <div class="item" onclick="openOverlay('images/Sporthobbys.png','Ich spiele leidenschaftlich Unihockey und bin Trainer','docs/Nachweis.pdf','Nachweis öffnen')" data-aos="zoom-in">
+    <img src="images/Sporthobbys.png" alt="Sport">
+    <p>Sport & Trainer</p>
   </div>
-  <div class="item" onclick="openOverlay('images/Freizeit.png', 'Ich liebe es, Filme zu schneiden und kreative Projekte umzusetzen.')">
-    <img src="images/Freizeit.png" alt="Freizeit" />
-    <p>Freizeit</p>
+  <div class="item" onclick="openOverlay('images/Freizeit2.png','Filme schneiden und kreative Projekte umsetzen ist meine Leidenschaft.')"
+       data-aos="zoom-in" data-aos-delay="100">
+    <img src="images/Freizeit2.png" alt="Freizeit">
+    <p>Filme & Kreativ</p>
   </div>
-  <div class="item" onclick="openOverlay('images/u3.png', 'Ich interessiere mich für Film, Bildbearbeitung und Design.')">
-    <img src="images/Mediamatiker.png" alt="Warum Mediamatiker" />
-    <p>Warum Mediamatiker?</p>
+  <div class="item" onclick="openOverlay('images/Mediamatiker2.png','Film, Bildbearbeitung & Design faszinieren mich.')"
+       data-aos="zoom-in" data-aos-delay="200">
+    <img src="images/Mediamatiker2.png" alt="Mediamatiker">
+    <p>Warum Mediamatiker</p>
   </div>
-  <div class="item" onclick="openOverlayVideo('video/was_macht_mich_aus.mp4', 'Was macht mich aus?')">
-    <img src="images/levin_bild.png" alt="Levin im Video" />
-    <p>Was macht mich aus?</p>
+  <div class="item" onclick="openOverlayVideo('video/was_macht_mich_aus.mp4','Das bin ich in Aktion!')"
+       data-aos="zoom-in" data-aos-delay="300">
+    <img src="images/levin_bild.png" alt="Video Vorschau">
+    <p>Was mich ausmacht</p>
   </div>
 </div>
 
-<!-- ✅ Overlay mit Scroll-Funktion -->
-<div id="overlay" class="overlay" onclick="handleOverlayClick(event)">
+<!-- Overlay -->
+<div id="overlay" onclick="overlayClick(event)">
   <div class="overlay-inner">
     <button class="close-btn" onclick="closeOverlay()">×</button>
     <div class="overlay-content">
-      <img id="overlayImg" src="" alt="Overlay Bild" />
+      <img id="overlayImg" src="" style="display:none;">
       <video id="overlayVideo" controls style="display:none;"></video>
       <p id="overlayText"></p>
       <a id="overlayDoc" href="" target="_blank" style="display:none;"></a>
@@ -242,99 +80,70 @@
   </div>
 </div>
 
-<!-- ✅ Formular -->
 <div id="successMessage">Deine Nachricht wurde versendet ✅</div>
 <div class="form">
-  <p>Hast du noch Fragen an mich?</p>
+  <p>Hast du Fragen? Schreib mir!</p>
   <form action="https://formspree.io/f/mwpojakl" method="POST" id="contactForm">
-    <input type="text" name="name" placeholder="Name" required />
-    <input type="email" name="email" placeholder="Email" required />
+    <input name="name" placeholder="Name" required>
+    <input name="email" type="email" placeholder="Email" required>
     <textarea name="message" placeholder="Nachricht" required></textarea>
-    <p style="font-size: 14px; color: #6b7280; max-width: 500px; margin: 10px auto;">
-      Mit dem Absenden erklärst du dich mit der Verarbeitung deiner Daten gemäß der
-      <a href="https://formspree.io/legal/privacy-policy/" target="_blank">Datenschutzerklärung von Formspree</a> einverstanden.
-    </p>
+    <p style="font-size:14px;color:#6b7280;">Mit Absenden akzeptierst du die <a href="https://formspree.io/legal/privacy-policy/" target="_blank">Datenschutzrichtlinien</a>.</p>
     <button type="submit">Abschicken</button>
   </form>
 </div>
 
 <a href="index.html" class="back-link">← Zurück zur Startseite</a>
 
-<!-- ✅ JS für Overlay -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  function openOverlay(imageSrc, text, docLink = "", docText = "") {
-    document.getElementById("overlayImg").src = imageSrc;
-    document.getElementById("overlayImg").style.display = "block";
-    document.getElementById("overlayVideo").style.display = "none";
-    document.getElementById("overlayText").textContent = text;
+  AOS.init({duration:800,once:true});
+  if(sessionStorage.getItem("entered")!=="true"){location.href="index.html"}
 
-    const doc = document.getElementById("overlayDoc");
-    if (docLink) {
-      doc.href = docLink;
-      doc.textContent = docText;
-      doc.style.display = "block";
-    } else {
-      doc.style.display = "none";
-    }
-
-    document.getElementById("overlay").style.display = "flex";
-    document.body.style.overflow = "hidden";
+  function openOverlay(src,text,docLink="",docText=""){
+    const img=document.getElementById("overlayImg"),
+          vid=document.getElementById("overlayVideo"),
+          p=document.getElementById("overlayText"),
+          doc=document.getElementById("overlayDoc");
+    img.src=src;img.style.display="block";
+    vid.style.display="none";vid.pause();
+    p.textContent=text;
+    if(docLink){
+      doc.href=docLink;doc.textContent=docText;doc.style.display="block";
+    }else doc.style.display="none";
+    document.getElementById("overlay").style.display="flex";
   }
 
-  function openOverlayVideo(videoSrc, text) {
-    document.getElementById("overlayImg").style.display = "none";
-    const video = document.getElementById("overlayVideo");
-    video.src = videoSrc;
-    video.style.display = "block";
-    document.getElementById("overlayText").textContent = text;
-    document.getElementById("overlayDoc").style.display = "none";
-    document.getElementById("overlay").style.display = "flex";
-    document.body.style.overflow = "hidden";
+  function openOverlayVideo(src,text){
+    const vid=document.getElementById("overlayVideo"),
+          img=document.getElementById("overlayImg"),
+          p=document.getElementById("overlayText"),
+          doc=document.getElementById("overlayDoc");
+    img.style.display="none";
+    vid.src=src;vid.style.display="block";
+    p.textContent=text;doc.style.display="none";
+    document.getElementById("overlay").style.display="flex";
   }
 
-  function closeOverlay() {
-    document.getElementById("overlay").style.display = "none";
-    document.body.style.overflow = "auto";
-    const video = document.getElementById("overlayVideo");
-    video.pause();
-    video.currentTime = 0;
+  function closeOverlay(){
+    document.getElementById("overlay").style.display="none";
+    const vid=document.getElementById("overlayVideo");
+    vid.pause();vid.currentTime=0;
   }
 
-  function handleOverlayClick(event) {
-    if (event.target.id === "overlay") {
-      closeOverlay();
-    }
-  }
+  function overlayClick(e){ if(e.target.id==="overlay") closeOverlay();}
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contactForm');
-    const successMessage = document.getElementById('successMessage');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: data
-        });
-
-        if (response.ok) {
-          successMessage.style.display = 'block';
-          setTimeout(() => {
-            successMessage.style.display = 'none';
-          }, 7000);
-          form.reset();
-        } else {
-          alert('Fehler beim Senden. Bitte versuche es später nochmal.');
-        }
-      } catch (error) {
-        alert('Fehler beim Senden. Bitte prüfe deine Internetverbindung.');
-      }
-    });
+  document.getElementById('contactForm').addEventListener('submit',async function(e){
+    e.preventDefault();
+    const form=this, data=new FormData(form);
+    try {
+      const res=await fetch(form.action,{method:'POST',headers:{'Accept':'application/json'},body:data});
+      if(res.ok){
+        document.getElementById('successMessage').style.display='block';
+        setTimeout(()=>{document.getElementById('successMessage').style.display='none';},7000);
+        form.reset();
+      } else alert('Fehler 😕');
+    } catch{alert('Netzwerkfehler');}
   });
 </script>
-
 </body>
 </html>
