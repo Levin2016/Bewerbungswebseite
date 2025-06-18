@@ -1,39 +1,144 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<title>Meine Stärken – Levin Nigg</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<style>
-:root {--primary:#1d4ed8;--secondary:#3b82f6;--bg:#f9fafb;--light:#fff;--dark:#1f2937;--shadow:0 8px 24px rgba(0,0,0,0.1);}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);padding:40px 20px;text-align:center;min-height:100vh;}
-nav{margin-bottom:20px;}
-nav a{margin:0 15px;color:var(--primary);text-decoration:none;font-weight:600;font-size:1.1rem;position:relative;padding:4px;}
-nav a.active::after {content:"";position:absolute;left:0;bottom:-4px;width:100%;height:3px;background:var(--secondary);}
-nav a:hover{color:var(--secondary);}
-h1{color:var(--primary);margin-bottom:30px;font-weight:700;}
-p{margin-bottom:40px;font-size:1.1rem;color:#374151;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;max-width:1000px;margin:auto;}
-.card{background:var(--light);border-radius:12px;box-shadow:var(--shadow);perspective:1000px;cursor:pointer;outline:none;transition:box-shadow .3s;}
-.card:focus{outline:3px solid var(--primary);box-shadow:0 6px 20px rgba(37,99,235,0.5);}
-.card:hover{box-shadow:0 12px 24px rgba(0,0,0,0.15);}
-.inner{transition:transform .6s;transform-style:preserve-3d;position:relative;height:260px;border-radius:12px;}
-.card.flipped .inner{transform:rotateY(180deg);}
-.front, .back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:12px;display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box;}
-.front{background:var(--primary);color:#fff;font-size:20px;font-weight:600;}
-.back{background:#f1f5f9;color:var(--dark);transform:rotateY(180deg);font-size:16px;line-height:1.5;}
-.back-link{display:inline-block;margin-top:40px;color:var(--primary);font-weight:600;text-decoration:none;font-size:16px;transition:color .3s;}
-.back-link:hover{color:var(--secondary);}
-</style>
+  <meta charset="UTF-8">
+  <title>Meine Stärken – Levin Nigg</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1d4ed8;
+      --secondary: #3b82f6;
+      --bg: #f9fafb;
+      --light: #fff;
+      --dark: #1f2937;
+      --shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      padding: 40px 20px;
+      min-height: 100vh;
+      text-align: center;
+    }
+    nav {
+      margin-bottom: 20px;
+    }
+    nav a {
+      margin: 0 15px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      position: relative;
+      padding: 4px;
+    }
+    nav a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 3px;
+      background: var(--secondary);
+    }
+    nav a:hover {
+      color: var(--secondary);
+    }
+    h1 {
+      color: var(--primary);
+      margin-bottom: 30px;
+      font-weight: 700;
+      border-bottom: 2px solid var(--primary);
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+    p {
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+      color: #374151;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .card {
+      background: var(--light);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      perspective: 1000px;
+      cursor: pointer;
+      outline: none;
+      transition: box-shadow 0.3s;
+    }
+    .card:focus {
+      outline: 3px solid var(--primary);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+    }
+    .card:hover {
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    }
+    .inner {
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      position: relative;
+      height: 260px;
+      border-radius: 12px;
+    }
+    .card.flipped .inner {
+      transform: rotateY(180deg);
+    }
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .front {
+      background: var(--primary);
+      color: #fff;
+    }
+    .back {
+      background: #f1f5f9;
+      color: var(--dark);
+      transform: rotateY(180deg);
+      font-size: 16px;
+      line-height: 1.5;
+      text-align: center;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 40px;
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+    .back-link:hover {
+      color: var(--secondary);
+    }
+  </style>
 </head>
 <body>
-
-<script>
-if (sessionStorage.getItem("entered") !== "true") location.href = "index.html";
-</script>
 
 <nav>
   <a href="index.html">‌Startseite</a>
@@ -48,25 +153,25 @@ if (sessionStorage.getItem("entered") !== "true") location.href = "index.html";
   <div class="card" tabindex="0" onclick="flip(this)" onkeypress="keyFlip(event,this)" data-aos="zoom-in">
     <div class="inner">
       <div class="front">💡 Kreativität</div>
-      <div class="back">Ich setze Ideen um – von Videos bis zum Trikot‑Design.</div>
+      <div class="back">Ich setze Ideen um – von Videos bis zum Trikot‑Design für meinen Verein.</div>
     </div>
   </div>
   <div class="card" tabindex="0" onclick="flip(this)" onkeypress="keyFlip(event,this)" data-aos="zoom-in" data-aos-delay="100">
     <div class="inner">
       <div class="front">🛠 Technik</div>
-      <div class="back">Ich verstehe Software‑Systeme schnell und lerne stets dazu.</div>
+      <div class="back">Ich verstehe Programme & Systeme schnell – besonders Webtools und Apps.</div>
     </div>
   </div>
   <div class="card" tabindex="0" onclick="flip(this)" onkeypress="keyFlip(event,this)" data-aos="zoom-in" data-aos-delay="200">
     <div class="inner">
-      <div class="front">🤝 Team</div>
-      <div class="back">Ich arbeite gerne im Team – z. B. als Trainer oder in Schulprojekten.</div>
+      <div class="front">🤝 Teamarbeit</div>
+      <div class="back">Ich arbeite gerne im Team – z. B. in Projekten oder als Trainer bei den Grizzlys.</div>
     </div>
   </div>
   <div class="card" tabindex="0" onclick="flip(this)" onkeypress="keyFlip(event,this)" data-aos="zoom-in" data-aos-delay="300">
     <div class="inner">
       <div class="front">🎬 Medien</div>
-      <div class="back">Webdesign, Videos und kreative Projekte begeistern mich.</div>
+      <div class="back">Ich habe Freude an Film, Design und Website-Erstellung. Immer neue Ideen!</div>
     </div>
   </div>
 </div>
@@ -75,11 +180,17 @@ if (sessionStorage.getItem("entered") !== "true") location.href = "index.html";
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-AOS.init({duration:800,once:true});
-function flip(el) { el.classList.toggle('flipped'); }
-function keyFlip(e,el) {
-  if (e.key === 'Enter' || e.key===' ') flip(el);
-}
+  AOS.init({ duration: 800, once: true });
+
+  function flip(el) {
+    el.classList.toggle('flipped');
+  }
+
+  function keyFlip(e, el) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      flip(el);
+    }
+  }
 </script>
 
 </body>
