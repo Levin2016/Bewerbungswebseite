@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Meine Stärken – Levin Nigg</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>Levin Nigg – Startseite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
     :root {
-      --primary: #003b8b;
-      --secondary: #2a66c2;
-      --bg: #f9fafb;
+      --primary: #0c4a6e;
+      --secondary: #0284c7;
+      --bg: #f0f9ff;
       --light: #fff;
-      --dark: #1f2937;
+      --dark: #1e293b;
       --shadow: 0 8px 24px rgba(0,0,0,0.1);
     }
     * {
@@ -25,6 +25,7 @@
       background: var(--bg);
       color: var(--dark);
       padding: 40px 20px;
+      min-height: 100vh;
       text-align: center;
     }
     nav {
@@ -53,55 +54,56 @@
     }
     h1 {
       color: var(--primary);
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       font-weight: 700;
-      border-bottom: 2px solid var(--primary);
-      display: inline-block;
-      padding-bottom: 5px;
     }
-    .accordion {
-      max-width: 700px;
+    .intro {
+      max-width: 800px;
       margin: auto;
-      text-align: left;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 40px;
     }
-    .accordion-item {
-      background: var(--light);
+    .portrait {
+      max-width: 220px;
       border-radius: 12px;
-      margin-bottom: 10px;
       box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-    .accordion-button {
-      background: var(--primary);
-      color: white;
-      padding: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      width: 100%;
-      text-align: left;
-      border: none;
-      outline: none;
-    }
-    .accordion-content {
-      display: none;
-      padding: 15px;
-      background: #f1f5f9;
-      color: var(--dark);
-      line-height: 1.5;
-    }
-    .accordion-item.active .accordion-content {
+      margin: 20px auto;
       display: block;
     }
-    .back-link {
-      display: inline-block;
-      margin-top: 40px;
-      color: var(--primary);
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 16px;
-      transition: color 0.3s;
+    .buttons {
+      margin-top: 30px;
     }
-    .back-link:hover {
+    .buttons a {
+      text-decoration: none;
+      background: var(--primary);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-weight: 600;
+      margin: 10px;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+    .buttons a:hover {
+      background: var(--secondary);
+    }
+    details {
+      margin: 20px auto;
+      max-width: 700px;
+      background: var(--light);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      text-align: left;
+    }
+    summary {
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    details[open] summary {
       color: var(--secondary);
     }
   </style>
@@ -109,45 +111,36 @@
 <body>
 
 <nav>
-  <a href="index.html">Startseite</a>
+  <a href="index.html" class="active">Startseite</a>
   <a href="seite2.html">Über mich</a>
-  <a href="seite3.html" class="active">Meine Stärken</a>
+  <a href="seite3.html">Meine Stärken</a>
 </nav>
 
-<h1 data-aos="fade-down">🎯 Meine Stärken</h1>
-<p data-aos="fade-up">Tippe auf einen Punkt, um mehr zu erfahren:</p>
+<h1 data-aos="fade-down">👋 Hallo! Ich bin Levin</h1>
+<p class="intro" data-aos="fade-up">
+  Schön, dass du da bist. Hier erfährst du mehr über mich, meine Interessen und meine Stärken.
+</p>
 
-<div class="accordion">
-  <div class="accordion-item" data-aos="fade-up">
-    <button class="accordion-button">💡 Kreativität</button>
-    <div class="accordion-content">Ich setze Ideen um – von Videos bis zum Trikot‑Design für meinen Verein.</div>
-  </div>
-  <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
-    <button class="accordion-button">🛠 Technik</button>
-    <div class="accordion-content">Ich verstehe Programme & Systeme schnell – besonders Webtools und Apps.</div>
-  </div>
-  <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
-    <button class="accordion-button">🤝 Teamarbeit</button>
-    <div class="accordion-content">Ich arbeite gerne im Team – z. B. in Projekten oder als Trainer bei den Grizzlys.</div>
-  </div>
-  <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
-    <button class="accordion-button">🎬 Medien</button>
-    <div class="accordion-content">Ich habe Freude an Film, Design und Website-Erstellung. Immer neue Ideen!</div>
-  </div>
+<img src="levin_bild.png" alt="Levin Bild" class="portrait" data-aos="zoom-in" />
+
+<div class="buttons" data-aos="fade-up" data-aos-delay="100">
+  <a href="seite2.html">Mehr über mich</a>
+  <a href="seite3.html">Stärken ansehen</a>
 </div>
 
-<a href="index.html" class="back-link">← Zurück zur Startseite</a>
+<details data-aos="fade-up" data-aos-delay="200">
+  <summary>🎓 Kenntnisse & Erfahrungen</summary>
+  <ul style="margin-top: 10px; padding-left: 20px;">
+    <li>Technisches Verständnis: Webtools, Apps & Systeme</li>
+    <li>Mediengestaltung: Videoschnitt, Design & Social Media</li>
+    <li>Teamarbeit: Trainererfahrung & Vereinsarbeit</li>
+    <li>Kreativität: Ideenentwicklung und Umsetzung</li>
+  </ul>
+</details>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({ duration: 800, once: true });
-  const buttons = document.querySelectorAll('.accordion-button');
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const item = button.parentElement;
-      item.classList.toggle('active');
-    });
-  });
 </script>
 
 </body>
