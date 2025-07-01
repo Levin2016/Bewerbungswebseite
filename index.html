@@ -1,147 +1,137 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>Levin Nigg – Startseite</title>
+  <title>Levin Nigg – Bewerbung</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     :root {
-      --primary: #0c4a6e;
-      --secondary: #0284c7;
-      --bg: #f0f9ff;
-      --light: #fff;
-      --dark: #1e293b;
-      --shadow: 0 8px 24px rgba(0,0,0,0.1);
+      --primary: #1d4ed8;
+      --secondary: #3b82f6;
+      --bg: #f9fafb;
+      --dark: #1f2937;
+      --light: #ffffff;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background: var(--bg);
       color: var(--dark);
-      padding: 40px 20px;
-      min-height: 100vh;
+      padding: 0;
+    }
+    header {
+      background: var(--primary);
+      color: white;
       text-align: center;
+      padding: 3rem 1rem;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+    }
+    header img {
+      border-radius: 50%;
+      width: 140px;
+      border: 4px solid white;
+      margin-top: 1rem;
     }
     nav {
-      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      background: white;
+      box-shadow: var(--shadow);
+      padding: 1rem;
+      gap: 2rem;
     }
     nav a {
-      margin: 0 15px;
       color: var(--primary);
       text-decoration: none;
       font-weight: 600;
-      font-size: 1.1rem;
-      position: relative;
-      padding: 4px;
     }
-    nav a.active::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 100%;
-      height: 3px;
-      background: var(--secondary);
-    }
-    nav a:hover {
-      color: var(--secondary);
-    }
-    h1 {
-      color: var(--primary);
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
-    .intro {
-      max-width: 800px;
-      margin: auto;
-      font-size: 1.2rem;
-      line-height: 1.6;
-      margin-bottom: 40px;
-    }
-    .portrait {
-      max-width: 220px;
-      border-radius: 12px;
+    nav a:hover { color: var(--secondary); }
+    main { max-width: 1000px; margin: auto; padding: 2rem 1rem; }
+    section {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      margin: 2rem 0;
       box-shadow: var(--shadow);
-      margin: 20px auto;
-      display: block;
     }
-    .buttons {
-      margin-top: 30px;
+    h2 {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
-    .buttons a {
-      text-decoration: none;
-      background: var(--primary);
-      color: #fff;
-      padding: 12px 24px;
-      border-radius: 999px;
-      font-weight: 600;
-      margin: 10px;
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.6rem; }
+    .button-link {
       display: inline-block;
-      transition: background 0.3s;
-    }
-    .buttons a:hover {
-      background: var(--secondary);
-    }
-    details {
-      margin: 20px auto;
-      max-width: 700px;
-      background: var(--light);
-      border-radius: 12px;
-      padding: 20px;
+      margin: 1rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
       box-shadow: var(--shadow);
-      text-align: left;
     }
-    summary {
-      font-weight: 600;
-      cursor: pointer;
-      color: var(--primary);
-      margin-bottom: 10px;
-    }
-    details[open] summary {
-      color: var(--secondary);
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: gray;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Levin Nigg</h1>
+    <p><i class="fas fa-code"></i> Schüler mit Begeisterung für Mediamatik</p>
+    <img src="images/levin_bild.png" alt="Levin Nigg">
+  </header>
 
-<nav>
-  <a href="index.html" class="active">Startseite</a>
-  <a href="seite2.html">Über mich</a>
-  <a href="seite3.html">Meine Stärken</a>
-</nav>
+  <nav>
+    <a href="index.html" class="active">Start</a>
+    <a href="seite2.html">Über mich</a>
+    <a href="seite3.html">Stärken</a>
+  </nav>
 
-<h1 data-aos="fade-down">👋 Hallo! Ich bin Levin</h1>
-<p class="intro" data-aos="fade-up">
-  Schön, dass du da bist. Hier erfährst du mehr über mich, meine Interessen und meine Stärken.
-</p>
+  <main>
+    <section>
+      <h2>Über mich</h2>
+      <ul>
+        <li><strong>Kreativ:</strong> Ich liebe Design, Gestaltung und Film</li>
+        <li><strong>Technisch interessiert:</strong> Ich lerne schnell Software & Tools</li>
+        <li><strong>Teamfähig:</strong> Ich arbeite gern mit anderen – z. B. als Trainer</li>
+      </ul>
+    </section>
 
-<img src="levin_bild.png" alt="Levin Bild" class="portrait" data-aos="zoom-in" />
+    <section>
+      <h2>Kenntnisse & Erfahrungen</h2>
+      <details>
+        <summary><strong>Klick zum Aufklappen</strong></summary>
+        <ul>
+          <li>Gestaltung (Privat & Schule)</li>
+          <li>Technisches Verständnis</li>
+          <li>Swisscom Schnupperlehre (März 2025)</li>
+          <li>Berufsmesse Zürich (Nov 2024)</li>
+        </ul>
+      </details>
+    </section>
 
-<div class="buttons" data-aos="fade-up" data-aos-delay="100">
-  <a href="seite2.html">Mehr über mich</a>
-  <a href="seite3.html">Stärken ansehen</a>
-</div>
+    <section>
+      <h2>Kontakt</h2>
+      <p>📧 <a href="mailto:lev_nigg@volketswil.schule">lev_nigg@volketswil.schule</a><br>📞 <a href="tel:+41445205498">044 520 54 98</a></p>
+    </section>
 
-<details data-aos="fade-up" data-aos-delay="200">
-  <summary>🎓 Kenntnisse & Erfahrungen</summary>
-  <ul style="margin-top: 10px; padding-left: 20px;">
-    <li>Technisches Verständnis: Webtools, Apps & Systeme</li>
-    <li>Mediengestaltung: Videoschnitt, Design & Social Media</li>
-    <li>Teamarbeit: Trainererfahrung & Vereinsarbeit</li>
-    <li>Kreativität: Ideenentwicklung und Umsetzung</li>
-  </ul>
-</details>
+    <div style="text-align:center;">
+      <a class="button-link" href="seite2.html">📄 Mehr über mich</a>
+      <a class="button-link" href="seite3.html">💪 Stärken ansehen</a>
+    </div>
+  </main>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({ duration: 800, once: true });
-</script>
-
+  <footer>© 2025 Levin Nigg</footer>
 </body>
 </html>
