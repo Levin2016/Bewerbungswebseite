@@ -2,16 +2,17 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Levin Nigg – Startseite</title>
+  <title>Meine Stärken – Levin Nigg</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     :root {
-      --primary: #003b8b;
-      --secondary: #2a66c2;
+      --primary: #1d4ed8;
+      --secondary: #3b82f6;
       --bg: #f9fafb;
-      --light: #ffffff;
-      --dark: #1f1f1f;
+      --light: #fff;
+      --dark: #1f2937;
       --shadow: 0 8px 24px rgba(0,0,0,0.1);
     }
     * {
@@ -24,6 +25,7 @@
       background: var(--bg);
       color: var(--dark);
       padding: 40px 20px;
+      min-height: 100vh;
       text-align: center;
     }
     nav {
@@ -53,30 +55,143 @@
     h1 {
       color: var(--primary);
       margin-bottom: 30px;
-    }
-    img {
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
+      font-weight: 700;
+      border-bottom: 2px solid var(--primary);
+      display: inline-block;
+      padding-bottom: 5px;
     }
     p {
+      margin-bottom: 40px;
       font-size: 1.1rem;
-      margin-top: 20px;
       color: #374151;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .card {
+      background: var(--light);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      perspective: 1000px;
+      cursor: pointer;
+      outline: none;
+      transition: box-shadow 0.3s;
+    }
+    .card:focus {
+      outline: 3px solid var(--primary);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+    }
+    .card:hover {
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    }
+    .inner {
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      position: relative;
+      height: 260px;
+      border-radius: 12px;
+    }
+    .card.flipped .inner {
+      transform: rotateY(180deg);
+    }
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .front {
+      background: var(--primary);
+      color: #fff;
+    }
+    .back {
+      background: #f1f5f9;
+      color: var(--dark);
+      transform: rotateY(180deg);
+      font-size: 16px;
+      line-height: 1.5;
+      text-align: center;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 40px;
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+    .back-link:hover {
+      color: var(--secondary);
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="active">Startseite</a>
+  <a href="index.html">‌Startseite</a>
   <a href="seite2.html">Über mich</a>
-  <a href="seite3.html">Meine Stärken</a>
+  <a href="seite3.html" class="active">Meine Stärken</a>
 </nav>
 
-<h1>Willkommen auf meiner Website!</h1>
-<img src="levin_bild.png" alt="Levin Nigg">
-<p>Schön, dass du da bist! Klick dich durch und erfahre mehr über mich.</p>
+<h1 data-aos="fade-down">🎯 Meine Stärken</h1>
+<p data-aos="fade-up">Klick auf jede Karte, um mehr zu erfahren:</p>
+
+<div class="grid">
+  <div class="card" tabindex="0" onclick="flip(this)" onkeypress="keyFlip(event,this)" data-aos="zoom-in">
+    <div class="inner">
+      <div class="front">💡 Kreativität</div>
+      <div class="back">Ich setze Ideen um – von Videos bis zum Trikot‑Design für meinen Verein.</div>
+    </div>
+  </div>
+  <div class="card" tabindex="0" onclick="flip(this)" onkeypress="keyFlip(event,this)" data-aos="zoom-in" data-aos-delay="100">
+    <div class="inner">
+      <div class="front">🛠 Technik</div>
+      <div class="back">Ich verstehe Programme & Systeme schnell – besonders Webtools und Apps.</div>
+    </div>
+  </div>
+  <div class="card" tabindex="0" onclick="flip(this)" onkeypress="keyFlip(event,this)" data-aos="zoom-in" data-aos-delay="200">
+    <div class="inner">
+      <div class="front">🤝 Teamarbeit</div>
+      <div class="back">Ich arbeite gerne im Team – z. B. in Projekten oder als Trainer bei den Grizzlys.</div>
+    </div>
+  </div>
+  <div class="card" tabindex="0" onclick="flip(this)" onkeypress="keyFlip(event,this)" data-aos="zoom-in" data-aos-delay="300">
+    <div class="inner">
+      <div class="front">🎬 Medien</div>
+      <div class="back">Ich habe Freude an Film, Design und Website-Erstellung. Immer neue Ideen!</div>
+    </div>
+  </div>
+</div>
+
+<a href="index.html" class="back-link">← Zurück zur Startseite</a>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 800, once: true });
+
+  function flip(el) {
+    el.classList.toggle('flipped');
+  }
+
+  function keyFlip(e, el) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      flip(el);
+    }
+  }
+</script>
 
 </body>
 </html>
