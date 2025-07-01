@@ -5,6 +5,7 @@
   <title>Über mich – Levin Nigg</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
     :root {
       --primary: #1d4ed8;
@@ -98,6 +99,7 @@
       padding: 20px;
       color: black;
       text-align: center;
+      position: relative;
     }
 
     .overlay img,
@@ -113,7 +115,7 @@
       position: absolute;
       top: 10px;
       right: 20px;
-      color: white;
+      color: black;
       font-size: 30px;
       cursor: pointer;
     }
@@ -162,23 +164,23 @@
   <a href="seite3.html">Stärken</a>
 </nav>
 
-<h1>Über mich</h1>
-<p style="text-align:center;">Was mich ausmacht – meine Interessen & Ziele:</p>
+<h1 data-aos="fade-down">Über mich</h1>
+<p style="text-align:center;" data-aos="fade-up" data-aos-delay="100">Was mich ausmacht – meine Interessen & Ziele:</p>
 
 <div class="container">
-  <div class="item" onclick="openOverlay('images/Grizzlys.png', 'Ich spiele Unihockey bei den Grizzlys und bin seit einem Jahr auch Trainer.')">
+  <div class="item" data-aos="fade-up" onclick="openOverlay('images/Grizzlys.png', 'Ich spiele Unihockey bei den Grizzlys und bin seit einem Jahr auch Trainer.')" tabindex="0" onkeypress="if(event.key==='Enter'){openOverlay('images/Grizzlys.png', 'Ich spiele Unihockey bei den Grizzlys und bin seit einem Jahr auch Trainer.');}">
     <img src="images/Sporthobbys.png" alt="Sporthobbys" />
     <p>🏑 Sport & Ehrenamt</p>
   </div>
-  <div class="item" onclick="openOverlay('images/Freizeit.png', 'In meiner Freizeit drehe und schneide ich gerne Filme.')">
+  <div class="item" data-aos="fade-up" data-aos-delay="100" onclick="openOverlay('images/Freizeit.png', 'In meiner Freizeit drehe und schneide ich gerne Filme.')" tabindex="0" onkeypress="if(event.key==='Enter'){openOverlay('images/Freizeit.png', 'In meiner Freizeit drehe und schneide ich gerne Filme.');}">
     <img src="images/Freizeit.png" alt="Freizeit" />
     <p>🎬 Freizeit & Projekte</p>
   </div>
-  <div class="item" onclick="openOverlay('images/Mediamatiker.png', 'Mediamatik ist die perfekte Verbindung aus Technik & Kreativität.')">
+  <div class="item" data-aos="fade-up" data-aos-delay="200" onclick="openOverlay('images/Mediamatiker.png', 'Mediamatik ist die perfekte Verbindung aus Technik & Kreativität.')" tabindex="0" onkeypress="if(event.key==='Enter'){openOverlay('images/Mediamatiker.png', 'Mediamatik ist die perfekte Verbindung aus Technik & Kreativität.');}">
     <img src="images/u3.png" alt="Warum Mediamatik" />
     <p>💻 Warum Mediamatik?</p>
   </div>
-  <div class="item" onclick="openOverlayVideo('video/was_macht_mich_aus.mp4', 'Was macht mich aus?')">
+  <div class="item" data-aos="fade-up" data-aos-delay="300" onclick="openOverlayVideo('video/was_macht_mich_aus.mp4', 'Was macht mich aus?')" tabindex="0" onkeypress="if(event.key==='Enter'){openOverlayVideo('video/was_macht_mich_aus.mp4', 'Was macht mich aus?');}">
     <img src="images/levin_bild.png" alt="Video" />
     <p>🎥 Persönliches Video</p>
   </div>
@@ -195,7 +197,7 @@
 </div>
 
 <!-- Kontaktformular -->
-<div class="form">
+<div class="form" data-aos="fade-up" data-aos-delay="400">
   <h2 style="text-align:center;">📬 Fragen an mich?</h2>
   <form action="https://formspree.io/f/mwpojakl" method="POST">
     <input type="text" name="name" placeholder="Name" required />
@@ -205,7 +207,13 @@
   </form>
 </div>
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+
   function openOverlay(imageSrc, text) {
     document.getElementById("overlayImg").style.display = "block";
     document.getElementById("overlayVideo").style.display = "none";
@@ -229,9 +237,9 @@
   }
 </script>
 
-  <footer style="text-align: center; margin-top: 40px; font-size: 0.9rem; color: #666;">
+<footer style="text-align: center; margin-top: 40px; font-size: 0.9rem; color: #666;">
   © 2025 Levin Nigg
 </footer>
 
 </body>
-</html><footer>
+</html>
