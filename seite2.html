@@ -25,13 +25,13 @@
     }
 
     h1 {
-  color: var(--primary);
-  margin: 0 auto 10px auto;
-  padding-bottom: 5px;
-  border-bottom: 2px solid var(--primary);
-  width: fit-content;
-  text-align: center;
-}
+      color: var(--primary);
+      margin: 0 auto 10px auto;
+      padding-bottom: 5px;
+      border-bottom: 2px solid var(--primary);
+      width: fit-content;
+      text-align: center;
+    }
 
     nav {
       text-align: center;
@@ -154,6 +154,18 @@
       color: var(--primary);
       font-weight: 600;
     }
+
+    #successMessage {
+      display: none;
+      background: #d1fae5;
+      color: #065f46;
+      border: 2px solid #10b981;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
@@ -164,7 +176,7 @@
   <a href="seite3.html">Stärken</a>
 </nav>
 
-<h1 data-aos="fade-down margin-top: 40px; font-size: 0.9rem; color: #666;">Über mich!</h1>
+<h1 data-aos="fade-down">Über mich!</h1>
 
 <p style="text-align:center;" data-aos="fade-up" data-aos-delay="100">Was mich ausmacht – meine Interessen & Ziele:</p>
 
@@ -197,10 +209,12 @@
   </div>
 </div>
 
-<!-- Kontaktformular -->
+<!-- Kontaktformular mit Erfolgsmeldung -->
 <div class="form" data-aos="fade-up" data-aos-delay="400">
   <h2 style="text-align:center;">📬 Fragen an mich?</h2>
-  <form action="https://formspree.io/f/mwpojakl" method="POST">
+  <div id="successMessage">✅ Ihre Nachricht wurde versendet!</div>
+
+  <form id="kontaktForm">
     <input type="text" name="name" placeholder="Name" required />
     <input type="email" name="email" placeholder="Email" required />
     <textarea name="message" placeholder="Nachricht" required></textarea>
@@ -236,6 +250,36 @@
     document.getElementById("overlay").style.display = "none";
     document.getElementById("overlayVideo").pause();
   }
+
+  // Formular per JavaScript senden (AJAX)
+  const form = document.getElementById('kontaktForm');
+  const successMessage = document.getElementById('successMessage');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    fetch('https://formspree.io/f/mwpojakl', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        successMessage.style.display = 'block';
+        form.reset();
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 7000);
+      } else {
+        alert("❌ Fehler beim Senden. Bitte erneut versuchen.");
+      }
+    }).catch(error => {
+      alert("❌ Netzwerkfehler. Bitte später erneut versuchen.");
+    });
+  });
 </script>
 
 <footer style="text-align: center; margin-top: 40px; font-size: 0.9rem; color: #666;">
