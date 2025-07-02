@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -16,13 +15,19 @@
       --light: #ffffff;
       --shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
       background: var(--bg);
       color: var(--dark);
-      padding: 0;
     }
+
     header {
       background: var(--primary);
       color: white;
@@ -31,12 +36,15 @@
       border-bottom-left-radius: 40px;
       border-bottom-right-radius: 40px;
     }
+
     header img {
-      border-radius: 50%;
+      border-radius: 20px;
       width: 140px;
       border: 4px solid white;
       margin-top: 1rem;
+      box-shadow: var(--shadow);
     }
+
     nav {
       display: flex;
       justify-content: center;
@@ -45,13 +53,23 @@
       padding: 1rem;
       gap: 2rem;
     }
+
     nav a {
       color: var(--primary);
       text-decoration: none;
       font-weight: 600;
     }
-    nav a:hover { color: var(--secondary); }
-    main { max-width: 1000px; margin: auto; padding: 2rem 1rem; }
+
+    nav a:hover {
+      color: var(--secondary);
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
     section {
       background: white;
       padding: 2rem;
@@ -59,13 +77,21 @@
       margin: 2rem 0;
       box-shadow: var(--shadow);
     }
+
     h2 {
       border-bottom: 2px solid var(--primary);
       padding-bottom: 0.5rem;
       margin-bottom: 1rem;
     }
-    ul { padding-left: 1.2rem; }
-    li { margin-bottom: 0.6rem; }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin-bottom: 0.6rem;
+    }
+
     .button-link {
       display: inline-block;
       margin: 1rem;
@@ -76,6 +102,7 @@
       text-decoration: none;
       box-shadow: var(--shadow);
     }
+
     footer {
       text-align: center;
       margin-top: 3rem;
@@ -83,9 +110,86 @@
       font-size: 0.9rem;
       color: gray;
     }
+
+    /* Zugangscode-Overlay Styles */
+    #codeOverlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      transition: opacity 0.5s ease;
+    }
+
+    #codeOverlay h2 {
+      font-size: 2rem;
+      animation: fadeInDown 1s;
+      margin-bottom: 0.5rem;
+    }
+
+    #codeOverlay p {
+      animation: fadeInUp 1.2s;
+      margin-bottom: 1rem;
+    }
+
+    #accessCode {
+      padding: 10px 15px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      animation: fadeInUp 1.4s;
+    }
+
+    #codeOverlay button {
+      margin-top: 1rem;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background: white;
+      color: #1d4ed8;
+      font-weight: 600;
+      cursor: pointer;
+      animation: fadeInUp 1.6s;
+    }
+
+    /* Animation Keyframes */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Zugangscode-Overlay -->
+  <div id="codeOverlay">
+    <h2>Willkommen 🔐</h2>
+    <p>Bitte gib deinen Zugangscode ein:</p>
+    <input type="password" id="accessCode" placeholder="Code eingeben..." />
+    <button onclick="checkCode()">Weiter</button>
+  </div>
+
   <header>
     <h1>Levin Nigg</h1>
     <p><i class="fas fa-code"></i> Schüler mit Begeisterung für Mediamatik</p>
@@ -109,44 +213,41 @@
     </section>
 
     <section>
-  <h2>Kenntnisse & Erfahrungen</h2>
+      <h2>Kenntnisse & Erfahrungen</h2>
 
-  <details>
-    <summary><strong>Gestaltung (Privat & Schule)</strong></summary>
-    <ul>
-      <li>Ich gestalte sehr gerne</li>
-      <!-- Weitere Punkte hier einfügen -->
-    </ul>
-  </details>
+      <details>
+        <summary><strong>Gestaltung (Privat & Schule)</strong></summary>
+        <ul>
+          <li>Ich gestalte sehr gerne</li>
+        </ul>
+      </details>
 
-  <details>
-    <summary><strong>Technisches Verständnis</strong></summary>
-    <ul>
-      <li>Ich habe ein gutes technisches Verständnis</li>
-      <!-- Weitere Punkte hier einfügen -->
-    </ul>
-  </details>
+      <details>
+        <summary><strong>Technisches Verständnis</strong></summary>
+        <ul>
+          <li>Ich habe ein gutes technisches Verständnis</li>
+        </ul>
+      </details>
 
-  <details>
-    <summary><strong>Schnupperlehren</strong></summary>
-    <ul>
-      <li>Ich habe bereits verschiedene Einblicke erhalten</li>
-      <!-- Weitere Punkte hier einfügen -->
-    </ul>
-  </details>
+      <details>
+        <summary><strong>Schnupperlehren</strong></summary>
+        <ul>
+          <li>Ich habe bereits verschiedene Einblicke erhalten</li>
+        </ul>
+      </details>
 
-  <details>
-    <summary><strong>Programme / Apps</strong></summary>
-    <ul>
-      <li>Ich arbeite mit Adobe Photoshop, Premiere Pro usw.</li>
-      <!-- Weitere Punkte hier einfügen -->
-    </ul>
-  </details>
-</section>
+      <details>
+        <summary><strong>Programme / Apps</strong></summary>
+        <ul>
+          <li>Ich arbeite mit Adobe Photoshop, Premiere Pro usw.</li>
+        </ul>
+      </details>
+    </section>
 
     <section>
       <h2>Kontakt</h2>
-      <p>📧 <a href="mailto:lev_nigg@volketswil.schule">lev_nigg@volketswil.schule</a><br>📞 <a href="tel:+41445205498">044 520 54 98</a></p>
+      <p>📧 <a href="mailto:lev_nigg@volketswil.schule">lev_nigg@volketswil.schule</a><br>
+         📞 <a href="tel:+41445205498">044 520 54 98</a></p>
     </section>
 
     <div style="text-align:center;">
@@ -156,5 +257,26 @@
   </main>
 
   <footer>© 2025 Levin Nigg</footer>
+
+  <script>
+    function checkCode() {
+      const enteredCode = document.getElementById("accessCode").value;
+      const correctCode = "levin2025";
+
+      if (enteredCode === correctCode) {
+        localStorage.setItem("levin_access_granted", "true");
+        document.getElementById("codeOverlay").style.display = "none";
+      } else {
+        alert("Falscher Code. Bitte erneut versuchen.");
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const accessGranted = localStorage.getItem("levin_access_granted");
+      if (accessGranted === "true") {
+        document.getElementById("codeOverlay").style.display = "none";
+      }
+    });
+  </script>
 </body>
 </html>
