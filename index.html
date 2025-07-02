@@ -143,6 +143,20 @@
       border: none;
       font-size: 1rem;
       animation: fadeInUp 1.4s;
+      transition: box-shadow 0.4s ease, transform 0.3s ease;
+      outline: none;
+      box-shadow: 0 0 6px rgba(255 255 255 / 0.5);
+      background-color: rgba(255 255 255 / 0.15);
+      color: white;
+    }
+    /* Neue Animation beim Fokus */
+    #accessCode:focus {
+      box-shadow:
+        0 0 8px 2px #ffffffcc,
+        0 0 20px 4px #3b82f6cc,
+        0 0 30px 6px #1d4ed8cc;
+      transform: scale(1.05);
+      background-color: rgba(255 255 255 / 0.25);
     }
 
     #codeOverlay button {
@@ -155,6 +169,11 @@
       font-weight: 600;
       cursor: pointer;
       animation: fadeInUp 1.6s;
+      transition: background-color 0.3s ease;
+    }
+
+    #codeOverlay button:hover {
+      background-color: #cbd5e1;
     }
 
     /* Animation Keyframes */
