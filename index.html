@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Levin Nigg</title>
+  <meta charset="UTF-8" />
+  <title>Levin's Webseite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
+    :root {
+      --primary: #1d4ed8;
+      --secondary: #3b82f6;
+      --bg: #f9fafb;
+      --dark: #1f2937;
+      --light: #ffffff;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -13,17 +23,16 @@
     }
 
     body {
-      font-family: 'Poppins', Arial, sans-serif;
-      background: #f9fafb;
-      color: #1f2937;
-      line-height: 1.6;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
     }
 
     header {
-      text-align: center;
-      padding: 3rem 1rem 2rem;
-      background: #1d4ed8;
+      background: var(--primary);
       color: white;
+      text-align: center;
+      padding: 3rem 1rem;
       border-bottom-left-radius: 40px;
       border-bottom-right-radius: 40px;
     }
@@ -31,29 +40,28 @@
     header img {
       border-radius: 20px;
       width: 140px;
-      margin-top: 1rem;
       border: 4px solid white;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-top: 1rem;
+      box-shadow: var(--shadow);
     }
 
     nav {
-      background: white;
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
+      background: white;
+      box-shadow: var(--shadow);
       padding: 1rem;
-      gap: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      gap: 2rem;
     }
 
     nav a {
+      color: var(--primary);
       text-decoration: none;
-      color: #1d4ed8;
       font-weight: 600;
     }
 
     nav a:hover {
-      color: #3b82f6;
+      color: var(--secondary);
     }
 
     main {
@@ -64,32 +72,24 @@
 
     section {
       background: white;
-      padding: 1.5rem;
+      padding: 2rem;
       border-radius: 20px;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin: 2rem 0;
+      box-shadow: var(--shadow);
     }
 
     h2 {
-      font-size: 1.5rem;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.5rem;
       margin-bottom: 1rem;
-      border-bottom: 2px solid #1d4ed8;
-      padding-bottom: 0.3rem;
     }
 
     ul {
-      list-style-type: disc;
-      padding-left: 1.5rem;
+      padding-left: 1.2rem;
     }
 
     li {
-      margin-bottom: 0.5rem;
-    }
-
-    details summary {
-      cursor: pointer;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
     }
 
     .button-link {
@@ -97,64 +97,138 @@
       margin: 1rem;
       padding: 0.8rem 1.5rem;
       border-radius: 30px;
-      background: #1d4ed8;
+      background: var(--primary);
       color: white;
       text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .button-link:hover {
-      background: #3b82f6;
+      box-shadow: var(--shadow);
     }
 
     footer {
       text-align: center;
-      font-size: 0.9rem;
-      color: gray;
       margin-top: 3rem;
       padding: 1rem;
+      font-size: 0.9rem;
+      color: gray;
     }
 
-    /* Responsive Fix */
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        gap: 0.8rem;
-      }
+    /* Zugangscode-Overlay Styles */
+    #codeOverlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      transition: opacity 0.5s ease;
+    }
 
-      h2 {
-        font-size: 1.3rem;
-      }
+    #codeOverlay h2 {
+      font-size: 2rem;
+      animation: fadeInDown 1s;
+      margin-bottom: 0.5rem;
+    }
 
-      .button-link {
-        display: block;
-        margin: 0.5rem auto;
-        text-align: center;
+    #codeOverlay p {
+      animation: fadeInUp 1.2s;
+      margin-bottom: 1rem;
+    }
+
+    #accessCode {
+      padding: 10px 15px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      animation: fadeInUp 1.4s;
+      transition: box-shadow 0.4s ease, transform 0.3s ease;
+      outline: none;
+      box-shadow: 0 0 6px rgba(255 255 255 / 0.5);
+      background-color: rgba(255 255 255 / 0.15);
+      color: white;
+    }
+    /* Neue Animation beim Fokus */
+    #accessCode:focus {
+      box-shadow:
+        0 0 8px 2px #ffffffcc,
+        0 0 20px 4px #3b82f6cc,
+        0 0 30px 6px #1d4ed8cc;
+      transform: scale(1.05);
+      background-color: rgba(255 255 255 / 0.25);
+    }
+
+    #codeOverlay button {
+      margin-top: 1rem;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background: white;
+      color: #1d4ed8;
+      font-weight: 600;
+      cursor: pointer;
+      animation: fadeInUp 1.6s;
+      transition: background-color 0.3s ease;
+    }
+
+    #codeOverlay button:hover {
+      background-color: #cbd5e1;
+    }
+
+    /* Animation Keyframes */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   </style>
 </head>
 <body>
+  <!-- Zugangscode-Overlay -->
+  <div id="codeOverlay">
+    <h2>Willkommen 🔐</h2>
+    <p>Bitte gib deinen Zugangscode ein:</p>
+    <input type="password" id="accessCode" placeholder="Code eingeben..." />
+    <button onclick="checkCode()">Weiter</button>
+  </div>
 
   <header>
     <h1>Levin Nigg</h1>
-    <p>Schüler mit Begeisterung für Mediamatik / Interactive Media Design</p>
+    <p><i class="fas fa-code"></i> Schüler mit Begeisterung für Mediamatik / Interactive Media Designer</p>
+
     <img src="images/levin_bild.png" alt="Levin Nigg">
   </header>
 
   <nav>
-    <a href="#">Start</a>
-    <a href="#">Über mich</a>
-    <a href="#">Stärken</a>
+    <a href="index.html" class="active">Start</a>
+    <a href="seite2.html">Über mich</a>
+    <a href="seite3.html">Stärken</a>
   </nav>
 
   <main>
     <section>
       <h2>Über mich</h2>
       <ul>
-        <li>Kreativ</li>
-        <li>Technisch interessiert</li>
-        <li>Teamfähig</li>
+        <li><strong>Kreativ:</strong> </li>
+        <li><strong>Technisch interessiert:</strong> </li>
+        <li><strong>Teamfähig:</strong> </li>
       </ul>
     </section>
 
@@ -162,43 +236,67 @@
       <h2>Kenntnisse & Erfahrungen</h2>
 
       <details>
-        <summary>Gestaltung (Privat & Schule)</summary>
-        <ul><li>Ich zeichne und gestalte in der Schule und zu Hause</li></ul>
+        <summary><strong>Gestaltung (Privat & Schule)</strong></summary>
+        <ul>
+          <li>Ich zeichne und gestalte in der Schule und zu Hause</li>
+        </ul>
       </details>
 
       <details>
-        <summary>Technisches Verständnis</summary>
-        <ul><li>Ich habe ein gutes technisches Verständnis</li></ul>
+        <summary><strong>Technisches Verständnis</strong></summary>
+        <ul>
+          <li>Ich habe ein gutes technisches Verständnis</li>
+        </ul>
       </details>
 
       <details>
-        <summary>Schnupperlehren</summary>
-        <ul><li>Ich habe bereits verschiedene Einblicke erhalten</li></ul>
+        <summary><strong>Schnupperlehren</strong></summary>
+        <ul>
+          <li>Ich habe bereits verschiedene Einblicke erhalten</li>
+        </ul>
       </details>
 
       <details>
-        <summary>Programme / Apps</summary>
-        <ul><li>Ich arbeite mit Adobe Photoshop, Premiere Pro usw.</li></ul>
+        <summary><strong>Programme / Apps</strong></summary>
+        <ul>
+          <li>Ich arbeite mit Adobe Photoshop, Premiere Pro usw.</li>
+        </ul>
       </details>
     </section>
 
     <section>
       <h2>Kontakt</h2>
-      <p>
-        📧 <a href="mailto:lev_nigg@volketswil.schule">lev_nigg@volketswil.schule</a><br>
-        📞 <a href="tel:+41445205498">044 520 54 98</a>
-      </p>
+      <p>📧 <a href="mailto:lev_nigg@volketswil.schule">lev_nigg@volketswil.schule</a><br>
+         📞 <a href="tel:+41445205498">044 520 54 98</a></p>
     </section>
 
     <div style="text-align:center;">
-      <a class="button-link" href="#">📄 Mehr über mich</a>
-      <a class="button-link" href="#">💪 Stärken ansehen</a>
+      <a class="button-link" href="seite2.html">📄 Mehr über mich</a>
+      <a class="button-link" href="seite3.html">💪 Stärken ansehen</a>
     </div>
   </main>
 
-  <footer>
-    © 2025 Levin Nigg
-  </footer>
+  <footer>© 2025 Levin Nigg</footer>
 
-</body>
+  <script>
+    function checkCode() {
+      const enteredCode = document.getElementById("accessCode").value;
+      const correctCode = "levin2025";
+
+      if (enteredCode === correctCode) {
+        localStorage.setItem("levin_access_granted", "true");
+        document.getElementById("codeOverlay").style.display = "none";
+      } else {
+        alert("Falscher Code. Bitte erneut versuchen.");
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const accessGranted = localStorage.getItem("levin_access_granted");
+      if (accessGranted === "true") {
+        document.getElementById("codeOverlay").style.display = "none";
+      }
+    });
+  </script>
+</body> 
 </html>
