@@ -1,21 +1,11 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <title>Levin Nigg – Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Levin Nigg</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    :root {
-      --primary: #1d4ed8;
-      --secondary: #3b82f6;
-      --bg: #f9fafb;
-      --dark: #1f2937;
-      --light: #ffffff;
-      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -24,16 +14,16 @@
 
     body {
       font-family: 'Poppins', Arial, sans-serif;
-      background: var(--bg);
-      color: var(--dark);
+      background: #f9fafb;
+      color: #1f2937;
       line-height: 1.6;
     }
 
     header {
-      background: var(--primary);
-      color: white;
       text-align: center;
       padding: 3rem 1rem 2rem;
+      background: #1d4ed8;
+      color: white;
       border-bottom-left-radius: 40px;
       border-bottom-right-radius: 40px;
     }
@@ -41,29 +31,29 @@
     header img {
       border-radius: 20px;
       width: 140px;
-      border: 4px solid white;
       margin-top: 1rem;
-      box-shadow: var(--shadow);
+      border: 4px solid white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
       background: white;
-      box-shadow: var(--shadow);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       padding: 1rem;
-      gap: 1.5rem;
+      gap: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     nav a {
-      color: var(--primary);
       text-decoration: none;
+      color: #1d4ed8;
       font-weight: 600;
     }
 
     nav a:hover {
-      color: var(--secondary);
+      color: #3b82f6;
     }
 
     main {
@@ -76,24 +66,24 @@
       background: white;
       padding: 1.5rem;
       border-radius: 20px;
-      margin: 1.5rem 0;
-      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     h2 {
-      border-bottom: 2px solid var(--primary);
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
       font-size: 1.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #1d4ed8;
+      padding-bottom: 0.3rem;
     }
 
     ul {
-      padding-left: 1.2rem;
       list-style-type: disc;
+      padding-left: 1.5rem;
     }
 
     li {
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
     }
 
     details summary {
@@ -107,128 +97,64 @@
       margin: 1rem;
       padding: 0.8rem 1.5rem;
       border-radius: 30px;
-      background: var(--primary);
+      background: #1d4ed8;
       color: white;
       text-decoration: none;
-      box-shadow: var(--shadow);
-      transition: background 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     .button-link:hover {
-      background: var(--secondary);
+      background: #3b82f6;
     }
 
     footer {
       text-align: center;
-      margin-top: 3rem;
-      padding: 1rem;
       font-size: 0.9rem;
       color: gray;
+      margin-top: 3rem;
+      padding: 1rem;
     }
 
-    /* Zugangscode-Overlay */
-    #codeOverlay {
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(135deg, #1d4ed8, #3b82f6);
-      z-index: 9999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      color: white;
-      font-family: 'Poppins', sans-serif;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    #codeOverlay input {
-      padding: 10px 15px;
-      border-radius: 10px;
-      border: none;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      background: rgba(255,255,255,0.2);
-      color: white;
-      outline: none;
-    }
-
-    #codeOverlay button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 10px;
-      background: white;
-      color: #1d4ed8;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    #codeOverlay button:hover {
-      background-color: #cbd5e1;
-    }
-
-    /* Responsive Anpassungen */
+    /* Responsive Fix */
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.8rem;
+      nav {
+        flex-direction: column;
+        gap: 0.8rem;
       }
 
       h2 {
         font-size: 1.3rem;
       }
 
-      nav {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
       .button-link {
-        margin: 0.5rem auto;
         display: block;
+        margin: 0.5rem auto;
         text-align: center;
-      }
-
-      section {
-        padding: 1rem;
-      }
-
-      #codeOverlay input,
-      #codeOverlay button {
-        width: 90%;
-        max-width: 300px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Zugangscode-Overlay -->
-  <div id="codeOverlay">
-    <h2>Willkommen 🔐</h2>
-    <p>Bitte gib deinen Zugangscode ein:</p>
-    <input type="password" id="accessCode" placeholder="Code eingeben..." />
-    <button onclick="checkCode()">Weiter</button>
-  </div>
-
   <header>
     <h1>Levin Nigg</h1>
-    <p><i class="fas fa-code">Hao</i> Schüler mit Begeisterung für Mediamatik / Interactive Media Design</p>
+    <p>Schüler mit Begeisterung für Mediamatik / Interactive Media Design</p>
     <img src="images/levin_bild.png" alt="Levin Nigg">
   </header>
 
   <nav>
-    <a href="index.html" class="active">Start</a>
-    <a href="seite2.html">Über mich</a>
-    <a href="seite3.html">Stärken</a>
+    <a href="#">Start</a>
+    <a href="#">Über mich</a>
+    <a href="#">Stärken</a>
   </nav>
 
   <main>
     <section>
       <h2>Über mich</h2>
       <ul>
-        <li><strong>Kreativ:</strong></li>
-        <li><strong>Technisch interessiert:</strong></li>
-        <li><strong>Teamfähig:</strong></li>
+        <li>Kreativ</li>
+        <li>Technisch interessiert</li>
+        <li>Teamfähig</li>
       </ul>
     </section>
 
@@ -265,35 +191,14 @@
     </section>
 
     <div style="text-align:center;">
-      <a class="button-link" href="seite2.html">📄 Mehr über mich</a>
-      <a class="button-link" href="seite3.html">💪 Stärken ansehen</a>
+      <a class="button-link" href="#">📄 Mehr über mich</a>
+      <a class="button-link" href="#">💪 Stärken ansehen</a>
     </div>
   </main>
 
   <footer>
     © 2025 Levin Nigg
   </footer>
-
-  <script>
-    function checkCode() {
-      const enteredCode = document.getElementById("accessCode").value;
-      const correctCode = "levin2025";
-
-      if (enteredCode === correctCode) {
-        localStorage.setItem("levin_access_granted", "true");
-        document.getElementById("codeOverlay").style.display = "none";
-      } else {
-        alert("Falscher Code. Bitte erneut versuchen.");
-      }
-    }
-
-    window.addEventListener("DOMContentLoaded", () => {
-      const accessGranted = localStorage.getItem("levin_access_granted");
-      if (accessGranted === "true") {
-        document.getElementById("codeOverlay").style.display = "none";
-      }
-    });
-  </script>
 
 </body>
 </html>
