@@ -68,10 +68,10 @@
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
       max-width: 1000px;
-      margin: auto;
+      margin: 0 auto 40px auto;
     }
     .card {
       background: var(--light);
@@ -144,53 +144,56 @@
 <nav>
   <a href="index.html">Startseite</a>
   <a href="seite2.html"><strong>Über mich</strong></a>
-  <a href="seite3.html">Stärken</a>
+  <a href="seite3.html" class="active">Stärken</a>
 </nav>
 
-  <h1 data-aos="fade-down">🎯 Meine Stärken</h1>
-<p data-aos="fade-up">Klick auf jede Karte, um mehr zu erfahren:</p>
+<h1 data-aos="fade-down">🎯 Meine Stärken</h1>
+<p data-aos="fade-up">Klick auf jede Karte, um mehr über meine Fähigkeiten zu erfahren:</p>
 
 <div class="grid">
   <div class="card" tabindex="0" onclick="flip(this)" onkeypress="keyFlip(event,this)" data-aos="zoom-in">
     <div class="inner">
-      <div class="front">💡 Kreativität</div>
-      <div class="back">Ich setze Ideen um – von Videos bis zum Trikot‑Design für meinen Verein.</div>
+      <div class="front">🎨 Kreativität</div>
+      <div class="back">Ich gestalte gern – von eigenen Logos bis zu Vereinsdesigns. Neue Ideen umzusetzen macht mir Spaß.</div>
     </div>
   </div>
+
   <div class="card" tabindex="0" onclick="flip(this)" onkeypress="keyFlip(event,this)" data-aos="zoom-in" data-aos-delay="100">
     <div class="inner">
-      <div class="front">🛠 technisches Verständnis</div>
-      <div class="back">Ich verstehe Programme & Systeme schnell – besonders Webtools und Apps.</div>
+      <div class="front">🧠 Technisches Verständnis</div>
+      <div class="back">Ich verstehe Programme und Tools schnell – z. B. Webseiten, Apps oder Grafiksoftware.</div>
     </div>
   </div>
+
   <div class="card" tabindex="0" onclick="flip(this)" onkeypress="keyFlip(event,this)" data-aos="zoom-in" data-aos-delay="200">
     <div class="inner">
       <div class="front">🤝 Teamfähigkeit</div>
-      <div class="back">Ich arbeite gerne im Team – z. B. in Projekten oder als Trainer bei den Grizzlys.</div>
+      <div class="back">Ich arbeite gern mit anderen zusammen – im Unterricht, bei Projekten oder im Sportverein.</div>
     </div>
   </div>
+
   <div class="card" tabindex="0" onclick="flip(this)" onkeypress="keyFlip(event,this)" data-aos="zoom-in" data-aos-delay="300">
     <div class="inner">
-      <div class="front">Hilfsbereitschaft</div>
-      <div class="back">Ich habe Freude an Film, Design und Website-Erstellung. Immer neue Ideen!</div>
+      <div class="front">🤗 Hilfsbereitschaft</div>
+      <div class="back">Ich unterstütze gerne andere, teile mein Wissen und helfe, wenn jemand nicht weiterkommt.</div>
+    </div>
+  </div>
+
+  <div class="card" tabindex="0" onclick="flip(this)" onkeypress="keyFlip(event,this)" data-aos="zoom-in" data-aos-delay="400">
+    <div class="inner">
+      <div class="front">🔍 Sorgfalt</div>
+      <div class="back">Ich arbeite genau und achte auf Details – egal ob bei Designs, Schulaufgaben oder im Training.</div>
+    </div>
+  </div>
+
+  <div class="card" tabindex="0" onclick="flip(this)" onkeypress="keyFlip(event,this)" data-aos="zoom-in" data-aos-delay="500">
+    <div class="inner">
+      <div class="front">⏰ Zuverlässigkeit</div>
+      <div class="back">Wenn ich etwas zusage, halte ich es ein. Andere können sich auf mich verlassen – das ist mir wichtig.</div>
     </div>
   </div>
 </div>
-<div class="grid">
-  <div class="card" tabindex="0" onclick="flip(this)" onkeypress="keyFlip(event,this)" data-aos="zoom-in">
-    <div class="inner">
-      <div class="front">Sorgfältigkeit</div>
-      <div class="back">Ich bin sehr sorgfältig.</div>
-    </div>
-  </div>
-<div class="grid">
-  <div class="card" tabindex="0" onclick="flip(this)" onkeypress="keyFlip(event,this)" data-aos="zoom-in">
-    <div class="inner">
-      <div class="front">Zuverlässigkeit</div>
-      <div class="back">Ich setze Ideen um – von Videos bis zum Trikot‑Design für meinen Verein.</div>
-    </div>
-  </div>
-  
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({ duration: 800, once: true });
@@ -206,10 +209,9 @@
   }
 </script>
 
-  <footer style="text-align: center; margin-top: 40px; font-size: 0.9rem; color: #666;">
+<footer style="text-align: center; margin-top: 40px; font-size: 0.9rem; color: #666;">
   © 2025 Levin Nigg
 </footer>
-
 
 </body>
 </html>
