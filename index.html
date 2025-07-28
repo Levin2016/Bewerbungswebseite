@@ -47,6 +47,7 @@
 
     nav {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       background: white;
       box-shadow: var(--shadow);
@@ -196,6 +197,14 @@
         transform: translateY(0);
       }
     }
+
+    @media (max-width: 600px) {
+      .button-link {
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -219,17 +228,14 @@
   </nav>
 
   <main>
-<section style="overflow: hidden;">
-  <h2>Meine Stärken in Icons</h2>
-  <div style="width: 610px; overflow: hidden;">
-    <img src="images/Earthy Neutral Question Hobby Icon Instagram Post.jpeg"
-         alt="Icons"
-         style="width: 620px; transform: translateX(-5px); display: block; margin-top: 1rem;">
-  </div>
-</section>
-
-
-
+    <section>
+      <h2>Meine Stärken in Icons</h2>
+      <div style="overflow: hidden;">
+        <img src="images/Earthy Neutral Question Hobby Icon Instagram Post.jpeg"
+             alt="Icons"
+             style="width: 100%; height: auto; display: block; margin-top: 1rem; border-radius: 15px;">
+      </div>
+    </section>
 
     <section>
       <h2>Kenntnisse & Erfahrungen (Für mehr Informationen Titel anklicken)</h2>
