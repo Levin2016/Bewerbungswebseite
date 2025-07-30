@@ -176,6 +176,24 @@
       background-color: #cbd5e1;
     }
 
+    .contact-line {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: nowrap;
+      word-break: break-word;
+    }
+
+    .contact-line a {
+      color: var(--dark);
+      text-decoration: none;
+    }
+
+    .contact-line a:hover {
+      text-decoration: underline;
+    }
+
     @keyframes fadeInDown {
       from {
         opacity: 0;
@@ -198,11 +216,69 @@
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
+      header {
+        padding: 2rem 1rem;
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      header img {
+        width: 100px;
+        margin-top: 1rem;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      main {
+        padding: 1.5rem 1rem;
+      }
+
+      section {
+        padding: 1.2rem;
+        margin: 1rem 0;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
       .button-link {
         display: block;
         width: 100%;
         text-align: center;
+        margin: 0.5rem 0;
+        font-size: 1rem;
+      }
+
+      #codeOverlay h2 {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+
+      #codeOverlay p {
+        font-size: 1rem;
+        text-align: center;
+      }
+
+      #accessCode {
+        width: 80%;
+        max-width: 300px;
+      }
+
+      #codeOverlay button {
+        width: 60%;
+        max-width: 200px;
       }
     }
   </style>
@@ -243,16 +319,14 @@
       <details>
         <summary><strong>Gestaltung (Privat & Schule)</strong></summary>
         <ul>
-          <li>Ich gestallte gerne Plakate und auch Präsentationen in Schule.
-            Zu Hause gestallte ich auch sehr gerne z.B. digitale Plakate, Fotos usw.</li>
+          <li>Ich gestalte gerne Plakate und Präsentationen in der Schule. Zu Hause gestalte ich auch gerne digitale Inhalte wie Plakate und Fotos.</li>
         </ul>
       </details>
 
       <details>
         <summary><strong>Technisches Verständnis</strong></summary>
         <ul>
-          <li>Ich habe ein sehr gutes technisches Verständnis. In meiner Familie bin ich wie ein IT Spezialist. 
-            Wenn jamand etwas auf dem Handy nicht versteht, dann fragt er mich.</li>
+          <li>Ich habe ein sehr gutes technisches Verständnis. In meiner Familie bin ich wie ein IT-Spezialist – wenn jemand Hilfe braucht, werde ich gefragt.</li>
         </ul>
       </details>
 
@@ -260,14 +334,14 @@
         <summary><strong>Schnupperlehren / Informationsveranstaltungen</strong></summary>
         <ul style="list-style-type: none; padding-left: 0; margin-top: 1rem;">
           <li>November 2024: Berufsmesse Zürich</li>
-          <li>Januar 2025: NOVA, Informationsveranstaltungen Konstrukteur</li>
-          <li>Januar 2025: Ingesa, Informationsveranstaltung Geomatiker</li>
-          <li>Februar 2025: MCU, Schnupperlehre Polygraf</li>
-          <li>März 2025: Swisscom, Schnupperlehre Mediamatiker</li>
-          <li>April 2025: ETH Zürich, Schnupperlehre Physiklaborant</li>
-          <li>Mai 2025: Gossweiler, Schnupperlehre Geomatiker</li>
-          <li>Mai 2025: SIX, Schnupperlehre Mediamatiker</li>
-          <li>Juni 2025: Google, Informationsveranstaltung Interactive Media Designer</li>
+          <li>Januar 2025: NOVA – Informationsveranstaltungen Konstrukteur</li>
+          <li>Januar 2025: Ingesa – Informationsveranstaltung Geomatiker</li>
+          <li>Februar 2025: MCU – Schnupperlehre Polygraf</li>
+          <li>März 2025: Swisscom – Schnupperlehre Mediamatiker</li>
+          <li>April 2025: ETH Zürich – Schnupperlehre Physiklaborant</li>
+          <li>Mai 2025: Gossweiler – Schnupperlehre Geomatiker</li>
+          <li>Mai 2025: SIX – Schnupperlehre Mediamatiker</li>
+          <li>Juni 2025: Google – Informationsveranstaltung Interactive Media Designer</li>
         </ul>
       </details>
 
@@ -281,8 +355,14 @@
 
     <section>
       <h2>Kontakt</h2>
-      <p>📧 <a href="mailto:lev_nigg@volketswil.schule">lev_nigg@volketswil.schule</a><br>
-         📞 <a href="tel:+41445205498">077 448 91 10</a></p>
+      <div class="contact-line">
+        <i class="fa-solid fa-envelope"></i>
+        <a href="mailto:lev_nigg@volketswil.schule">lev_nigg@volketswil.schule</a>
+      </div>
+      <div class="contact-line">
+        <i class="fa-solid fa-phone"></i>
+        <a href="tel:+41774489110">077 448 91 10</a>
+      </div>
     </section>
 
     <div style="text-align:center;">
