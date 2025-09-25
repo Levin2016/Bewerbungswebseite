@@ -289,7 +289,19 @@
 <footer style="text-align: center; margin-top: 40px; font-size: 0.9rem; color: #666;">
   © 2025 Levin Nigg
 </footer>
+  <script>
+    function checkCode() {
+      const enteredCode = document.getElementById("accessCode").value;
+      const correctCode = "39283";
 
+      if (enteredCode === correctCode) {
+        localStorage.setItem("levin_access_granted", "true");
+        document.getElementById("codeOverlay").style.display = "none";
+      } else {
+        alert("Falscher Code. Bitte erneut versuchen.");
+      }
+    }
+<script>
 </body>
 </html>
 
